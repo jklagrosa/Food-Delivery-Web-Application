@@ -7,6 +7,7 @@ import {
   AiOutlineShoppingCart,
   AiOutlineHeart,
 } from "react-icons/ai";
+import { BsPerson } from "react-icons/bs";
 import { MdDeliveryDining } from "react-icons/md";
 
 const TopNav = () => {
@@ -74,6 +75,20 @@ const TopNav = () => {
                 <sup>
                   <Badge className={styles.Cart_Badge}>3</Badge>
                 </sup>
+              </abbr>
+
+              {/* ================================= */}
+              <span className="mx-2"></span>
+
+              <abbr
+                title="User"
+                style={{ cursor: "default" }}
+                className={styles.Contact_Tooltip}
+              >
+                <BsPerson
+                  className={styles.Contact_Icons}
+                  style={{ cursor: "pointer" }}
+                />
               </abbr>
             </Col>
           </Row>
