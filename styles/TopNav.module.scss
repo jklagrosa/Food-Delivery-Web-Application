@@ -2,10 +2,47 @@
 
 
 
-.h1{
-  font-family: $CURSIVE_TEXT;
-  font-display: swap;
-  font-weight: bold;
-    // font-display: swap;
-    // font-weight: 700;
+.Wrapper{
+    padding: 1rem;
+    background-color: $BLACK;
+    color: $WHITE;
+    
+    @media only screen and (max-width: 768px) {
+        // padding:2rem 1rem; 
+     }
+
+
+
+
+     .Contact{
+        margin: 0;
+        font-size: 1rem; 
+        color: $WHITE;
+        font-size: 0.9rem;
+
+     
+
+    }
+
+    .Contact_Icons{
+        margin: 0;
+        font-size: 1.5rem;
+        color: $YELLOW;
+
+    
+
+    }
+    .Contact_Icons_phone{
+        margin: 0;
+        font-size: 1.25rem;
+        color: $YELLOW;
+    }
+
+    .Cart_Badge{
+        font-size: 0.7rem;
+        color: $WHITE;
+        border-radius: 50%;
+        background-color:$RED !important;
+    }
+
 }
