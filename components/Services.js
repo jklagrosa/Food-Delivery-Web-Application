@@ -10,7 +10,7 @@ const Services = () => {
   return (
     <>
       <div className={styles.Wrapper}>
-        <Container fluid="lg">
+        <Container fluid="lg" className="p-0">
           <Row className="g-3">
             <Col xs={12} sm={6} md={4}>
               <div className={styles._services_card}>
