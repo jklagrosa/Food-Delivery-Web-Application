@@ -13,20 +13,47 @@
         // padding:2rem 1rem; 
      }
 
+
+    
      ._brand_logo{
-         margin-right: 4rem;
-         font-size: 1.5rem;
-         color: $BLACK;
-         font-family: $CURSIVE_H;
-         font-weight: bold;
-         color: $YELLOW;
-         cursor: pointer;
+         display: block;
+        margin-right: 4rem;
+        font-size: 1.5rem;
+        color: $BLACK;
+        font-family: $CURSIVE_H;
+        font-weight: bold;
+        color: $YELLOW;
+        cursor: pointer;
 
-         &:hover{
-         color: $YELLOW;
+        &:hover{
+        color: $YELLOW;
 
-         }
-     }
+        }
+
+        @media only screen and (max-width: 576px) { 
+            display: none;
+        }
+    }
+
+    ._brand_logo_SMALL{
+        display: none;
+        margin-right: 4rem;
+        font-size: 1.5rem;
+        color: $BLACK;
+        font-family: $CURSIVE_H;
+        font-weight: bold;
+        color: $YELLOW;
+        cursor: pointer;
+
+        &:hover{
+        color: $YELLOW;
+
+        }
+
+        @media only screen and (max-width: 576px) { 
+            display: block;
+        }
+    }
 
      
 

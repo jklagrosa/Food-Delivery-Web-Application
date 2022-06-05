@@ -7,11 +7,19 @@ const Navigation = () => {
     <>
       <Navbar expand="lg" className={styles._main_navbar_wrapper}>
         <Container fluid="lg">
+          {/* SHOW ON LARGE SCREENS */}
           <Link href="/">
             <Navbar.Brand className={styles._brand_logo}>
               LutongBahay
             </Navbar.Brand>
           </Link>
+          {/* END */}
+          {/* =========================================== */}
+          {/* SHOW ON SMALL SCREENS */}
+          <Link href="/">
+            <Navbar.Brand className={styles._brand_logo_SMALL}>LB</Navbar.Brand>
+          </Link>
+          {/* END */}
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
