@@ -1,6 +1,7 @@
 import styles from "../styles/Nav.module.scss";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Link from "next/link";
+import { MdMenu } from "react-icons/md";
 
 const Navigation = () => {
   return (
@@ -21,7 +22,12 @@ const Navigation = () => {
           </Link>
           {/* END */}
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            style={{ all: "unset" }}
+          >
+            <MdMenu className={styles._hambuger_icon} />
+          </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link
