@@ -1,1 +1,127 @@
 @import "../styles/utils.module.scss";
+
+
+
+.Wrapper{
+    background: linear-gradient(
+        rgba(0,0,0,0.8),
+        rgba(0,0,0,0.3) ) ,
+        url('/bgs/hero.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+
+    @media only screen and (max-width: 768px) { 
+        padding: 2rem 1rem;
+    }
+
+    @media only screen and (max-width: 576px){
+        min-height: 75vh;
+    }
+
+    h1{
+        font-family: $CURSIVE_H;
+        font-weight: 700;
+        color: $WHITE;
+        max-width: 1000px;
+        width: 100%;
+        line-height: 5.5rem;
+        font-size: 4rem;
+
+        span{
+            color: $YELLOW;
+        }
+
+            
+        @media only screen and (min-width: 2101px) and (max-width: 2500px) { 
+            max-width: 1700px;
+            width: 100%;
+            font-size: 7rem;
+            line-height: 10rem;
+        }
+         
+        @media only screen and (min-width: 1801px) and (max-width: 2100px) { 
+            max-width: 1500px;
+            width: 100%;
+            font-size: 6rem;
+            line-height: 8rem;
+        }
+
+
+        @media only screen and (min-width: 1500px) and (max-width: 1800px) { 
+            max-width: 1100px;
+            width: 100%;
+            font-size: 4.5rem;
+            line-height: 6rem;
+        }
+
+        @media only screen and (max-width: 768px) { 
+            font-size: 3rem;
+            line-height: 4.5rem;
+        }
+
+        @media only screen and (max-width: 576px) { 
+            max-width: 600px;
+            width: 100%;
+            font-size: 2.25rem;
+            line-height: 3.5rem;
+        }
+
+        @media only screen and (max-width: 375px) { 
+            max-width: 700px;
+            width: 100%;
+            font-size: 2rem;
+            line-height: 3rem;
+        }
+
+    }
+
+
+    .hero_btns1, .hero_btns2{
+        all: unset;
+        cursor: pointer;
+        margin-top: 2rem;
+        max-width: 150px;
+        width: 100%;
+        font-size: 1rem;
+        background-color: $RED;
+        color: $WHITE;
+        padding: 0.6rem;
+        border: 3px solid $WHITE;
+        text-align: center;
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+            background-color: $H_RED;
+        }
+
+
+        @media only screen and (min-width: 2101px) and (max-width: 2500px) { 
+            max-width: 250px;
+            width: 100%;
+            font-size: 2rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2100px) { 
+            max-width: 200px;
+            width: 100%;
+            font-size: 1.5rem;
+        }
+
+        @media only screen and (min-width: 1500px) and (max-width: 1800px) { 
+           font-size: 1.25rem;
+        }
+
+
+        @media only screen and (max-width: 768px) { 
+          font-size: 0.8rem;
+          max-width: 110px;
+          width: 100%;
+
+        }
+    }
+  
+
+}
