@@ -7,41 +7,41 @@ const Promo = () => {
       <div className={styles.Wrapper}>
         <Container fluid="lg" className="p-0">
           <Row className="g-3">
-            <Col xs={12} md={6}>
+            <Col xs={12} lg={6}>
               <Row className="g-3">
-                <Col xs={12} md={6}>
+                <Col xs={12} sm={6}>
                   <Row className="g-3">
-                    <Col xs={12} md={12}>
-                      Magna nostrud fugiat labore fugiat. Laborum qui in eu
-                      pariatur in ipsum do ullamco ea. Nulla pariatur veniam
-                      velit aute commodo sunt.
+                    <Col xs={12} sm={12}>
+                      <div className={styles._promo_box}>
+                        <h5>Something hot. Something tasty.</h5>
+                        <h4>Salt-and-Pepper Steak</h4>
+                        <h6>₱110</h6>
+                      </div>
                     </Col>
-                    <Col xs={12} md={12}>
-                      Magna nostrud fugiat labore fugiat. Laborum qui in eu
-                      pariatur in ipsum do ullamco ea. Nulla pariatur veniam
-                      velit aute commodo sunt.
+                    <Col xs={12} sm={12}>
+                      <div className={styles._promo_box_1}>
+                        <h5>Hundreds of flavors under one roof.</h5>
+                        <h4>Pork Adobo Paksiw.</h4>
+                        <h6>₱178</h6>
+                      </div>
                     </Col>
                   </Row>
                 </Col>
-                <Col xs={12} md={6}>
-                  Nisi consequat aliquip minim ad eiusmod magna elit magna
-                  veniam Lorem quis. Ullamco fugiat eu labore deserunt et
-                  nostrud sit irure velit magna dolore. Sit duis culpa
-                  incididunt qui pariatur quis consectetur voluptate ullamco
-                  aute ea minim ex. Occaecat amet cupidatat occaecat minim culpa
-                  officia laboris ea sint proident velit non fugiat. Magna duis
-                  pariatur adipisicing reprehenderit irure.
+                <Col xs={12} sm={6}>
+                  <div className={styles._promo_box_2}>
+                    <h5>Life is dull without good food.</h5>
+                    <h4>Zen Salads Corner.</h4>
+                    <h6>₱215</h6>
+                  </div>
                 </Col>
               </Row>
             </Col>
-            <Col xs={12} md={6}>
-              Sint et ipsum reprehenderit nostrud cillum adipisicing. Nisi ut
-              minim cupidatat ad nulla consectetur ad labore exercitation.
-              Deserunt minim mollit sint aute magna elit mollit amet elit
-              adipisicing aute. Anim nulla minim duis occaecat voluptate
-              excepteur esse ea. Irure sint elit sit aliquip aute nisi voluptate
-              sit. Tempor in cupidatat cupidatat cupidatat. Amet pariatur ipsum
-              culpa exercitation sunt cillum ad sint non non voluptate occaecat.
+            <Col xs={12} lg={6}>
+              <div className={styles._promo_box_3}>
+                <h5>We are always here to serve you.</h5>
+                <h4>Zuppa Toscana.</h4>
+                <h6>₱300</h6>
+              </div>
             </Col>
           </Row>
         </Container>

@@ -23,7 +23,7 @@ const Services = () => {
             <Col xs={12} sm={6} md={4}>
               <div className={styles._services_card}>
                 <MdOutlineFastfood className={styles._icon} />
-                <h1>Tasty food on wheels.</h1>
+                <h1>Flavors for royalty.</h1>
                 <p>More food, more happiness, less time and less prices.</p>
               </div>
             </Col>

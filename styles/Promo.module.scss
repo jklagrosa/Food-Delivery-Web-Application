@@ -3,8 +3,436 @@
 
 .Wrapper{
     padding: 4rem 2rem;
+    
     background-color: $BLACK;
     @media only screen and (max-width: 768px) { 
         padding: 2rem 1rem;
+    }
+
+    ._promo_box{
+        background: linear-gradient(
+            rgba(55,61,32,0.7),
+            rgba(55,61,32,0.3) ) ,
+            url('/bgs/p1.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+            width: 100%;
+            min-height: 250px;
+            padding: 1rem;
+            color: $WHITE;
+           
+
+            @media only screen and (min-width: 2501px){
+                min-height: 400px;
+            }
+
+
+            @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                min-height: 350px;
+            }
+
+
+            @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                min-height: 300px;
+            }
+
+
+            h5{
+                margin-bottom: 1rem;
+                color: $WHITE;
+                font-family: $CURSIVE_H;
+                font-size: 1.25rem;
+                color: darkgrey;
+                max-width: 200px;
+                width: 100%;
+
+
+                @media only screen and (min-width: 2501px){
+                    max-width: 300px;
+                    font-size: 2rem;
+                }
+
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    max-width: 300px;
+                    font-size: 1.75rem;
+                }
+
+
+                @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                    max-width: 300px;
+                    font-size: 1.75rem;
+                }
+                
+                @media only screen and (min-width: 1500px) and (max-width: 1800px) {
+                    font-size: 1.5rem;
+                }
+
+            }
+
+            h4{
+                margin-bottom: 0.6rem;
+                font-weight: bold;
+                font-family: $CURSIVE_H;
+                color: $YELLOW;
+                font-size: 1.5rem;
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2.5rem;
+                }
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    font-size: 2.25rem;
+                }
+
+
+                @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                    font-size: 2rem;
+                }
+
+                @media only screen and (min-width: 1500px) and (max-width: 1800px) {
+                    font-size: 1.75rem;
+                }
+
+            }
+
+            h6{
+                font-size: 2.5rem;
+                font-weight: 500;
+                color: $WHITE;
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 3.5rem;
+                }
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    font-size: 3rem;
+                }
+            }
+    }
+    ._promo_box_1{
+        background: linear-gradient(
+            rgba(55,61,32,0.7),
+            rgba(55,61,32,0.3) ) ,
+            url('/bgs/p2.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+            width: 100%;
+            min-height: 250px;
+            padding: 1rem;
+            color: $WHITE;
+
+
+
+            @media only screen and (min-width: 2501px){
+                min-height: 400px;
+            }
+
+
+            @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                min-height: 350px;
+            }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                min-height: 300px;
+            }
+
+
+            h5{
+                margin-bottom: 1rem;
+                color: $WHITE;
+                font-family: $CURSIVE_H;
+                font-size: 1.25rem;
+                color: darkgrey;
+                max-width: 200px;
+                width: 100%;
+
+                
+                @media only screen and (min-width: 2501px){
+                    max-width: 300px;
+                    font-size: 2rem;
+                }
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    max-width: 300px;
+                    font-size: 1.75rem;
+                }
+
+                @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                    max-width: 300px;
+                    font-size: 1.75rem;
+                }
+
+                @media only screen and (min-width: 1500px) and (max-width: 1800px) {
+                    max-width: 300px;
+                    font-size: 1.5rem;
+                }
+            }
+
+            h4{
+                margin-bottom: 0.6rem;
+                font-weight: bold;
+                font-family: $CURSIVE_H;
+                color: $YELLOW;
+                font-size: 1.5rem;
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2.5rem;
+                }
+
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    font-size: 2.25rem;
+                }
+
+                @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                    font-size: 2rem;
+                }
+
+                @media only screen and (min-width: 1500px) and (max-width: 1800px) {
+                    font-size: 1.75rem;
+                }
+            }
+
+            h6{
+                font-size: 2.5rem;
+                font-weight: 500;
+                color: $WHITE;
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 3.5rem;
+                }
+
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    font-size: 3rem;
+                }
+            }
+    }
+
+    ._promo_box_2{
+
+        background: linear-gradient(
+            rgba(55,61,32,0.7),
+            rgba(55,61,32,0.3) ) ,
+            url('/bgs/p3.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+            width: 100%;
+            min-height: 520px;
+            padding: 1rem;
+            color: $WHITE;
+
+
+            @media only screen and (min-width: 2501px){
+                min-height: 815px;
+            }
+
+
+            @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                min-height: 715px;
+            }
+
+
+            @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                min-height: 615px;
+            }
+
+
+            @media only screen and (max-width: 575px) { 
+                min-height: 250px;
+            }
+
+            h5{
+                margin-bottom: 1rem;
+                color: $WHITE;
+                font-family: $CURSIVE_H;
+                font-size: 1.25rem;
+                color: darkgrey;
+                max-width: 200px;
+                width: 100%;
+
+
+                @media only screen and (min-width: 2501px){
+                    max-width: 300px;
+                    font-size: 2rem;
+                }
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    max-width: 300px;
+                    font-size: 1.75rem;
+                }
+
+
+                @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                    max-width: 300px;
+                    font-size: 1.75rem;
+                }
+
+                @media only screen and (min-width: 1500px) and (max-width: 1800px) {
+                    max-width: 300px;
+                    font-size: 1.5rem;
+                }
+            }
+
+            h4{
+                margin-bottom: 0.6rem;
+                font-weight: bold;
+                font-family: $CURSIVE_H;
+                color: $YELLOW;
+                font-size: 1.5rem;
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 2.5rem;
+                }
+
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    font-size: 2.25rem;
+                }
+
+                @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                    font-size: 2rem;
+                }
+
+                @media only screen and (min-width: 1500px) and (max-width: 1800px) {
+                    font-size: 1.75rem;
+                }
+            }
+
+            h6{
+                font-size: 2.5rem;
+                font-weight: 500;
+                color: $WHITE;
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 3.5rem;
+                }
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    font-size: 3rem;
+                }
+            }
+
+
+    }
+
+
+    ._promo_box_3{
+        background: linear-gradient(
+            rgba(55,61,32,0.7),
+            rgba(55,61,32,0.3) ) ,
+            url('/bgs/p4.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+            width: 100%;
+            min-height: 520px;
+            padding: 1rem;
+            color: $WHITE;
+
+
+            @media only screen and (min-width: 2501px){
+                min-height: 815px;
+            }
+
+
+            @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                min-height: 715px;
+            }
+
+
+            @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                min-height: 615px;
+            }
+
+
+            @media only screen and (max-width: 991px) { 
+                min-height: 250px;
+            }
+
+            h5{
+                margin-bottom: 1rem;
+                color: $WHITE;
+                font-family: $CURSIVE_H;
+                // font-size: 1.25rem;
+                font-size: 1.75rem;
+                color: darkgrey;
+                max-width: 300px;
+                width: 100%;
+
+
+
+                @media only screen and (min-width: 2501px){
+                    max-width: 350px;
+                    font-size: 2rem;
+                }
+
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    font-size: 2.5rem;
+                    max-width: 400px;
+                }
+
+                @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                    font-size: 2rem;
+                }
+
+                @media only screen and (max-width: 991px) {
+                max-width: 200px;
+                    font-size: 1.25rem;
+                }
+            }
+
+            h4{
+                margin-bottom: 0.6rem;
+                font-weight: bold;
+                font-family: $CURSIVE_H;
+                color: $YELLOW;
+                font-size: 2.5rem;
+
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 4.5rem;
+                }
+
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    font-size: 4rem;
+                }
+
+                @media only screen and (min-width: 1801px) and (max-width: 2100px) {
+                    font-size: 3.5rem;
+                }
+                
+                @media only screen and (max-width: 991px) { 
+                    font-size: 1.5rem;
+                }
+
+            }
+
+            h6{
+                font-size: 2.5rem;
+                font-weight: 500;
+                color: $WHITE;
+
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 4.5rem;
+                }
+
+
+                @media only screen and (min-width: 2101px) and (max-width: 2500px) {
+                    font-size: 4rem;
+                }
+            }
     }
 }
