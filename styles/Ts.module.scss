@@ -11,7 +11,7 @@
     }
 
     h1{
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
         font-family: $CURSIVE_H;
         font-weight: bold;
         color: $BLACK;
@@ -24,14 +24,74 @@
         }
     }
 
+    #_ts_card_footer{
+        background-color: $BLACK_BG;
+        border-top: none;
+    }
+
 
     #_ts_card_box{
-        min-height: 400px;
+        min-height: 450px;
 
-        
-    #_ts_card_dish{
-        color: red;
+        #_ts_card_img{
+            width: 100%;
+            display: block;
+            cursor: pointer;
+        }
+
+        ._ts_card_btn_wrapper{
+            text-align: center;
+           button{
+            all: unset;
+            cursor: pointer;
+            max-width: 60px;
+            width: 40px;
+            min-height: 30px;
+            border-radius: 50%;
+            background-color: $RED;
+            padding: 0.4rem 0.1rem;
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                background-color: $H_RED;
+            }
+           }
+
+
+           #_ts_card_btn_func{
+               margin: 0;
+            color: $WHITE;
+            font-size: 1rem;
+        }
+          
+        }
+
+    ._ts_card_title{
+        margin-bottom: 1rem;
+        font-family: $CURSIVE_H;
+        font-weight: bold;
+        font-size: 1.5rem;
     }
+
+    #_ts_card_dish{
+        margin: 0;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: $GRAY;
+    }
+
+    #_ts_card_price{
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: grey;
+    }
+
+    ._ts_card_icon{
+        font-size: 1.1rem;
+        // color: darkgrey;
+        color: $YELLOW;
+    }
+
+ 
     }
 
 }
