@@ -8,7 +8,8 @@ import {
   AiOutlineHeart,
 } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
-import { MdDeliveryDining } from "react-icons/md";
+import { MdDeliveryDining, MdLogin } from "react-icons/md";
+import { VscSignIn } from "react-icons/vsc";
 
 const TopNav = () => {
   return (
@@ -16,21 +17,21 @@ const TopNav = () => {
       <div className={styles.Wrapper}>
         <Container fluid="lg">
           <Row className="gy-0 gx-3">
-            <Col xs={12} md={4} className={styles._top_nav_col_hide}>
+            <Col xs={12} lg={4} className={styles._top_nav_col_hide}>
               <p className={styles.Contact}>
                 <AiFillPhone className={styles.Contact_Icons_phone} />{" "}
                 0987-654-32169
               </p>
             </Col>
 
-            <Col xs={12} md={4} className={styles._top_nav_col_hide}>
+            <Col xs={12} lg={4} className={styles._top_nav_col_hide}>
               <p className={styles.Contact}>
                 <MdDeliveryDining className={styles.Contact_Icons} /> Free
                 delivery for orders over ₱800.00
               </p>
             </Col>
 
-            <Col xs={12} md={4} className="text-center">
+            <Col xs={12} md={12} lg={4} className="text-center">
               <abbr
                 title="Search Product"
                 style={{ cursor: "default" }}
@@ -41,7 +42,7 @@ const TopNav = () => {
                   style={{ cursor: "pointer" }}
                 />
               </abbr>
-              <span className="mx-3"></span>
+              <span className="mx-2"></span>
               {/* ========================================= */}
 
               <abbr
@@ -78,18 +79,41 @@ const TopNav = () => {
               </abbr>
 
               {/* ================================= */}
+              {/* IF USER IS LOGGED IN */}
+              {/* <span className="mx-2"></span>
+
+              <span className={styles._log_in_btn}>
+                <VscSignIn className={styles.Contact_Icons} />
+                Logout
+              </span> */}
+              {/* END */}
+
+              {/* ================================= */}
+              {/* IF USER IS NOT LOGGED IN */}
               <span className="mx-2"></span>
 
-              <abbr
-                title="User"
-                style={{ cursor: "default" }}
+              <span className={styles._log_in_btn}>
+                <MdLogin className={styles.Contact_Icons} />
+                Login
+              </span>
+              {/* END */}
+
+              {/* <abbr
+                title="Login"
+                style={{ all: "unset", cursor: "default" }}
                 className={styles.Contact_Tooltip}
               >
-                <BsPerson
+                <MdLogin
                   className={styles.Contact_Icons}
                   style={{ cursor: "pointer" }}
                 />
-              </abbr>
+                <span
+                  className={styles.Contact}
+                  style={{ margin: "0", color: "#f0c808" }}
+                >
+                  Login
+                </span>
+              </abbr> */}
             </Col>
           </Row>
         </Container>

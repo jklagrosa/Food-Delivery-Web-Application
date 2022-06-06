@@ -14,17 +14,45 @@
 
      ._top_nav_col_hide{
          display: block;
-         @media only screen and (max-width: 767px) { 
+         @media only screen and (max-width: 991px) { 
             display: none;
          }
      }
 
 
-     .Contact{
+
+     ._log_in_btn{
         margin: 0;
         font-size: 1rem; 
+        color: $YELLOW;
+
+        @media only screen and (min-width: 2501px){
+            font-size: 2rem;
+         }
+
+         @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+            font-size: 1.75rem;
+        }
+
+         @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+            font-size: 1.5rem;
+        }
+
+         @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+            font-size: 1.1rem;
+        }
+
+        // @media only screen and (max-width: 991px) {
+        //     font-size: 0.9rem;
+        // }
+     }
+
+
+     .Contact{
+        margin: 0;
+        font-size: 0.9rem; 
         color: $WHITE;
-        font-size: 0.9rem;
+       
 
         @media only screen and (min-width: 2501px){
             font-size: 1.41rem;
@@ -40,6 +68,10 @@
 
          @media only screen and (min-width: 1400px) and (max-width: 1800px) {
             font-size: 1.1rem;
+        }
+
+        @media only screen and (max-width: 991px) {
+            font-size: 0.8rem;
         }
 
     }
