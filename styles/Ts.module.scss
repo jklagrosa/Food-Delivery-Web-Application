@@ -4,9 +4,34 @@
 
 .Wrapper{
     padding: 4rem 2rem;
-    
+    background-color: $WHITE;
 
     @media only screen and (max-width: 768px) { 
         padding: 2rem 1rem;
     }
+
+    h1{
+        margin-bottom: 2rem;
+        font-family: $CURSIVE_H;
+        font-weight: bold;
+        color: $BLACK;
+        text-align: center;
+        font-size: 3rem;
+        text-transform: capitalize;
+
+        span{
+            color: $YELLOW;
+        }
+    }
+
+
+    #_ts_card_box{
+        min-height: 400px;
+
+        
+    #_ts_card_dish{
+        color: red;
+    }
+    }
+
 }
