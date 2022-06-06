@@ -3,6 +3,7 @@ import Navigation from "../components/Nav";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
 import TodaySpecial from "../components/TS";
+import Featured from "../components/Featured";
 import Promo from "../components/Promo";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <Services />
       <TodaySpecial />
+      <Featured />
       <Promo />
     </>
   );

@@ -14,7 +14,7 @@ const Hero = () => {
 
           <button className={styles.hero_btns1}>Today&apos;s Special</button>
           <span className="mx-2"></span>
-          <button className={styles.hero_btns2}>Favourites</button>
+          <button className={styles.hero_btns2}>Featured</button>
         </Container>
       </div>
     </>
