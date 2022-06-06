@@ -19,9 +19,44 @@
         font-size: 3rem;
         text-transform: capitalize;
 
+
+        @media only screen and (min-width: 2501px){
+            font-size: 5rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 4.5rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 3.5rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+            font-size: 3.25rem;
+        }
+
+
+        // =====================
+
+        @media only screen and (max-width: 768px) { 
+            font-size: 2.5rem;
+        }
+
+        @media only screen and (max-width: 425px) { 
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        @media only screen and (max-width: 375px) { 
+            font-size: 1.75rem;
+        }
+
         span{
             color: $YELLOW;
         }
+
+
     }
 
     #_ts_card_footer{
@@ -31,7 +66,35 @@
 
 
     #_ts_card_box{
+        margin: 0 auto;
+        max-width: 350px;
+        width: 100%;
         min-height: 450px;
+
+        @media only screen and (min-width: 2501px){
+            max-width: 900px;
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            max-width: 900px;
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            max-width: 900px;
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+            max-width: 800px;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 991px) { 
+            max-width: 800px;
+            width: 100%;
+        }
 
         #_ts_card_img{
             width: 100%;
@@ -44,23 +107,72 @@
            button{
             all: unset;
             cursor: pointer;
+            text-align: center;
             max-width: 60px;
-            width: 40px;
-            min-height: 30px;
-            border-radius: 50%;
+            width: 100%;
+            border-radius: 5px;
             background-color: $RED;
             padding: 0.4rem 0.1rem;
+            font-size: 1rem;
             transition: all 0.2s ease-in-out;
             &:hover{
                 background-color: $H_RED;
             }
+
+
+            @media only screen and (min-width: 2501px){
+                max-width: 80px;
+                width: 100%;
+                font-size: 2rem;
+            }
+
+            // @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            //     font-size: 1.5rem;
+            // }
+
+            // @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            //     font-size: 1.5rem;
+            // }
+
+            // @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+            //     font-size: 1rem;
+            // }
+
+            @media only screen and (max-width: 576px) { 
+                max-width: 40px;
+                width: 100%;
+                padding: 0.2rem;
            }
 
+          
+        }
 
            #_ts_card_btn_func{
                margin: 0;
             color: $WHITE;
             font-size: 1rem;
+            text-align: center;
+
+
+            @media only screen and (min-width: 2501px){
+                font-size: 2rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 1.75rem;
+            }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                font-size: 1.5rem;
+            }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                font-size: 1.25rem;
+            }
+
+            @media only screen and (max-width: 576px) { 
+                font-size: 0.8rem;
+            }
         }
           
         }
@@ -70,6 +182,30 @@
         font-family: $CURSIVE_H;
         font-weight: bold;
         font-size: 1.5rem;
+
+        @media only screen and (min-width: 2501px){
+            font-size: 2.1rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 2rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 1.75rem;
+        }
+
+        @media only screen and (max-width: 1200px) { 
+            font-size: 1.25rem;
+        }
+
+        @media only screen and (max-width: 768px) { 
+            font-size: 1rem;
+        }
+
+        @media only screen and (max-width: 600px) { 
+            font-size: 0.9rem;
+        }
     }
 
     #_ts_card_dish{
@@ -77,6 +213,31 @@
         font-size: 1rem;
         margin-bottom: 1rem;
         color: $GRAY;
+
+        @media only screen and (min-width: 2501px){
+            font-size: 1.9rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.75rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 1.5rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+            font-size: 1.1rem;
+        }
+
+
+        @media only screen and (max-width: 1200px) { 
+            font-size: 0.9rem;
+        }
+
+        @media only screen and (max-width: 768px) { 
+            font-size: 0.8rem;
+        }
     }
 
     #_ts_card_price{
@@ -89,6 +250,27 @@
         font-size: 1.1rem;
         // color: darkgrey;
         color: $YELLOW;
+
+
+        @media only screen and (min-width: 2501px){
+            font-size: 2.25rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 2.1rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 2rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+            font-size: 1.3rem;
+        }
+
+        @media only screen and (max-width: 768px) { 
+            font-size: 0.9rem;
+        }
     }
 
  
