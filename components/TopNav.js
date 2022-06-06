@@ -31,7 +31,7 @@ const TopNav = () => {
               </p>
             </Col>
 
-            <Col xs={12} md={12} lg={4} className="text-center">
+            <Col xs={12} md={12} lg={4} className="text-center" id={styles._top_nav_col_show_1900px}>
               <abbr
                 title="Search Product"
                 style={{ cursor: "default" }}
@@ -80,12 +80,14 @@ const TopNav = () => {
 
               {/* ================================= */}
               {/* IF USER IS LOGGED IN */}
+
               {/* <span className="mx-2"></span>
 
               <span className={styles._log_in_btn}>
                 <VscSignIn className={styles.Contact_Icons} />
                 Logout
               </span> */}
+
               {/* END */}
 
               {/* ================================= */}
