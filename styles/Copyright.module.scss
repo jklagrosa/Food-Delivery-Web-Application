@@ -3,11 +3,44 @@
 
 
 .Wrapper{
-    padding: 4rem 2rem;
+    padding: 2rem;
     background-color: $BLACK_BG;
+   
+   
     
 
     @media only screen and (max-width: 768px) { 
         padding: 2rem 1rem;
+    }
+
+    ._cp_para{
+        margin: 0;
+        color: darkgrey;
+        font-size: 1rem;
+        text-align: center;
+        
+
+
+        @media only screen and (min-width: 2501px){
+            font-size: 1.8rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.65rem;
+        }
+
+        @media only screen and (min-width: 1901px) and (max-width: 2200px) { 
+            font-size: 1.5rem;
+        }
+
+
+        @media only screen and (min-width: 1500px) and (max-width: 1900px) { 
+            font-size: 1.25rem;
+        }
+
+        @media only screen and (max-width: 767px) { 
+            font-size: 0.9rem;
+            text-align: left;
+        }
     }
 }

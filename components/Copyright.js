@@ -5,12 +5,12 @@ const Copyright = () => {
   return (
     <>
       <div className={styles.Wrapper}>
-        Nulla officia non eiusmod quis eu. Exercitation deserunt ullamco labore
-        adipisicing minim culpa fugiat. Mollit anim enim exercitation culpa
-        fugiat nostrud officia. Pariatur officia veniam enim voluptate culpa
-        duis aute duis id quis voluptate. Enim dolor amet aliquip esse minim
-        anim dolor proident est. Aute eiusmod ullamco veniam pariatur ut ipsum.
-        Ut occaecat aliquip cillum deserunt.
+        <Container fluid="lg" className="p-0">
+          <p className={styles._cp_para}>
+            Copyright &copy; {new Date().getFullYear()} JK Lagrosa. All Rights
+            Reserved.
+          </p>
+        </Container>
       </div>
     </>
   );
