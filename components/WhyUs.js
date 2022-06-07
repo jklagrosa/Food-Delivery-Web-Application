@@ -4,6 +4,7 @@ import {
   MdOutlineDeliveryDining,
   MdOutlineFastfood,
   MdPayment,
+  MdOutlineCleanHands,
 } from "react-icons/md";
 
 import { BsStar } from "react-icons/bs";
@@ -51,6 +52,13 @@ const WhyUs = () => {
               <div className={styles._why_us_card}>
                 <MdOutlineFastfood className={styles._why_us_card_icon} />
                 <h2>Life&apos;s too short for boring food.</h2>
+              </div>
+            </Col>
+
+            <Col xs={6} md={4}>
+              <div className={styles._why_us_card}>
+                <MdOutlineCleanHands className={styles._why_us_card_icon} />
+                <h2>Live long with hygiene.</h2>
               </div>
             </Col>
           </Row>

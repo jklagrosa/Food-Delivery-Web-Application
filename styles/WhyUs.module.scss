@@ -81,6 +81,31 @@
             color: $YELLOW;
             font-size: 3.25rem;
             margin-bottom: 1rem;
+
+            @media only screen and (min-width: 2501px){
+                font-size: 5.25rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                font-size: 4.5rem;
+            }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+                font-size: 3.75rem;
+            }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+                font-size: 3rem;
+            }
+
+            @media only screen and (max-width: 1200px) {
+                font-size: 2.75rem;
+            }
+
+            @media only screen and (max-width: 576px) {
+                font-size: 2rem;
+            }
+
         }
 
         h2{
@@ -90,16 +115,36 @@
             color: $WHITE;
             font-size: 1.25rem;
             margin-bottom: 0.6rem;
+
+            @media only screen and (min-width: 2501px){
+                font-size: 2.1rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                font-size: 2rem;
+            }
+
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+                font-size: 1.75rem;
+            }
+
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+                font-size: 1.4rem;
+            }
+
+
+            @media only screen and (max-width: 1200px) {
+                font-size: 1rem;
+            }
+
+            @media only screen and (max-width: 576px) {
+                font-size: 0.8rem;
+            }
         }
 
-        p{
-            margin: 0;
-            color: darkgrey;
-            font-size: 0.8rem;
-            max-width: 300px;
-            width: 100%;
-            margin: 0 auto;
-        }
+      
     }
 
 }
