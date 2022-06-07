@@ -7,6 +7,7 @@ import Featured from "../components/Featured";
 import Promo from "../components/Promo";
 import WhyUs from "../components/WhyUs";
 import FAQ from "../components/FAQ";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Promo />
       <WhyUs />
       <FAQ />
+      <Footer />
     </>
   );
 }
