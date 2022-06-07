@@ -6,6 +6,7 @@ import TodaySpecial from "../components/TS";
 import Featured from "../components/Featured";
 import Promo from "../components/Promo";
 import WhyUs from "../components/WhyUs";
+import FAQ from "../components/FAQ";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Featured />
       <Promo />
       <WhyUs />
+      <FAQ />
     </>
   );
 }
