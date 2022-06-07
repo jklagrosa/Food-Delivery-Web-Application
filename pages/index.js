@@ -5,6 +5,7 @@ import Services from "../components/Services";
 import TodaySpecial from "../components/TS";
 import Featured from "../components/Featured";
 import Promo from "../components/Promo";
+import WhyUs from "../components/WhyUs";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <TodaySpecial />
       <Featured />
       <Promo />
+      <WhyUs />
     </>
   );
 }
