@@ -28,21 +28,21 @@ const Footer = () => {
                 <a
                   href="https://www.linkedin.com/in/jklagrosa/"
                   target="_blank"
-                  rel="noopener"
+                  rel="noreferrer"
                 >
                   LinkedIn
                 </a>
                 <a
                   href="https://github.com/jklagrosa"
                   target="_blank"
-                  rel="noopener"
+                  rel="noreferrer"
                 >
                   Github
                 </a>
                 <a
                   href="mailto:jklagrosa.dev@gmail.com"
                   target="_blank"
-                  rel="noopener"
+                  rel="noreferrer"
                 >
                   Gmail
                 </a>

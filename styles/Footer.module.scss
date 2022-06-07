@@ -29,5 +29,18 @@
             color: darkgrey;
             font-size: 0.9rem;
         }
+
+        a{
+            margin-bottom: 0.6rem;
+            color: darkgrey;
+            display: block;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
     }
 }
