@@ -3,14 +3,14 @@
 
 .Wrapper{
     background: linear-gradient(
-        rgba(0,0,0,0.6),
-        rgba(0,0,0,0.6) ) ,
+        rgba(0,0,0,0.8),
+        rgba(0,0,0,0.8) ) ,
         url('/bgs/whyus.jpg') no-repeat;
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
         width: 100%;
-        min-height: 400px;
+        min-height: 550px;
     padding: 4rem 2rem;
     background-color: $WHITE;
 
@@ -67,4 +67,39 @@
 
 
     }
+
+
+
+    ._why_us_card{
+        margin: 0 auto;
+        max-width: 400px;
+        width: 100%;
+        // background-color: red;
+        text-align: center;
+
+        ._why_us_card_icon{
+            color: $YELLOW;
+            font-size: 3.25rem;
+            margin-bottom: 1rem;
+        }
+
+        h2{
+            margin: 0;
+            font-family: $CURSIVE_H;
+            font-weight: 700;
+            color: $WHITE;
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+        }
+
+        p{
+            margin: 0;
+            color: darkgrey;
+            font-size: 0.8rem;
+            max-width: 300px;
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+
 }
