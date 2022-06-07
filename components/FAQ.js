@@ -12,51 +12,57 @@ const FAQ = () => {
 
           <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="0">
-              <Accordion.Header>Accordion Item #1</Accordion.Header>
+              <Accordion.Header>
+                <p className={styles._faq_header}>
+                  Do you have a minimum order to deliver?
+                </p>
+              </Accordion.Header>
               <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <p className={styles._faq_para}>
+                  There&apos;s no minimum but you can make the best out of the
+                  delivery fee by ordering more at a time.
+                </p>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1">
-              <Accordion.Header>Accordion Item #2</Accordion.Header>
+              <Accordion.Header>
+                <p className={styles._faq_header}>
+                  Can I just walk in to at your office to order?
+                </p>
+              </Accordion.Header>
               <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <p className={styles._faq_para}>
+                  Yes you can, but if you have specific products in mind, better
+                  to at least call for availability.
+                </p>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="2">
-              <Accordion.Header>Accordion Item #2</Accordion.Header>
+              <Accordion.Header>
+                <p className={styles._faq_header}>
+                  What are your business hours?
+                </p>
+              </Accordion.Header>
               <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <p className={styles._faq_para}>
+                  Our office is open between 7am til 7pm, from Monday to
+                  Saturday. We&apos;re closed during Sundays and holidays,
+                  sorry!
+                </p>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="3">
-              <Accordion.Header>Accordion Item #2</Accordion.Header>
+              <Accordion.Header>
+                <p className={styles._faq_header}>
+                  What if I want my items right away?
+                </p>
+              </Accordion.Header>
               <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <p className={styles._faq_para}>
+                  We currently removed the Same day delivery option on our site
+                  because of the situation. You may choose the Pick up option
+                  though and book your own Delivery.
+                </p>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>

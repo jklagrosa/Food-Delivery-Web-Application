@@ -58,4 +58,73 @@
 
 
     }
+
+    ._faq_header{
+        margin: 0;
+        font-size: 1.25rem;
+        color: $BLACK;
+        font-weight: 600;
+
+        @media only screen and (min-width: 2501px){
+            font-size: 2.25rem;
+            padding: 0.6rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 2rem;
+            padding: 0.6rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 1.75rem;
+            padding: 0.6rem;
+        }
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+            font-size: 1.4rem;
+            padding: 0.3rem;
+        }
+
+        @media only screen and (max-width: 576px) { 
+            font-size: 1rem;
+        }
+
+        @media only screen and (max-width: 375px) { 
+            font-size: 0.9rem;
+        }
+
+    }
+
+    ._faq_para{
+        margin: 0;
+        font-size: 1rem;
+        // max-width: 1000px;
+        // width: 100%;
+
+        @media only screen and (min-width: 2501px){
+            font-size: 2rem;
+            padding: 1rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.75rem;
+            padding: 1rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 1.5rem;
+            padding: 1rem;
+        }
+
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+            font-size: 1.25rem;
+            padding: 1rem;
+        }
+
+
+        @media only screen and (max-width: 576px) { 
+            font-size: 0.9rem;
+        }
+    }
 }
