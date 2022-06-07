@@ -8,6 +8,7 @@ import Promo from "../components/Promo";
 import WhyUs from "../components/WhyUs";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import Copyright from "../components/Copyright";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <WhyUs />
       <FAQ />
       <Footer />
+      <Copyright />
     </>
   );
 }
