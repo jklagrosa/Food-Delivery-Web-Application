@@ -1,13 +1,227 @@
 @import "../styles/utils.module.scss";
 
 
-._main_navbar_wrapper{
+#_main_navbar_wrapper_color_change{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    padding: 1rem;
+   
+    
+   
+    
+
+    // transition: all 0.3s ease-in-out;
+
+    background-color: $BLACK;
+    // background-color: green;
+    color: $WHITE;
+
+    padding: 1rem;
+   
+    @media only screen and (max-width: 768px) {
+        // padding:2rem 1rem; 
+     }
+
+
+
+     ._hambuger_icon{
+         font-size: 3rem;
+         color: $WHITE;
+         display: none;
+
+         @media only screen and (max-width: 991px) {
+            display: block;
+         }
+     }
+
+    
+     ._brand_logo{
+         display: block;
+        margin-right: 4rem;
+        font-size: 1.5rem;
+        color: $YELLOW;
+        font-family: $CURSIVE_H;
+        font-weight: bold;
+       
+        cursor: pointer;
+
+        &:hover{
+        color: $YELLOW;
+
+        }
+
+        
+        @media only screen and (min-width: 2501px){
+            font-size: 3rem;
+         }
+
+
+         @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+            font-size: 3rem;
+        }
+
+         @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+           font-size: 2.5rem;
+        }
+
+         @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+            font-size: 2rem;
+        }
+
+
+        @media only screen and (max-width: 576px) { 
+            display: none;
+        }
+    }
+
+    ._brand_logo_SMALL{
+        display: none;
+        margin-right: 4rem;
+        font-size: 1.5rem;
+        color: $YELLOW;
+        font-family: $CURSIVE_H;
+        font-weight: bold;
+      
+        cursor: pointer;
+
+        &:hover{
+        color: $YELLOW;
+
+        }
+
+        @media only screen and (max-width: 576px) { 
+            display: block;
+        }
+    }
+
+     
+
+     #_navbar_links_active{
+        all: unset;
+        display: inline-block;
+             cursor: pointer;
+        color: $WHITE !important;
+        text-decoration: none;
+        font-size: 1rem;
+         font-weight: 400; 
+
+         @media only screen and (min-width: 2501px){
+            font-size: 2rem;
+         }
+
+
+         @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+            font-size: 1.75rem;
+        }
+
+         @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+            font-size: 1.5rem;
+        }
+
+         @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+            font-size: 1.25rem;
+        }
+
+     
+
+     }
+     #_navbar_links_active::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        // background: #000;
+        background-color: $YELLOW;
+        width: 100%;
+    }
+
+
+     ._navbar_links {
+        all: unset;
+        margin-left: 0.8rem;
+        display: inline-block;
+             cursor: pointer;
+        color: $WHITE !important;
+        text-decoration: none;
+        font-size: 1rem;
+         font-weight: 400; 
+
+         @media only screen and (min-width: 2501px){
+            font-size: 2rem;
+         }
+
+         @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+            font-size: 1.75rem;
+        }
+
+         @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+            font-size: 1.5rem;
+        }
+
+         @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+            font-size: 1.25rem;
+        }
+    }
+    
+    ._navbar_links::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        // background: #000;
+        background-color: $YELLOW;
+        transition: width .3s;
+    }
+    
+    ._navbar_links:hover::after {
+        width: 100%;
+      
+        //transition: width .3s;
+    }
+
+    //  ._navbar_links {
+    //     border: 1px solid;
+    //     overflow: hidden;
+    //     position: relative;
+        
+    //     span {
+    //       z-index: 20;
+    //     }
+        
+    //     &:after {
+    //       background: #fff;
+    //       content: "";
+    //       height: 155px;
+    //       left: -75px;
+    //       opacity: .2;
+    //       position: absolute;
+    //       top: -50px;
+    //       transform: rotate(35deg);
+    //       transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    //       width: 50px;
+    //       z-index: -10;
+    //     }
+    //   }
+      
+    //   ._navbar_links:hover {
+        
+    //     &:after {
+    //       left: 120%;
+    //       transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    //     }
+    //   }
+}
+
+#_main_navbar_wrapper{
     padding: 1rem;
     background-color: $WHITE;
     // background-color: green;
     color: $WHITE;
 
     padding: 1rem;
+    // transition: all 0.3s ease-in-out !important;
    
     @media only screen and (max-width: 768px) {
         // padding:2rem 1rem; 

@@ -1,12 +1,38 @@
+import { useState, useEffect } from "react";
 import styles from "../styles/Nav.module.scss";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Link from "next/link";
 import { MdMenu } from "react-icons/md";
 
 const Navigation = () => {
+  const [colorChange, setColorChange] = useState(false);
+
+  useEffect(() => {
+    const changeNavbarColor = () => {
+      if (window.scrollY >= 100) {
+        setColorChange(true);
+      } else {
+        setColorChange(false);
+      }
+    };
+
+    window.addEventListener("scroll", changeNavbarColor);
+  }, [colorChange]);
+
   return (
     <>
-      <Navbar expand="lg" className={styles._main_navbar_wrapper}>
+      <Navbar
+        expand="lg"
+        id={
+          colorChange
+            ? styles._main_navbar_wrapper_color_change
+            : styles._main_navbar_wrapper
+        }
+        className={
+          colorChange ? "animate__animated animate__fadeIn animate__faster" : ""
+        }
+        // id={colorChange ? styles._main_navbar_wrapper_color_change : ""}
+      >
         <Container fluid="lg">
           {/* SHOW ON LARGE SCREENS */}
           <Link href="/">

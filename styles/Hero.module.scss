@@ -12,6 +12,7 @@
     width: 100vw;
     min-height: 100vh;
     padding: 4rem 2rem;
+    transition: all 0.3s ease-in-out !important;
 
     @media only screen and (max-width: 768px) { 
         padding: 2rem 1rem;

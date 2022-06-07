@@ -43,9 +43,9 @@ const TodaySpecial = () => {
                     </abbr>
                   </Card.Text>
 
-                  <Card.Text id={styles._ts_card_dish}>
+                  <Card.Text id={styles._ts_card_dish_price}>
                     <abbr title="Price" style={{ all: "unset" }}>
-                      <RiPriceTag3Line className={styles._ts_card_icon} /> ₱110
+                      <RiPriceTag3Line id={styles._ts_card_icon_price} /> ₱110
                     </abbr>
                   </Card.Text>
                 </Card.Body>
@@ -66,113 +66,6 @@ const TodaySpecial = () => {
                 </Card.Footer>
               </Card>
             </Col>
-            {/*  */}
-            <Col xs={12} sm={6} lg={4}>
-              <Card id={styles._ts_card_box}>
-                {/* <Card.Header>Featured</Card.Header>
-                 */}
-                <Card.Img
-                  variant="top"
-                  src={"/bgs/p1.jpg"}
-                  id={styles._ts_card_img}
-                />
-                <Card.Body style={{ cursor: "pointer" }}>
-                  <Card.Title>
-                    <h2 className={styles._ts_card_title}>Lumpiang Shanghai</h2>
-                  </Card.Title>
-                  <Card.Text id={styles._ts_card_dish}>
-                    <abbr title="Cuisine" style={{ all: "unset" }}>
-                      <BsGlobe2 className={styles._ts_card_icon} /> Filipino
-                    </abbr>
-                  </Card.Text>
-                  <Card.Text id={styles._ts_card_dish}>
-                    <abbr title="Ratings" style={{ all: "unset" }}>
-                      <AiOutlineStar className={styles._ts_card_icon} /> 4.5/5
-                    </abbr>
-                  </Card.Text>
-                  <Card.Text id={styles._ts_card_dish}>
-                    <abbr title="Course" style={{ all: "unset" }}>
-                      <BiDish className={styles._ts_card_icon} /> Side Dish
-                    </abbr>
-                  </Card.Text>
-
-                  <Card.Text id={styles._ts_card_dish}>
-                    <abbr title="Price" style={{ all: "unset" }}>
-                      <RiPriceTag3Line className={styles._ts_card_icon} /> ₱110
-                    </abbr>
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer id={styles._ts_card_footer}>
-                  <div className={styles._ts_card_btn_wrapper}>
-                    <abbr title="Add to Wishlist" style={{ all: "unset" }}>
-                      <button>
-                        <BsFillSuitHeartFill id={styles._ts_card_btn_func} />
-                      </button>
-                    </abbr>
-                    <span className="mx-2"></span>
-                    <abbr title="Add to Cart" style={{ all: "unset" }}>
-                      <button>
-                        <BsFillCartFill id={styles._ts_card_btn_func} />
-                      </button>
-                    </abbr>
-                  </div>
-                </Card.Footer>
-              </Card>
-            </Col>
-            {/*  */}
-            <Col xs={12} sm={6} lg={4}>
-              <Card id={styles._ts_card_box}>
-                {/* <Card.Header>Featured</Card.Header>
-                 */}
-                <Card.Img
-                  variant="top"
-                  src={"/bgs/p1.jpg"}
-                  id={styles._ts_card_img}
-                />
-                <Card.Body style={{ cursor: "pointer" }}>
-                  <Card.Title>
-                    <h2 className={styles._ts_card_title}>Bicol Express</h2>
-                  </Card.Title>
-                  <Card.Text id={styles._ts_card_dish}>
-                    <abbr title="Cuisine" style={{ all: "unset" }}>
-                      <BsGlobe2 className={styles._ts_card_icon} /> Filipino
-                    </abbr>
-                  </Card.Text>
-                  <Card.Text id={styles._ts_card_dish}>
-                    <abbr title="Ratings" style={{ all: "unset" }}>
-                      <AiOutlineStar className={styles._ts_card_icon} /> 4.5/5
-                    </abbr>
-                  </Card.Text>
-                  <Card.Text id={styles._ts_card_dish}>
-                    <abbr title="Course" style={{ all: "unset" }}>
-                      <BiDish className={styles._ts_card_icon} /> Side Dish
-                    </abbr>
-                  </Card.Text>
-
-                  <Card.Text id={styles._ts_card_dish}>
-                    <abbr title="Price" style={{ all: "unset" }}>
-                      <RiPriceTag3Line className={styles._ts_card_icon} /> ₱110
-                    </abbr>
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer id={styles._ts_card_footer}>
-                  <div className={styles._ts_card_btn_wrapper}>
-                    <abbr title="Add to Wishlist" style={{ all: "unset" }}>
-                      <button>
-                        <BsFillSuitHeartFill id={styles._ts_card_btn_func} />
-                      </button>
-                    </abbr>
-                    <span className="mx-2"></span>
-                    <abbr title="Add to Cart" style={{ all: "unset" }}>
-                      <button>
-                        <BsFillCartFill id={styles._ts_card_btn_func} />
-                      </button>
-                    </abbr>
-                  </div>
-                </Card.Footer>
-              </Card>
-            </Col>
-            {/*  */}
           </Row>
         </Container>
       </div>
