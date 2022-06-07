@@ -1,0 +1,33 @@
+@import "../styles/utils.module.scss";
+
+
+
+.Wrapper{
+    padding: 4rem 2rem;
+    background-color: $BLACK;
+    
+
+    @media only screen and (max-width: 768px) { 
+        padding: 2rem 1rem;
+    }
+
+    ._footer_box{
+        margin: 0 auto;
+
+        h3{
+            margin: 0;
+            font-size: 1.75rem;
+            color: $YELLOW;
+            font-family: $CURSIVE_H;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        ._footer_box_desc{
+            max-width: 300px;
+            width: 100%;
+            color: darkgrey;
+            font-size: 0.9rem;
+        }
+    }
+}
