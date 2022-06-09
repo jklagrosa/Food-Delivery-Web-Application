@@ -15,31 +15,82 @@
     right: 0;
     z-index: 999;
     // bottom: 0;
+    pointer-events: none;
    
-    // background-color: red;
-    max-width: 150px;
+    background-color: red;
+    max-width: 130px;
     width: 100%;
     max-height: 200px;
     height: 100%;
+
+    @media only screen and (min-width: 2501px){
+        
+    }
+
+    @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+        
+    }
+
+    @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+     
+    }
+
+    @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+       
+    }
+
+    @media only screen and (max-width: 768px) {
+        max-width: 105px;
+        width: 100%;
+        max-height: 150px;
+        height: 100%;
+    }
+
+    @media only screen and (max-width: 576px) {
+        max-width: 95px;
+        width: 100%;
+        max-height: 110px;
+        height: 100%;
+    }
 
 
     ._icons_wrapper{
         margin: 0 auto;
         background-color: $RED;
         padding: 0.6rem;
-        max-width: 70px;
+        max-width: 80px;
         width: 100%;
         text-align: center;
         margin-right: 10px;
         margin-bottom: 1rem;
         border-radius: 5px;
 
+        @media only screen and (min-width: 2501px){
+            max-width: 400px;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+            max-width: 300px;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+            max-width: 200px;
+            width: 100%;
+            padding: 1rem;
+        }
+
         @media only screen and (min-width: 1400px) and (max-width: 1800px) {
-           
+            max-width: 100px;
+            width: 100%;
+            padding: 0.8rem;
         }
 
         @media only screen and (max-width: 576px) {
-            max-width: 60px;
+            max-width: 70px;
             width: 100%;
             padding: 0.4rem;
         }
@@ -49,6 +100,23 @@
             font-size: 1.5rem;
             color: $WHITE;
 
+            @media only screen and (min-width: 2501px){
+                font-size: 2.75rem;
+            }
+
+            
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+            font-size: 2.5rem;
+        }
+
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+                font-size: 2rem;
+            }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+                font-size: 1.75rem;
+            }
 
             @media only screen and (max-width: 576px) {
                 font-size: 1rem;
@@ -62,6 +130,23 @@
             font-size: 0.7rem;
             color: $BLACK_BG;
             background-color: $YELLOW !important;
+            font-weight: 500;
+
+            @media only screen and (min-width: 2501px){
+                font-size: 1.5rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                font-size: 1.25rem;
+            }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) {
+                font-size: 1rem;
+            }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+                font-size: 0.8rem;
+            }
 
             @media only screen and (max-width: 576px) {
                 font-size: 0.6rem;

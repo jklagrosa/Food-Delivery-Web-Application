@@ -39,7 +39,7 @@ const CartAndWishList = () => {
             />
 
             <sup>
-              <Badge className={styles.Cart_Badge}>3</Badge>
+              <Badge className={styles.Cart_Badge}>13</Badge>
             </sup>
           </abbr>
         </div>
@@ -57,7 +57,7 @@ const CartAndWishList = () => {
               style={{ cursor: "pointer" }}
             />
             <sup>
-              <Badge className={styles.Cart_Badge}>3</Badge>
+              <Badge className={styles.Cart_Badge}>13</Badge>
             </sup>
           </abbr>
         </div>
