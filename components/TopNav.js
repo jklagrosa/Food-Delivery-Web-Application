@@ -7,6 +7,7 @@ import {
   AiOutlineShoppingCart,
   AiOutlineHeart,
 } from "react-icons/ai";
+
 import { BsPerson } from "react-icons/bs";
 import { MdDeliveryDining, MdLogin } from "react-icons/md";
 import { VscSignIn } from "react-icons/vsc";
@@ -31,7 +32,13 @@ const TopNav = () => {
               </p>
             </Col>
 
-            <Col xs={12} md={12} lg={4} className="text-center" id={styles._top_nav_col_show_1900px}>
+            <Col
+              xs={12}
+              md={12}
+              lg={4}
+              className="text-center"
+              id={styles._top_nav_col_show_1900px}
+            >
               <abbr
                 title="Search Product"
                 style={{ cursor: "default" }}
@@ -94,13 +101,22 @@ const TopNav = () => {
               {/* IF USER IS NOT LOGGED IN */}
               <span className="mx-2"></span>
 
-              <span className={styles._log_in_btn}>
-                <MdLogin className={styles.Contact_Icons} />
-                Login
-              </span>
+              <abbr
+                title="Login as Demo User"
+                style={{ all: "unset", cursor: "default" }}
+                className={styles.Contact_Tooltip}
+              >
+                <span
+                  className={styles._log_in_btn}
+                  style={{ cursor: "pointer" }}
+                >
+                  <MdLogin className={styles.Contact_Icons} />
+                  Login
+                </span>
+              </abbr>
               {/* END */}
-
-              {/* <abbr
+              {/* 
+              <abbr
                 title="Login"
                 style={{ all: "unset", cursor: "default" }}
                 className={styles.Contact_Tooltip}

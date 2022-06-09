@@ -1,11 +1,72 @@
 @import "../styles/utils.module.scss";
 
+#hide_Wrapper{
+    display: none;
+}
 
-.Wrapper{
-    position: absolute;
-    top: 0;
-    left: 0;
+#Wrapper{
+
+    display: block;
+
+
+    position: fixed;
+    top: 150px;
+    // left: 0;
     right: 0;
-    bottom: 0;
-    background-color: red;
+    z-index: 999;
+    // bottom: 0;
+   
+    // background-color: red;
+    max-width: 150px;
+    width: 100%;
+    max-height: 200px;
+    height: 100%;
+
+
+    ._icons_wrapper{
+        margin: 0 auto;
+        background-color: $RED;
+        padding: 0.6rem;
+        max-width: 70px;
+        width: 100%;
+        text-align: center;
+        margin-right: 10px;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+
+        @media only screen and (min-width: 1400px) and (max-width: 1800px) {
+           
+        }
+
+        @media only screen and (max-width: 576px) {
+            max-width: 60px;
+            width: 100%;
+            padding: 0.4rem;
+        }
+
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        .Contact_Icons{
+            font-size: 1.5rem;
+            color: $WHITE;
+
+
+            @media only screen and (max-width: 576px) {
+                font-size: 1rem;
+             }
+
+
+        }
+
+        .Cart_Badge{
+            border-radius: 50%;
+            font-size: 0.7rem;
+            color: $BLACK_BG;
+            background-color: $YELLOW !important;
+
+            @media only screen and (max-width: 576px) {
+                font-size: 0.6rem;
+             }
+        }
+    }
+    
 }
