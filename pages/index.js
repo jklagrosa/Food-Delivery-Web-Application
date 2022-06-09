@@ -9,6 +9,7 @@ import WhyUs from "../components/WhyUs";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
+import CartAndWishList from "../components/C_W";
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
       <TopNav />
       <Navigation />
       <Hero />
+      {/* ============= */}
+      <CartAndWishList />
+      {/* ============ */}
       <Services />
       <TodaySpecial />
       <Featured />
