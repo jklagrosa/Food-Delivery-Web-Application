@@ -1,1 +1,111 @@
 @import "../styles/utils.module.scss";
+
+
+.Wrapper{
+    padding: 4rem 2rem;
+    background-color: whitesmoke;
+    min-height: 100vh;
+
+    @media only screen and (max-width: 768px) { 
+        padding: 2rem 1rem;
+    }
+
+    #_product_row_wrapper{
+        margin-top: 1.25rem;
+    }
+
+    ._product_bread_crumbs{
+        font-size: 1rem;
+    }
+
+
+
+    // DISPLAYS
+    ._product_you_may_like{
+        background-color: $BLACK_BG;
+        width: 100%;
+        min-height: 500px;
+        color: $WHITE;
+        padding: 0.6rem 0;
+        h2{
+            margin: 0;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            text-transform: capitalize;
+            font-family: $CURSIVE_H;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        ._product_you_may_like_box{
+            padding: 0.3rem 1rem;
+            background-color: red;
+
+            ._product_title{
+                margin: 0;
+                font-size: 1rem;
+            }
+
+            ._product_you_may_like_SPAN{
+                margin-right: 0.6rem;
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    // END
+
+
+
+
+
+
+
+    ._product_display{
+        img{
+            display: block;
+            width: 100%;
+            min-height: 500px;
+            margin-bottom: 1rem;
+        }
+
+        ._product_divider{
+            margin: 2rem 0;
+        }
+
+        h1{
+            margin: 0;
+            font-size: 2.5rem;
+            font-family: $CURSIVE_H;
+            font-weight: bold;
+            margin-top: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+
+        ._product_desc{
+            margin: 0;
+            font-size: 1rem;
+            max-width: 700px;
+            width: 100%;
+            margin-bottom: 1.25rem;
+        }
+
+        ._product_ingredient_h2{
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        ._product_span{
+            font-size: 1.25rem;
+            margin-right: 1.25rem;
+        }
+
+        ._product_icon{
+
+        }
+    }
+
+    
+}
