@@ -41,6 +41,29 @@ const ProductID = () => {
             <Col md={12} lg={8}>
               <div className={styles._product_display}>
                 <img src="/bgs/p1.jpg" alt="p1.jpg" />
+
+                <div className={styles._product_cart_n_wish}>
+                  <abbr title="Add to your Wishlist" style={{ all: "unset" }}>
+                    <button>
+                      <BsFillSuitHeartFill
+                        className={styles._product_cart_n_wish_ICON}
+                      />{" "}
+                      Add to Wishlist
+                    </button>
+                  </abbr>
+
+                  <abbr title="Add to your Cart" style={{ all: "unset" }}>
+                    <button>
+                      <BsFillCartFill
+                        className={styles._product_cart_n_wish_ICON}
+                      />{" "}
+                      Add to Cart
+                    </button>
+                  </abbr>
+                </div>
+
+                <h1>Adobo Pork</h1>
+
                 <abbr title="Cuisine" style={{ all: "unset" }}>
                   <span className={styles._product_span}>
                     <BsGlobe2 className={styles._product_icon} /> Filipino
@@ -58,13 +81,8 @@ const ProductID = () => {
                     <BiDish className={styles._product_icon} /> Main Course
                   </span>
                 </abbr>
-                <abbr title="Price" style={{ all: "unset" }}>
-                  <span className={styles._product_span}>
-                    <RiPriceTag3Line className={styles._product_icon} /> ₱300
-                  </span>
-                </abbr>
 
-                <h1>Adobo Pork</h1>
+                <h2 className={styles._product_display_price}>₱300</h2>
 
                 <p className={styles._product_desc}>
                   Fugiat magna labore duis Lorem duis. Magna mollit consectetur
@@ -110,6 +128,40 @@ const ProductID = () => {
             <Col md={12} lg={4}>
               <div className={styles._product_you_may_like}>
                 <h2>You may like</h2>
+                <div className={styles._product_you_may_like_box}>
+                  <h5 className={styles._product_title}>Adobo Manok</h5>
+                  <span className={styles._product_you_may_like_SPAN}>
+                    <BsGlobe2 />
+                    Filipino
+                  </span>
+                  <span className={styles._product_you_may_like_SPAN}>
+                    <AiOutlineStar />
+                    4.5/5
+                  </span>
+                  <span className={styles._product_you_may_like_SPAN}>
+                    <BiDish />
+                    Side Dish
+                  </span>
+                </div>
+                {/* ================== */}
+                <div className={styles._product_you_may_like_box}>
+                  <h5 className={styles._product_title}>Adobo Manok</h5>
+                  <span className={styles._product_you_may_like_SPAN}>
+                    <BsGlobe2 />
+                    Filipino
+                  </span>
+                  <span className={styles._product_you_may_like_SPAN}>
+                    <AiOutlineStar />
+                    4.5/5
+                  </span>
+                  <span className={styles._product_you_may_like_SPAN}>
+                    <BiDish />
+                    Side Dish
+                  </span>
+                </div>
+
+                {/* ======================== */}
+
                 <div className={styles._product_you_may_like_box}>
                   <h5 className={styles._product_title}>Adobo Manok</h5>
                   <span className={styles._product_you_may_like_SPAN}>
