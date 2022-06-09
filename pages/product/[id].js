@@ -122,10 +122,10 @@ const ProductID = () => {
                   <li>Polyunsaturated Fat: 6g</li>
                 </ul>
 
-                <hr className={styles._product_divider} />
+                {/* <hr className={styles._product_divider} /> */}
               </div>
             </Col>
-            <Col md={12} lg={4}>
+            <Col md={12} lg={4} id={styles._product_hide_on_SMALL_DEVICE}>
               <div className={styles._product_you_may_like}>
                 <h2>You may like</h2>
                 <div className={styles._product_you_may_like_box}>

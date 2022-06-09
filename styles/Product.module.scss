@@ -21,7 +21,12 @@
 
 
 
-
+    #_product_hide_on_SMALL_DEVICE{
+        display: block;
+        @media only screen and (max-width: 991px) { 
+            display: none;
+        }
+    }
    
 
 
@@ -83,6 +88,8 @@
             display: block;
             width: 100%;
             min-height: 500px;
+            object-fit: cover;
+            object-position: center;
             margin-bottom: 1rem;
         }
 
@@ -92,11 +99,22 @@
             margin-bottom: 2rem;
             button{
                 all: unset;
+                cursor: pointer;
+                max-width: 150px;
+                width: 100%;
+                text-align: center;
                 background-color: $RED;
                 border-radius: 5px;
                 padding: 0.3rem 0.6rem;
                 margin-right: 1.25rem;
                 color: $WHITE;
+                font-size: 0.9rem;
+                transition: all 0.3s ease-in-out;
+
+                &:hover{
+                    background-color: $H_RED;
+                }
+              
                 ._product_cart_n_wish_ICON{
                     font-size: 1.25rem;
                 }
@@ -105,9 +123,14 @@
         }
 
 
-        ._product_divider{
-            margin: 2rem 0;
-        }
+        // ._product_divider{
+        //     display: block;
+        //     margin: 2rem 0;
+
+        //     @media only screen and (max-width: 991px) { 
+        //         display: none;
+        //     }
+        // }
 
         h1{
             margin: 0;
