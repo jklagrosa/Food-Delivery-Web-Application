@@ -97,6 +97,11 @@
             margin-bottom: 1rem;
 
 
+            @media only screen and (min-width: 2201px){
+                min-height: 700px;
+            }
+
+
             @media only screen and (max-width: 991px) { 
                 min-height: 300px;
             }
@@ -127,6 +132,14 @@
                 ._product_cart_n_wish_ICON{
                     font-size: 1.25rem;
 
+                    @media only screen and (min-width: 2501px){
+                        font-size: 2.25rem;
+                    }
+
+                    @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                        font-size: 2rem;
+                    }
+
                     @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
                         font-size: 1.75rem;
                     }
@@ -140,6 +153,21 @@
                         font-size: 0.9rem;
                     }
                 }
+
+
+
+                @media only screen and (min-width: 2501px){
+                    max-width: 350px;
+                    font-size: 2rem;
+                }
+
+
+
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    max-width: 300px;
+                    font-size: 1.75rem;
+                }
+
 
 
                 @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
@@ -187,6 +215,15 @@
             margin-top: 1.25rem;
             margin-bottom: 0.6rem;
 
+            @media only screen and (min-width: 2501px){
+                font-size: 4.25rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 4rem;
+            }
+
+
             @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
                 font-size: 3.75rem;
             }
@@ -208,6 +245,14 @@
             margin-top: 0.6rem;
             font-weight: 300;
             color: $BLACK_1;
+
+            @media only screen and (min-width: 2501px){
+                font-size: 3.25rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 3rem;
+            }
 
             
             @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
@@ -233,6 +278,16 @@
             margin-bottom: 1.25rem;
             color: $BLACK_1;
 
+            @media only screen and (min-width: 2501px){
+                max-width: 1100px;  
+                font-size: 2rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                max-width: 1100px;  
+                font-size: 1.75rem;
+            }
+
             @media only screen and (min-width: 1801px) and (max-width: 2200px) {
                 max-width: 1000px;  
                 font-size: 1.5rem;
@@ -255,6 +310,14 @@
             color: $BLACK_1;
             margin-bottom: 0.6rem;
 
+            @media only screen and (min-width: 2501px){
+                font-size: 2.25rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 2rem;
+            }
+
             @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
                 font-size: 1.75rem;
             }
@@ -274,6 +337,14 @@
             li{
                 font-size: 1rem;
 
+                @media only screen and (min-width: 2501px){
+                    font-size: 2rem;
+                }
+
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                    font-size: 1.75rem;
+                }
+
                 @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
                     font-size: 1.5rem;
                 }
@@ -292,6 +363,14 @@
         ._product_icon{
             font-size: 1.5rem;
 
+            @media only screen and (min-width: 2501px){
+                font-size: 2.5rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 2.25rem;
+            }
+
             @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
                 font-size: 2rem;
             }
@@ -309,6 +388,16 @@
             margin-right: 1.25rem;
             font-size: 1rem;
             color: $GOLD;
+
+
+            @media only screen and (min-width: 2501px){
+                font-size: 2rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 1.75rem;
+            }
+
 
             @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
                 font-size: 1.5rem;
