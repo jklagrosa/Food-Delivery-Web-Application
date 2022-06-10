@@ -55,7 +55,7 @@ const Navigation = () => {
             <MdMenu className={styles._hambuger_icon} />
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="ms-auto">
               <Nav.Link
                 href="#home"
                 // className={styles._navbar_links}

@@ -2,10 +2,24 @@
 
 
 
+#_top_nav_offcanvas{  
+    z-index: 2000;
+    background-color: red !important;
+}
+
+
+
+
+
+
+
+
 .Wrapper{
     padding: 1rem;
     background-color: $BLACK_BG;
     color: $WHITE;
+
+    width: 100vw;
     
     @media only screen and (max-width: 768px) {
         // padding:2rem 1rem; 
@@ -31,6 +45,17 @@
             display: none;
          }
      }
+
+
+
+
+
+
+
+    
+
+
+
 
 
 

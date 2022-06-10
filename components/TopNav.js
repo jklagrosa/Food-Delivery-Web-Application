@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/TopNav.module.scss";
-import { Container, Row, Col, Badge } from "react-bootstrap";
+import { Container, Row, Col, Badge, Offcanvas } from "react-bootstrap";
 import {
   AiFillPhone,
   AiOutlineSearch,
@@ -8,11 +8,16 @@ import {
   AiOutlineHeart,
 } from "react-icons/ai";
 
-import { BsPerson } from "react-icons/bs";
+// import { BsPerson } from "react-icons/bs";
 import { MdDeliveryDining, MdLogin } from "react-icons/md";
-import { VscSignIn } from "react-icons/vsc";
+// import { VscSignIn } from "react-icons/vsc";
 
 const TopNav = () => {
+  const [showWish, setShowWish] = useState(false);
+
+  const handleCloseWishList = () => setShowWish(false);
+  const handleShowWishList = () => setShowWish(true);
+
   return (
     <>
       <div className={styles.Wrapper}>
@@ -79,6 +84,7 @@ const TopNav = () => {
                 <AiOutlineHeart
                   className={styles.Contact_Icons}
                   style={{ cursor: "pointer" }}
+                  onClick={handleShowWishList}
                 />
                 <sup>
                   <Badge className={styles.Cart_Badge}>3</Badge>
@@ -137,6 +143,31 @@ const TopNav = () => {
           </Row>
         </Container>
       </div>
+
+      {/* WISHLIST */}
+      <Offcanvas
+        placement="start"
+        show={showWish}
+        onHide={handleCloseWishList}
+        id={styles._top_nav_offcanvas}
+      >
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title id={styles._top_nav_offcanvas_wishlist_title}>
+            Offcanvas
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+      {/* END */}
+
+      {/* ================================================================= */}
+
+      {/* CART */}
+
+      {/* END */}
     </>
   );
 };

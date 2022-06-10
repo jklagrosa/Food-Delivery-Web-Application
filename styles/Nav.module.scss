@@ -3,13 +3,13 @@
 
 #_main_navbar_wrapper_color_change{
     position: fixed;
-    width: 100%;
+    // width: 100%;
     top: 0;
     z-index: 100;
     padding: 1rem;
    
     
-   
+    width: 100vw;
     
 
     // transition: all 0.3s ease-in-out;
@@ -220,7 +220,12 @@
     // background-color: green;
     color: $WHITE;
 
-    padding: 1rem;
+    
+   
+    width: 100vw;
+ 
+
+
     // transition: all 0.3s ease-in-out !important;
    
     @media only screen and (max-width: 768px) {
@@ -310,6 +315,9 @@
         font-size: 1rem;
          font-weight: 400; 
 
+
+
+
          @media only screen and (min-width: 2501px){
             font-size: 2rem;
          }
@@ -350,6 +358,12 @@
         text-decoration: none;
         font-size: 1rem;
          font-weight: 400; 
+
+
+
+
+
+
 
          @media only screen and (min-width: 2501px){
             font-size: 2rem;
