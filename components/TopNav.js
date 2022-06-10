@@ -19,13 +19,21 @@ import { MdDeliveryDining, MdLogin, MdClose } from "react-icons/md";
 
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   const [text, setText] = useState(
     "Amet consectetur reprehenderit nostrud ullamco id velit enimaute laboris in. Deserunt ut elit labore elit mollit ametLorem ipsum reprehenderit reprehenderit consectetur velit.Nisi reprehenderit quis excepteur tempor eiusmod ut ullamcoamet ipsum. Mollit consequat ea reprehenderit commodo dolorduis consequat amet culpa ex est qui."
   );
 
+  // WISHLIST
   const handleCloseWishList = () => setShowWish(false);
   const handleShowWishList = () => setShowWish(true);
+  // END
+  // ====================================================
+  // CART
+  const handleCloseCart = () => setShowCart(false);
+  const handleShowCart = () => setShowCart(true);
+  // END
 
   return (
     <>
@@ -74,6 +82,7 @@ const TopNav = () => {
                 <AiOutlineShoppingCart
                   className={styles.Contact_Icons}
                   style={{ cursor: "pointer" }}
+                  onClick={handleShowCart}
                 />
 
                 <sup>
