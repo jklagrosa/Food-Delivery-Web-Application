@@ -6,22 +6,65 @@
     z-index: 2000;
     background-color: whitesmoke;
 
+    @media only screen and (min-width: 2501px){
+        max-width: 800px;
+        width: 100%;
+    }
+
+    @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+        max-width: 700px;
+        width: 100%;
+     }
+
+    @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+       max-width: 500px;
+       width: 100%;
+    }
+
+
     #_top_nav_offcanvas_wishlist_title{
         font-size: 1.25rem;
         font-family: $CURSIVE_H;
         color: $BLACK_BG;
+
+        @media only screen and (min-width: 2501px){
+            font-size: 2rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.75rem;
+         }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 1.5rem;
+        }
     }
 
     #_top_nav_offcanvas_wishlist_boxes{
+        position: relative;
         padding: 0.6rem;
         background-color: $OLIVE;
         min-height: 150px;
+        margin-bottom: 1.25rem;
+    
 
         img{
             width: 100%;
             min-height: 150px;
             object-fit: cover;
             object-position: center;
+
+            @media only screen and (min-width: 2501px){
+                min-height: 250px;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                min-height: 200px;
+             }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                min-height: 180px;
+            }
         }
 
         #_top_nav_offcanvas_wishlist_boxes_title{
@@ -30,12 +73,53 @@
             color: $WHITE;
             margin-bottom: 0.3rem;
             color: $YELLOW;
+
+            @media only screen and (min-width: 2501px){
+                font-size: 2rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 1.75rem;
+             }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                font-size: 1.25rem;
+             }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+              font-size: 1.1rem;
+            }
+
+            @media only screen and (max-width: 425px) { 
+                font-size: 0.8rem;
+            }
+
         }
 
         span{
             margin-right: 1rem;
             color: $GRAY;
             font-size: 0.8rem;
+
+            @media only screen and (min-width: 2501px){
+                font-size: 1.6rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+                font-size: 1.25rem;
+             }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                font-size: 1.1rem;
+             }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                font-size: 0.9rem;
+              }
+
+            @media only screen and (max-width: 425px) { 
+                font-size: 0.7rem;
+            }
         }
 
         p{
@@ -45,7 +129,57 @@
             width: 100%;
             color: $GRAY;
             margin-top: 0.6rem;
+
+            @media only screen and (min-width: 2501px){
+                max-width: 500px; 
+                font-size: 1.6rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                max-width: 400px; 
+                font-size: 1.25rem;
+             }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                font-size: 1.1rem;
+             }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                font-size: 0.9rem;
+              }
+
+            @media only screen and (max-width: 425px) { 
+                font-size: 0.7rem;
+            }
         }
+
+
+
+        #_top_nav_offcanvas_wishlist_boxes_DELETE{
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+        
+            #_top_nav_offcanvas_wishlist_boxes_DELETE_ICON{
+                font-size: 1.5rem;
+                color: $RED;
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 3rem;
+                }
+
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                    font-size: 2.5rem;
+                 }
+
+
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                    font-size: 2rem;
+                 }
+            }
+        }
+
     }
 
 }
