@@ -108,6 +108,7 @@ const TopNav = () => {
               >
                 <span
                   className={styles._log_in_btn}
+                  id={styles._log_in_btn_hover}
                   style={{ cursor: "pointer" }}
                 >
                   <MdLogin className={styles.Contact_Icons} />

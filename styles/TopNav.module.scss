@@ -34,6 +34,13 @@
 
 
 
+     #_log_in_btn_hover{
+         &:hover{
+             text-decoration: underline;
+         }
+     }
+
+
      ._log_in_btn{
         margin: 0;
         font-size: 1rem; 
