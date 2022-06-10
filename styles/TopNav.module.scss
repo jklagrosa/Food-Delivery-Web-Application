@@ -1,6 +1,28 @@
 @import "../styles/utils.module.scss";
 
 
+#_top_nav_offcanvas_search{
+    z-index: 2000;
+    background-color: whitesmoke;
+    #_top_nav_offcanvas_wishlist_title{
+        font-size: 1.25rem;
+        font-family: $CURSIVE_H;
+        color: $BLACK_BG;
+
+        @media only screen and (min-width: 2501px){
+            font-size: 2rem;
+        }
+
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.75rem;
+         }
+
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 1.5rem;
+        }
+    }
+}
+
 
 #_top_nav_offcanvas{  
     z-index: 2000;

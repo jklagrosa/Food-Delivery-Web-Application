@@ -20,6 +20,7 @@ import { MdDeliveryDining, MdLogin, MdClose } from "react-icons/md";
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
   const [showCart, setShowCart] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
   const [text, setText] = useState(
     "Amet consectetur reprehenderit nostrud ullamco id velit enimaute laboris in. Deserunt ut elit labore elit mollit ametLorem ipsum reprehenderit reprehenderit consectetur velit.Nisi reprehenderit quis excepteur tempor eiusmod ut ullamcoamet ipsum. Mollit consequat ea reprehenderit commodo dolorduis consequat amet culpa ex est qui."
@@ -29,10 +30,19 @@ const TopNav = () => {
   const handleCloseWishList = () => setShowWish(false);
   const handleShowWishList = () => setShowWish(true);
   // END
+
   // ====================================================
+
   // CART
   const handleCloseCart = () => setShowCart(false);
   const handleShowCart = () => setShowCart(true);
+  // END
+
+  // ====================================================
+
+  // SEARCH
+  const handleCloseSearch = () => setShowSearch(false);
+  const handleShowSearch = () => setShowSearch(true);
   // END
 
   return (
@@ -69,6 +79,7 @@ const TopNav = () => {
                 <AiOutlineSearch
                   className={styles.Contact_Icons}
                   style={{ cursor: "pointer" }}
+                  onClick={handleShowSearch}
                 />
               </abbr>
               <span className="mx-2"></span>
@@ -300,13 +311,29 @@ const TopNav = () => {
       </Offcanvas>
       {/* END */}
 
+      {/* ============================================================ */}
 
-    {/* ============================================================ */}
-
-
-    
-
-
+      {/* SEARCH */}
+      <Offcanvas
+        placement="top"
+        show={showSearch}
+        onHide={handleCloseSearch}
+        id={styles._top_nav_offcanvas_search}
+      >
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title
+            id={styles._top_nav_offcanvas_wishlist_title}
+            style={{ color: "#f0c808" }}
+          >
+            LutongBahay
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+      {/* END */}
     </>
   );
 };
