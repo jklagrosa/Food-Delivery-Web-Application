@@ -284,7 +284,7 @@ const TopNav = () => {
 
                 <div id={styles._top_nav_offcanvas_wishlist_boxes_ADD_TO_CART}>
                   <button>-</button>
-                  <input type="text" />
+                  <input type="text" value="1" />
                   <button>+</button>
                 </div>
 
@@ -299,6 +299,14 @@ const TopNav = () => {
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}
+
+
+    {/* ============================================================ */}
+
+
+    
+
+
     </>
   );
 };

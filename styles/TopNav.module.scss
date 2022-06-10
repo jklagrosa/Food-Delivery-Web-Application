@@ -36,9 +36,38 @@
             text-align: center;
             background-color: $BLACK_BG;
             font-size: 1rem;
-            padding: 0 0.3rem;
+            padding: 0.3rem;
             color: $WHITE;
-            border: 1px solid $BLACK_BG;
+            border: 2px solid $BLACK_BG;
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                background-color: $BLACK;
+                border: 2px solid $BLACK;
+            }
+
+            @media only screen and (min-width: 2501px){
+                max-width: 80px; 
+                font-size: 2rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                max-width: 60px; 
+                font-size: 1.75rem;
+            }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                font-size: 1.5rem;
+            }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                font-size: 1.1rem;
+            }
+
+            @media only screen and (max-width: 425px) { 
+                font-size: 0.8rem;
+            }
+
         }
         input{
             max-width: 60px;
@@ -46,7 +75,32 @@
             background-color: $WHITE;
             color: $BLACK_BG;
             font-size: 1rem;
+            padding: 0.3rem;
             text-align: center;
+            border: 1px solid $YELLOW;
+
+            @media only screen and (min-width: 2501px){
+                max-width: 100px; 
+                font-size: 2rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                max-width: 100px; 
+                font-size: 1.75rem;
+            }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                font-size: 1.5rem;
+            }
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                font-size: 1.1rem;
+            }
+
+            @media only screen and (max-width: 425px) { 
+                max-width: 40px;
+                font-size: 0.8rem;
+            }
         }
     }
 
