@@ -329,8 +329,21 @@ const TopNav = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <div id={styles._top_nav_offcanvas_search_wrapper}>
+            <input type="text" placeholder="Search product..." />
+            <p>Typing...</p>
+
+            <div id={styles._top_nav_offcanvas_search_RESULTS}>
+              <h6>Results:</h6>
+              Magna in non cupidatat esse ipsum nulla. Nisi ad in consectetur
+              enim sunt non tempor nulla fugiat enim ad minim commodo
+              adipisicing. In dolor veniam sit irure pariatur proident excepteur
+              occaecat nostrud id minim. Amet est minim cillum est adipisicing
+              laboris eiusmod ut ipsum ex do. Elit consectetur cillum nostrud
+              officia do laborum nisi qui enim voluptate excepteur do nulla
+              laborum.
+            </div>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}
