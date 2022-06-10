@@ -22,6 +22,36 @@
     }
 
 
+// ==================================================
+
+    #_top_nav_offcanvas_wishlist_boxes_ADD_TO_CART{
+        margin-top: 1rem;
+        button, input{
+            all: unset;
+        }
+        button{
+            cursor: pointer;
+            max-width: 30px;
+            width: 100%;
+            text-align: center;
+            background-color: $BLACK_BG;
+            font-size: 1rem;
+            padding: 0 0.3rem;
+            color: $WHITE;
+            border: 1px solid $BLACK_BG;
+        }
+        input{
+            max-width: 60px;
+            width: 100%;
+            background-color: $WHITE;
+            color: $BLACK_BG;
+            font-size: 1rem;
+            text-align: center;
+        }
+    }
+
+// ==================================================
+
     #_top_nav_offcanvas_wishlist_title{
         font-size: 1.25rem;
         font-family: $CURSIVE_H;
