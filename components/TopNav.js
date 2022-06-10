@@ -334,14 +334,32 @@ const TopNav = () => {
             <p>Typing...</p>
 
             <div id={styles._top_nav_offcanvas_search_RESULTS}>
-              <h6>Results:</h6>
-              Magna in non cupidatat esse ipsum nulla. Nisi ad in consectetur
-              enim sunt non tempor nulla fugiat enim ad minim commodo
-              adipisicing. In dolor veniam sit irure pariatur proident excepteur
-              occaecat nostrud id minim. Amet est minim cillum est adipisicing
-              laboris eiusmod ut ipsum ex do. Elit consectetur cillum nostrud
-              officia do laborum nisi qui enim voluptate excepteur do nulla
-              laborum.
+              <Row className="gy-0 gx-3">
+                <Col xs={6} md={4} lg={3}>
+                  <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
+                    <img src="/bgs/p1.jpg" />
+                    <h6>Lumpiang Shanghai</h6>
+                  </div>
+                </Col>
+                <Col xs={6} md={4} lg={3}>
+                  <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
+                    <img src="/bgs/p1.jpg" />
+                    <h6>Lumpiang Shanghai</h6>
+                  </div>
+                </Col>
+                <Col xs={6} md={4} lg={3}>
+                  <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
+                    <img src="/bgs/p1.jpg" />
+                    <h6>Lumpiang Shanghai</h6>
+                  </div>
+                </Col>
+                <Col xs={6} md={4} lg={3}>
+                  <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
+                    <img src="/bgs/p1.jpg" />
+                    <h6>Lumpiang Shanghai</h6>
+                  </div>
+                </Col>
+              </Row>
             </div>
           </div>
         </Offcanvas.Body>

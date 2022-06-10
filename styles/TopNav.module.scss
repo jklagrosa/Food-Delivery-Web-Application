@@ -4,7 +4,7 @@
 #_top_nav_offcanvas_search{
     z-index: 2000;
     background-color: whitesmoke;
-    min-height: 210px;
+    min-height: 500px;
     #_top_nav_offcanvas_wishlist_title{
         font-size: 1.25rem;
         font-family: $CURSIVE_H;
@@ -28,12 +28,42 @@
 
 
         #_top_nav_offcanvas_search_RESULTS{
-            max-width: 300px;
+            margin: 0 auto;
+            max-width: 900px;
             width: 100%;
-            background-color: red;
-            h6{
+            // background-color: red;
+            margin-top: 1.25rem;
+          
 
+            #_top_nav_offcanvas_search_RESULTS_COLS{
+                margin: 0 auto;
+                max-width: 200px;
+                width: 100%;
+                background-color: $WHITE;
+                  padding: 0.4rem;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                cursor: pointer;
+                margin-bottom: 1rem;
+                img{
+                    width: 100%;
+                    max-height: 100px;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    margin-bottom: 0.6rem;
+                }
+
+                h6{
+                    margin: 0;
+                    font-size: 1rem;
+                    margin-bottom: 0.6rem;
+
+                    @media only screen and (max-width: 425px) {
+                        font-size: 0.8rem;
+                     }
+                }
             }
+            
         }
 
 
