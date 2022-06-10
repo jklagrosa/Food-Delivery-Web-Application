@@ -4,7 +4,50 @@
 
 #_top_nav_offcanvas{  
     z-index: 2000;
-    background-color: red !important;
+    background-color: whitesmoke;
+
+    #_top_nav_offcanvas_wishlist_title{
+        font-size: 1.25rem;
+        font-family: $CURSIVE_H;
+        color: $BLACK_BG;
+    }
+
+    #_top_nav_offcanvas_wishlist_boxes{
+        padding: 0.6rem;
+        background-color: $OLIVE;
+        min-height: 150px;
+
+        img{
+            width: 100%;
+            min-height: 150px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        #_top_nav_offcanvas_wishlist_boxes_title{
+            margin: 0;
+            font-size: 0.9rem;
+            color: $WHITE;
+            margin-bottom: 0.3rem;
+            color: $YELLOW;
+        }
+
+        span{
+            margin-right: 1rem;
+            color: $GRAY;
+            font-size: 0.8rem;
+        }
+
+        p{
+            margin: 0;
+            font-size: 0.8rem;
+            max-width: 300px;
+            width: 100%;
+            color: $GRAY;
+            margin-top: 0.6rem;
+        }
+    }
+
 }
 
 
