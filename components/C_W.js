@@ -40,7 +40,8 @@ const CartAndWishList = () => {
 
   // OPEN CART
   const openCartFunc = () => {
-    return dispatch(openCart({ wish: false, cart: true }));
+    // dispatch(openCart({ wish: false, cart: true }));
+    dispatch(openCart({ cart: true, wish: false }));
   };
   // END
 

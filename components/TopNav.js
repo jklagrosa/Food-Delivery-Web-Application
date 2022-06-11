@@ -16,7 +16,8 @@ import { RiPriceTag3Line } from "react-icons/ri";
 // import { BsPerson } from "react-icons/bs";
 import { MdDeliveryDining, MdLogin, MdClose } from "react-icons/md";
 // import { VscSignIn } from "react-icons/vsc";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+// import { resetWishAndCart } from "../store/c_w";
 
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
@@ -26,6 +27,8 @@ const TopNav = () => {
   const [text, setText] = useState(
     "Amet consectetur reprehenderit nostrud ullamco id velit enimaute laboris in. Deserunt ut elit labore elit mollit ametLorem ipsum reprehenderit reprehenderit consectetur velit.Nisi reprehenderit quis excepteur tempor eiusmod ut ullamcoamet ipsum. Mollit consequat ea reprehenderit commodo dolorduis consequat amet culpa ex est qui."
   );
+
+  // const dispatch = useDispatch()
 
   const { userWishList, userCart } = useSelector((state) => state.c_w);
 
@@ -41,7 +44,8 @@ const TopNav = () => {
     if (userCart) {
       setShowCart(true);
       setShowWish(false);
-      console.log(`Cart Open!, STORE: ${userCart}, STATE: ${showCart}`);
+
+      console.log(`Cart Open!, STORE: ${userCart}`);
     }
   }, [userCart]);
 
