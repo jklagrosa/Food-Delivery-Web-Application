@@ -1,10 +1,28 @@
+import styles from "../styles/404.module.scss";
+import { Container } from "react-bootstrap";
+import TopNav from "../components/TopNav";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import Copyright from "../components/Copyright";
+
 const NotFound = () => {
   return (
     <>
-      Reprehenderit ad veniam do veniam. Ullamco irure qui culpa ea commodo
-      deserunt mollit veniam ea in nulla officia pariatur. Excepteur labore ex
-      magna eu eiusmod. Fugiat pariatur ullamco eiusmod elit aliquip sunt Lorem
-      anim eiusmod dolore est aute eu cupidatat. Et ea dolore sint ullamco.
+      <TopNav />
+      <Nav />
+      <div className={styles.Wrapper}>
+        <Container fluid="lg" className="p-0">
+          Qui reprehenderit culpa Lorem voluptate quis reprehenderit sint magna
+          eiusmod aliquip ullamco qui labore. Ullamco sunt pariatur irure id do
+          Lorem commodo pariatur minim sit eu consectetur. Fugiat non mollit
+          aliqua minim. Aliqua aliqua sint dolore ullamco ex eu qui dolor
+          voluptate non. Incididunt eiusmod deserunt veniam ad dolore
+          exercitation aute minim exercitation consequat enim exercitation
+          culpa. Reprehenderit tempor quis fugiat eu aliqua sit tempor.
+        </Container>
+      </div>
+      <Footer />
+      <Copyright />
     </>
   );
 };
