@@ -12,16 +12,17 @@ const NotFound = () => {
       <Nav />
       <div className={styles.Wrapper}>
         <Container fluid="lg" className="p-0">
-          <Row className="g-3">
-            <Col xs={12} md={6}>
+          <Row className="g-3" id={styles._404_row_wrapper}>
+            <Col xs={4} md={6} xl={4}>
               <img src="/bgs/404.png" alt="404 PAGE NOT FOUND." />
             </Col>
-            <Col xs={12} md={6}>
+            <Col xs={8} md={6} xl={8}>
               <h1>404: Page Not Found.</h1>
               <p>
                 Sorry, we can&apos;t find that page! Don&apos;t worry though, we
                 will guide you back home.
               </p>
+              <button>Go Home</button>
             </Col>
           </Row>
         </Container>
