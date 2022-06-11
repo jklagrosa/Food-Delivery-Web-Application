@@ -20,6 +20,12 @@
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         border-radius: 5px;
 
+
+        @media only screen and (max-width: 576px) {
+            max-width: 280px;
+        }
+
+
         h1{
             font-size: 2rem;
             font-weight: bolder;
@@ -27,6 +33,10 @@
             color: $YELLOW;
             font-family: $CURSIVE_H;
             text-align: center;
+
+            @media only screen and (max-width: 576px) {
+                font-size: 1.25rem;
+            }
         }
 
         input, label{
@@ -36,7 +46,10 @@
             // color: $BLACK_BG;
             color: grey;
             margin-bottom: 0.3rem;
-            font-size: 0.8rem;
+            font-size: 1rem;
+            @media only screen and (max-width: 576px) {
+                font-size: 0.8rem;
+            }
         }
         input{
             all: unset;
@@ -48,6 +61,11 @@
             padding: 0.6rem 0.3rem;
             color: $BLACK_BG;
             background-color: $WHITE;
+
+            @media only screen and (max-width: 576px) {
+                max-width: 230px;
+                font-size: 0.8rem;
+            }
         }
 
         ._login_form_btn{
@@ -67,6 +85,11 @@
 
             &:hover{
                 background-color: $BLACK;
+            }
+
+            @media only screen and (max-width: 576px) {
+                max-width: 225px;
+                font-size: 0.8rem;
             }
         }
 
