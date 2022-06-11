@@ -16,6 +16,7 @@ import { RiPriceTag3Line } from "react-icons/ri";
 // import { BsPerson } from "react-icons/bs";
 import { MdDeliveryDining, MdLogin, MdClose } from "react-icons/md";
 // import { VscSignIn } from "react-icons/vsc";
+import { useSelector } from "react-redux";
 
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
@@ -25,6 +26,26 @@ const TopNav = () => {
   const [text, setText] = useState(
     "Amet consectetur reprehenderit nostrud ullamco id velit enimaute laboris in. Deserunt ut elit labore elit mollit ametLorem ipsum reprehenderit reprehenderit consectetur velit.Nisi reprehenderit quis excepteur tempor eiusmod ut ullamcoamet ipsum. Mollit consequat ea reprehenderit commodo dolorduis consequat amet culpa ex est qui."
   );
+
+  const { userWishList, userCart } = useSelector((state) => state.c_w);
+
+  useEffect(() => {
+    if (userWishList) {
+      setShowWish(true);
+      setShowCart(false);
+      console.log(`WishList Open!`);
+    }
+  }, [userWishList]);
+
+  useEffect(() => {
+    if (userCart) {
+      setShowCart(true);
+      setShowWish(false);
+      console.log(`Cart Open!, STORE: ${userCart}, STATE: ${showCart}`);
+    }
+  }, [userCart]);
+
+  // =====================================
 
   // WISHLIST
   const handleCloseWishList = () => setShowWish(false);
@@ -295,7 +316,7 @@ const TopNav = () => {
 
                 <div id={styles._top_nav_offcanvas_wishlist_boxes_ADD_TO_CART}>
                   <button>-</button>
-                  <input type="text" value="1" />
+                  <input type="text" defaultValue="69" />
                   <button>+</button>
                 </div>
 

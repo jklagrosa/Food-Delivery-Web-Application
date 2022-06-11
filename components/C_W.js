@@ -4,7 +4,7 @@ import styles from "../styles/C_W.module.scss";
 import { Badge } from "react-bootstrap";
 import { BsFillSuitHeartFill, BsFillCartFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { openWishList, openCart } from "../store/c_w";
+import { openWishList, openCart, resetWishAndCart } from "../store/c_w";
 
 const CartAndWishList = () => {
   const [colorChange, setColorChange] = useState(false);
@@ -21,6 +21,13 @@ const CartAndWishList = () => {
     };
 
     window.addEventListener("scroll", changeNavbarColor);
+  }, [colorChange]);
+
+  useEffect(() => {
+    if (!colorChange) {
+      dispatch(resetWishAndCart());
+      console.log(`FLOATING WISH & CART DISAPPEAR!`);
+    }
   }, [colorChange]);
 
   // OPEN WISHLIST
