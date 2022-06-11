@@ -36,7 +36,6 @@ const TopNav = () => {
     if (userWishList) {
       setShowWish(true);
       setShowCart(false);
-      console.log(`WishList Open!`);
     }
   }, [userWishList]);
 
@@ -44,7 +43,6 @@ const TopNav = () => {
     if (userCart) {
       setShowCart(true);
       setShowWish(false);
-      console.log(`Cart Open!, STORE: ${userCart}`);
     }
   }, [userCart]);
 

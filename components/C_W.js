@@ -26,7 +26,6 @@ const CartAndWishList = () => {
   useEffect(() => {
     if (!colorChange) {
       dispatch(resetWishAndCart());
-      console.log(`FLOATING WISH & CART DISAPPEAR!`);
     }
   }, [colorChange]);
 
@@ -40,8 +39,7 @@ const CartAndWishList = () => {
 
   // OPEN CART
   const openCartFunc = () => {
-    // dispatch(openCart({ wish: false, cart: true }));
-    dispatch(openCart({ cart: true, wish: false }));
+    return dispatch(openCart({ cart: true, wish: false }));
   };
   // END
 
