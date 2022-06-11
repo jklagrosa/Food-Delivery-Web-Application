@@ -110,6 +110,24 @@
                 color: darkgrey;
                 font-style:italic;
                 font-weight: 400;
+
+                @media only screen and (min-width: 2501px){
+                    font-size: 3rem;
+                }
+
+                @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                    font-size: 2.75rem;
+                }
+
+                @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                    font-size: 2.5rem;
+                }
+
+                @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+                    font-size: 2.25rem;
+                 }
+
+
                 @media only screen and (max-width: 991px) {                   
                     font-size: 1.25rem;
                 }
@@ -118,6 +136,36 @@
                     font-size: 1rem;
                 }
             }
+
+            @media only screen and (min-width: 2501px){
+                font-size: 3rem;
+                max-width: 1000px;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                font-size: 2.75rem;
+                max-width: 1000px;
+            }
+
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                font-size: 2.5rem;
+                max-width: 1000px;
+            }
+
+
+
+            @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
+               font-size: 2.25rem;
+            }
+
+
+
+
+
+
+
+
             @media only screen and (max-width: 991px) { 
                 max-width: 600px;
                 font-size: 1.25rem;
@@ -142,6 +190,18 @@
             font-size: 0.9rem;
             color: grey;
             margin-top: 0.3rem;
+
+            @media only screen and (min-width: 2501px){
+                font-size: 1.75rem;
+            }
+
+            @media only screen and (min-width: 2201px) and (max-width: 2500px) {
+                font-size: 1.5rem;
+            }
+
+            @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+                font-size: 1.25rem;
+            }
 
             @media only screen and (min-width: 1400px) and (max-width: 1800px) { 
                 font-size: 1rem;
