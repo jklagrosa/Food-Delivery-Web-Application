@@ -4,6 +4,7 @@ import styles from "../styles/C_W.module.scss";
 import { Badge } from "react-bootstrap";
 import { BsFillSuitHeartFill, BsFillCartFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
+import { openWishList, openCart } from "../store/c_w";
 
 const CartAndWishList = () => {
   const [colorChange, setColorChange] = useState(false);
@@ -23,15 +24,17 @@ const CartAndWishList = () => {
   }, [colorChange]);
 
   // OPEN WISHLIST
-    const openWishList = () => {
-      dispatch() 
-    }
+  const openWishListFunc = () => {
+    return dispatch(openWishList({ wish: true, cart: false }));
+  };
   // END
 
   // ======================================
 
   // OPEN CART
-
+  const openCartFunc = () => {
+    return dispatch(openCart({ wish: false, cart: true }));
+  };
   // END
 
   return (
@@ -42,7 +45,7 @@ const CartAndWishList = () => {
           !colorChange ? "" : "animate__animated animate__bounceInRight"
         }
       >
-        <div className={styles._icons_wrapper}>
+        <div className={styles._icons_wrapper} onClick={openCartFunc}>
           <abbr
             title="Your Cart"
             style={{ cursor: "default" }}
@@ -61,7 +64,7 @@ const CartAndWishList = () => {
 
         {/* ========================== */}
 
-        <div className={styles._icons_wrapper}>
+        <div className={styles._icons_wrapper} onClick={openWishListFunc}>
           <abbr
             title="Your Wishlist"
             style={{ cursor: "default" }}
