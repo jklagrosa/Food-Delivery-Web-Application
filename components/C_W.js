@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import styles from "../styles/C_W.module.scss";
 import { Badge } from "react-bootstrap";
 import { BsFillSuitHeartFill, BsFillCartFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 
 const CartAndWishList = () => {
   const [colorChange, setColorChange] = useState(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const changeNavbarColor = () => {
@@ -18,6 +21,18 @@ const CartAndWishList = () => {
 
     window.addEventListener("scroll", changeNavbarColor);
   }, [colorChange]);
+
+  // OPEN WISHLIST
+    const openWishList = () => {
+      dispatch() 
+    }
+  // END
+
+  // ======================================
+
+  // OPEN CART
+
+  // END
 
   return (
     <>
