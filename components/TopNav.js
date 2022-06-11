@@ -17,7 +17,7 @@ import { RiPriceTag3Line } from "react-icons/ri";
 import { MdDeliveryDining, MdLogin, MdClose } from "react-icons/md";
 // import { VscSignIn } from "react-icons/vsc";
 import { useSelector, useDispatch } from "react-redux";
-// import { resetWishAndCart } from "../store/c_w";
+import { resetWishAndCart } from "../store/c_w";
 
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
@@ -28,9 +28,9 @@ const TopNav = () => {
     "Amet consectetur reprehenderit nostrud ullamco id velit enimaute laboris in. Deserunt ut elit labore elit mollit ametLorem ipsum reprehenderit reprehenderit consectetur velit.Nisi reprehenderit quis excepteur tempor eiusmod ut ullamcoamet ipsum. Mollit consequat ea reprehenderit commodo dolorduis consequat amet culpa ex est qui."
   );
 
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const { userWishList, userCart } = useSelector((state) => state.c_w);
+  const { userWishList, userCart } = useSelector((state) => state?.c_w);
 
   useEffect(() => {
     if (userWishList) {
@@ -44,7 +44,6 @@ const TopNav = () => {
     if (userCart) {
       setShowCart(true);
       setShowWish(false);
-
       console.log(`Cart Open!, STORE: ${userCart}`);
     }
   }, [userCart]);
@@ -52,14 +51,20 @@ const TopNav = () => {
   // =====================================
 
   // WISHLIST
-  const handleCloseWishList = () => setShowWish(false);
+  const handleCloseWishList = () => {
+    setShowWish(false);
+    dispatch(resetWishAndCart());
+  };
   const handleShowWishList = () => setShowWish(true);
   // END
 
   // ====================================================
 
   // CART
-  const handleCloseCart = () => setShowCart(false);
+  const handleCloseCart = () => {
+    setShowCart(false);
+    dispatch(resetWishAndCart());
+  };
   const handleShowCart = () => setShowCart(true);
   // END
 
