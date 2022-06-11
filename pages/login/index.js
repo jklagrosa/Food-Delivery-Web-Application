@@ -14,6 +14,14 @@ const Login = () => {
             <input type="text" />
             <label>Password</label>
             <input type="password" />
+
+            <button className={styles._login_form_btn}>
+              Login as Demo User
+            </button>
+
+            <button className={styles._login_form_back_to_home}>
+              Back to Home
+            </button>
           </form>
         </Container>
       </div>

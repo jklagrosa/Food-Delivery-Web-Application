@@ -12,10 +12,39 @@
 
     ._login_form{
         margin: 0 auto;
-        max-width: 500px;
+        max-width: 350px;
         width: 100%;
-        background-color: red;
-        padding: 1rem;
+        background-color: $BLACK_BG;
+        padding: 2rem 1rem;
         margin-top: 50px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 5px;
+
+        h1{
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: $YELLOW;
+            font-family: $CURSIVE_H;
+        }
+
+        input, label{
+            display: block;
+        }
+        label{
+            color: $WHITE;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+        input{
+            all: unset;
+            max-width: 305px;
+            width: 100%;
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            border: 2px solid $YELLOW;
+            padding: 0.6rem 0.3rem;
+            color: $BLACK_BG;
+            background-color: $WHITE;
+        }
     }
 }
