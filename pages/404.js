@@ -1,5 +1,5 @@
 import styles from "../styles/404.module.scss";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import TopNav from "../components/TopNav";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
@@ -12,13 +12,18 @@ const NotFound = () => {
       <Nav />
       <div className={styles.Wrapper}>
         <Container fluid="lg" className="p-0">
-          Qui reprehenderit culpa Lorem voluptate quis reprehenderit sint magna
-          eiusmod aliquip ullamco qui labore. Ullamco sunt pariatur irure id do
-          Lorem commodo pariatur minim sit eu consectetur. Fugiat non mollit
-          aliqua minim. Aliqua aliqua sint dolore ullamco ex eu qui dolor
-          voluptate non. Incididunt eiusmod deserunt veniam ad dolore
-          exercitation aute minim exercitation consequat enim exercitation
-          culpa. Reprehenderit tempor quis fugiat eu aliqua sit tempor.
+          <Row className="g-3">
+            <Col xs={12} md={6}>
+              <img src="/bgs/404.png" alt="404 PAGE NOT FOUND." />
+            </Col>
+            <Col xs={12} md={6}>
+              <h1>404: Page Not Found.</h1>
+              <p>
+                Sorry, we can&apos;t find that page! Don&apos;t worry though, we
+                will guide you back home.
+              </p>
+            </Col>
+          </Row>
         </Container>
       </div>
       <Footer />
