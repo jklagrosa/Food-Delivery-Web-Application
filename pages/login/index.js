@@ -18,7 +18,7 @@ const Login = () => {
             <button className={styles._login_form_btn}>
               Login as Demo User
             </button>
-
+            <hr className={styles._login_form_btn_divider} />
             <button className={styles._login_form_back_to_home}>
               Back to Home
             </button>
