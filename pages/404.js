@@ -4,8 +4,11 @@ import TopNav from "../components/TopNav";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
+import { useRouter } from "next/router";
 
 const NotFound = () => {
+  const router = useRouter();
+
   return (
     <>
       <TopNav />
@@ -22,7 +25,7 @@ const NotFound = () => {
                 Sorry, we can&apos;t find that page! Don&apos;t worry though, we
                 will guide you back home.
               </p>
-              <button>Go Home</button>
+              <button onClick={() => router.push("/")}>Go Home</button>
             </Col>
           </Row>
         </Container>
