@@ -1,12 +1,24 @@
+import styles from "../../styles/Login.module.scss";
+import { Container } from "react-bootstrap";
+import Footer from "../../components/Footer";
+import Copyright from "../../components/Copyright";
+
 const Login = () => {
   return (
     <>
-      Ex in ipsum non deserunt mollit duis mollit veniam amet velit aliqua
-      commodo labore ut. Sint minim officia enim in adipisicing in culpa Lorem
-      aute tempor proident. Ut eu commodo adipisicing voluptate reprehenderit
-      dolor anim mollit fugiat adipisicing. Commodo sunt laborum velit tempor
-      nostrud est est irure et ut. Veniam duis do labore nisi reprehenderit
-      occaecat ea tempor sit.
+      <div className={styles.Wrapper}>
+        <Container fluid="lg" className="p-0">
+          <form className={styles._login_form}>
+            <h1>LutongBahay</h1>
+            <label>Username</label>
+            <input type="text" />
+            <label>Password</label>
+            <input type="password" />
+          </form>
+        </Container>
+      </div>
+      <Footer />
+      <Copyright />
     </>
   );
 };
