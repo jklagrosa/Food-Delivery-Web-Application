@@ -19,8 +19,8 @@ import { GET_TODAY_SPECIAL, GET_FEATURED } from "../store/dish";
 
 export async function getStaticProps() {
   await DbConnection();
-  const today_special = await Dish.find({ $in: { cat: "ts" } });
-  const featured = await Dish.find({ $in: { cat: "ft" } });
+  const today_special = await Dish.find({ cat: { $in: ["ts"] } });
+  const featured = await Dish.find({ cat: { $in: ["ft"] } });
   if (!today_special || !featured) {
     return {
       props: {
