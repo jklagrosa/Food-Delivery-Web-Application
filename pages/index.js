@@ -44,7 +44,17 @@ export default function Home({ ts, ft }) {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (parsed_ts) {
+      dispatch(GET_TODAY_SPECIAL(parsed_ts));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (parsed_ft) {
+      dispatch(GET_FEATURED(parsed_ft));
+    }
+  }, [dispatch]);
 
   return (
     <>
