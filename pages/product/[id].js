@@ -40,7 +40,7 @@ const ProductID = () => {
           <Row className="gy-0 gx-4" id={styles._product_row_wrapper}>
             <Col md={12} lg={8}>
               <div className={styles._product_display}>
-                <img src="/bgs/p1.jpg" alt="p1.jpg" />
+                <img src="/dish/d3.jpg" alt="p1.jpg" />
 
                 <div className={styles._product_cart_n_wish}>
                   <abbr title="Add to your Wishlist" style={{ all: "unset" }}>
