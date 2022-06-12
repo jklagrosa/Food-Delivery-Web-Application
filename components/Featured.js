@@ -37,7 +37,7 @@ const TodaySpecial = () => {
               </h1>
               <Row className="g-4 mx-auto">
                 {data?.map((res) => (
-                  <Col xs={12} sm={6} lg={4}>
+                  <Col xs={12} sm={6} lg={4} key={res._id}>
                     <Card id={styles._ts_card_box}>
                       <abbr title="Click to see more" style={{ all: "unset" }}>
                         <Card.Img
