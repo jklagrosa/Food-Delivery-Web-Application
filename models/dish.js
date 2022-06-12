@@ -38,6 +38,9 @@ const dishSchema = mongoose.Schema({
   cat: {
     type: String,
   },
+  img: {
+    type: String,
+  },
 });
 
 mongoose.models = {};

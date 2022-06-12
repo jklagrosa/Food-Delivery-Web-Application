@@ -18,12 +18,14 @@ const TodaySpecial = () => {
               <Card id={styles._ts_card_box}>
                 {/* <Card.Header>Featured</Card.Header>
                  */}
-                <Card.Img
-                  variant="top"
-                  src={"/bgs/p1.jpg"}
-                  id={styles._ts_card_img}
-                />
-                <Card.Body style={{ cursor: "pointer" }}>
+                <abbr title="Click to see more" style={{ all: "unset" }}>
+                  <Card.Img
+                    variant="top"
+                    src={"/dish/d1.jpg"}
+                    id={styles._ts_card_img}
+                  />
+                </abbr>
+                <Card.Body>
                   <Card.Title>
                     <h2 className={styles._ts_card_title}>Pork Adobo</h2>
                   </Card.Title>
@@ -73,10 +75,10 @@ const TodaySpecial = () => {
                  */}
                 <Card.Img
                   variant="top"
-                  src={"/bgs/p1.jpg"}
+                  src={"/dish/d2.jpg"}
                   id={styles._ts_card_img}
                 />
-                <Card.Body style={{ cursor: "pointer" }}>
+                <Card.Body>
                   <Card.Title>
                     <h2 className={styles._ts_card_title}>Pork Adobo</h2>
                   </Card.Title>
@@ -126,10 +128,10 @@ const TodaySpecial = () => {
                  */}
                 <Card.Img
                   variant="top"
-                  src={"/bgs/p1.jpg"}
+                  src={"/dish/d3.jpg"}
                   id={styles._ts_card_img}
                 />
-                <Card.Body style={{ cursor: "pointer" }}>
+                <Card.Body>
                   <Card.Title>
                     <h2 className={styles._ts_card_title}>Pork Adobo</h2>
                   </Card.Title>
@@ -179,10 +181,10 @@ const TodaySpecial = () => {
                  */}
                 <Card.Img
                   variant="top"
-                  src={"/bgs/p1.jpg"}
+                  src={"/dish/d4.jpg"}
                   id={styles._ts_card_img}
                 />
-                <Card.Body style={{ cursor: "pointer" }}>
+                <Card.Body>
                   <Card.Title>
                     <h2 className={styles._ts_card_title}>Pork Adobo</h2>
                   </Card.Title>

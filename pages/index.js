@@ -14,8 +14,6 @@ import CartAndWishList from "../components/C_W";
 export default function Home() {
   return (
     <>
-      {/* ========================== */}
-
       <TopNav />
       <Navigation />
       <Hero />

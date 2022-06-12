@@ -108,6 +108,19 @@
             width: 100%;
             display: block;
             cursor: pointer;
+            
+            transition: all 0.2s ease-in;
+
+          
+
+            &:hover{
+            transition: all 0.2s ease-out;
+               transform: scale(0.95);
+         
+               z-index: 100;
+            }
+
+
         }
 
         ._ts_card_btn_wrapper{
