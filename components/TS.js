@@ -21,7 +21,7 @@ const TodaySpecial = () => {
                 <abbr title="Click to see more" style={{ all: "unset" }}>
                   <Card.Img
                     variant="top"
-                    src={"/dish/d1.jpg"}
+                    src={"/dish/d5.jpg"}
                     id={styles._ts_card_img}
                   />
                 </abbr>
@@ -75,7 +75,7 @@ const TodaySpecial = () => {
                  */}
                 <Card.Img
                   variant="top"
-                  src={"/dish/d2.jpg"}
+                  src={"/dish/d6.jpg"}
                   id={styles._ts_card_img}
                 />
                 <Card.Body>
@@ -128,7 +128,7 @@ const TodaySpecial = () => {
                  */}
                 <Card.Img
                   variant="top"
-                  src={"/dish/d3.jpg"}
+                  src={"/dish/d7.jpg"}
                   id={styles._ts_card_img}
                 />
                 <Card.Body>
@@ -181,7 +181,7 @@ const TodaySpecial = () => {
                  */}
                 <Card.Img
                   variant="top"
-                  src={"/dish/d4.jpg"}
+                  src={"/dish/d8.jpg"}
                   id={styles._ts_card_img}
                 />
                 <Card.Body>
