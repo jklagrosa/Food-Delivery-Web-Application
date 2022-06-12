@@ -39,42 +39,41 @@ const TodaySpecial = () => {
                 {data?.map((res) => (
                   <Col xs={12} sm={6} lg={4}>
                     <Card id={styles._ts_card_box}>
-                      {/* <Card.Header>Featured</Card.Header>
-                       */}
                       <abbr title="Click to see more" style={{ all: "unset" }}>
                         <Card.Img
                           variant="top"
-                          src={"/dish/d9.jpg"}
+                          src={`/dish/${res.img}`}
+                          alt={res.title}
                           id={styles._ts_card_img}
                         />
                       </abbr>
                       <Card.Body>
                         <Card.Title>
-                          <h2 className={styles._ts_card_title}>Pork Adobo</h2>
+                          <h2 className={styles._ts_card_title}>{res.title}</h2>
                         </Card.Title>
                         <Card.Text id={styles._ts_card_dish}>
                           <abbr title="Cuisine" style={{ all: "unset" }}>
                             <BsGlobe2 className={styles._ts_card_icon} />{" "}
-                            Filipino
+                            {res.cuisine}
                           </abbr>
                         </Card.Text>
                         <Card.Text id={styles._ts_card_dish}>
                           <abbr title="Ratings" style={{ all: "unset" }}>
                             <AiOutlineStar className={styles._ts_card_icon} />{" "}
-                            4.5/5
+                            {res.ratings}/5
                           </abbr>
                         </Card.Text>
                         <Card.Text id={styles._ts_card_dish}>
                           <abbr title="Course" style={{ all: "unset" }}>
-                            <BiDish className={styles._ts_card_icon} /> Side
-                            Dish
+                            <BiDish className={styles._ts_card_icon} />{" "}
+                            {res.course}
                           </abbr>
                         </Card.Text>
 
                         <Card.Text id={styles._ts_card_dish_price}>
                           <abbr title="Price" style={{ all: "unset" }}>
                             <RiPriceTag3Line id={styles._ts_card_icon_price} />{" "}
-                            ₱110
+                            ₱{res.price}
                           </abbr>
                         </Card.Text>
                       </Card.Body>
