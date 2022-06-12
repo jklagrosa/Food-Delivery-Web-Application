@@ -23,11 +23,13 @@ const CartAndWishList = () => {
     window.addEventListener("scroll", changeNavbarColor);
   }, [colorChange]);
 
-  useEffect(() => {
-    if (!colorChange) {
-      dispatch(resetWishAndCart());
-    }
-  }, [colorChange]);
+  // useEffect(() => {
+  //   if (!colorChange) {
+  //     dispatch(resetWishAndCart());
+
+  //     console.log(`FLOATING ICONS DISAPPEAR!`);
+  //   }
+  // }, [dispatch]);
 
   // OPEN WISHLIST
   const openWishListFunc = () => {
