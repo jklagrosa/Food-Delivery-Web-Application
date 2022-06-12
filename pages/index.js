@@ -11,7 +11,41 @@ import Footer from "../components/Footer";
 import Copyright from "../components/Copyright";
 import CartAndWishList from "../components/C_W";
 
-export default function Home() {
+import DbConnection from "../utils/conn";
+import Dish from "../models/dish";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { GET_TODAY_SPECIAL, GET_FEATURED } from "../store/dish";
+
+export async function getStaticProps() {
+  await DbConnection();
+  const today_special = await Dish.find({ $in: { cat: "ts" } });
+  const featured = await Dish.find({ $in: { cat: "ft" } });
+  if (!today_special || !featured) {
+    return {
+      props: {
+        ts: null,
+        ft: null,
+      },
+    };
+  }
+
+  return {
+    props: {
+      ts: JSON.stringify(today_special),
+      ft: JSON.stringify(featured),
+    },
+  };
+}
+
+export default function Home({ ts, ft }) {
+  const parsed_ts = ts ? JSON.parse(ts) : false;
+  const parsed_ft = ft ? JSON.parse(ft) : false;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {}, []);
+
   return (
     <>
       <TopNav />
