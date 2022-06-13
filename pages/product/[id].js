@@ -214,7 +214,10 @@ const ProductID = ({ data, display }) => {
                       <>
                         <h2>You may like</h2>
                         {display_product?.map((dp) => (
-                          <div className={styles._product_you_may_like_box}>
+                          <div
+                            className={styles._product_you_may_like_box}
+                            key={dp._id}
+                          >
                             <h5 className={styles._product_title}>
                               {dp?.title}
                             </h5>
