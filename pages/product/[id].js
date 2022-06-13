@@ -102,13 +102,13 @@ const ProductID = ({ data }) => {
                   active
                   className={styles._product_bread_crumbs}
                 >
-                  Data
+                  {product?.title}
                 </Breadcrumb.Item>
               </Breadcrumb>
               <Row className="gy-0 gx-4" id={styles._product_row_wrapper}>
                 <Col md={12} lg={8}>
                   <div className={styles._product_display}>
-                    <img src="/dish/d6.jpg" alt="p1.jpg" />
+                    <img src={`/dish/${product?.img}`} alt={product?.title} />
 
                     <div className={styles._product_cart_n_wish}>
                       <abbr
@@ -133,69 +133,52 @@ const ProductID = ({ data }) => {
                       </abbr>
                     </div>
 
-                    <h1>Adobo Pork</h1>
+                    <h1>{product?.title}</h1>
 
                     <abbr title="Cuisine" style={{ all: "unset" }}>
                       <span className={styles._product_span}>
-                        <BsGlobe2 className={styles._product_icon} /> Filipino
+                        <BsGlobe2 className={styles._product_icon} />{" "}
+                        {product?.cuisine}
                       </span>
                     </abbr>
                     {/*  */}
                     <abbr title="Ratings" style={{ all: "unset" }}>
                       <span className={styles._product_span}>
-                        <AiOutlineStar className={styles._product_icon} /> 4.5/5
+                        <AiOutlineStar className={styles._product_icon} />{" "}
+                        {product?.ratings}/5
                       </span>
                     </abbr>
                     {/*  */}
                     <abbr title="Course" style={{ all: "unset" }}>
                       <span className={styles._product_span}>
-                        <BiDish className={styles._product_icon} /> Main Course
+                        <BiDish className={styles._product_icon} />{" "}
+                        {product?.course}
                       </span>
                     </abbr>
 
-                    <h2 className={styles._product_display_price}>₱300</h2>
+                    <h2 className={styles._product_display_price}>
+                      ₱{product?.price}
+                    </h2>
 
-                    <p className={styles._product_desc}>
-                      Fugiat magna labore duis Lorem duis. Magna mollit
-                      consectetur proident exercitation qui aute dolor excepteur
-                      culpa. Lorem elit occaecat excepteur magna amet eiusmod
-                      dolor deserunt amet cillum sunt dolore. Deserunt sit
-                      consequat et cupidatat id.
-                    </p>
+                    <p className={styles._product_desc}>{product?.desc1}</p>
 
-                    <p className={styles._product_desc}>
-                      Fugiat magna labore duis Lorem duis. Magna mollit
-                      consectetur proident exercitation qui aute dolor excepteur
-                      culpa. Lorem elit occaecat excepteur magna amet eiusmod
-                      dolor deserunt amet cillum sunt dolore. Deserunt sit
-                      consequat et cupidatat id.
-                    </p>
+                    <p className={styles._product_desc}>{product?.desc2}</p>
 
                     <h2 className={styles._product_ingredient_h2}>
                       Ingredients
                     </h2>
-                    <ul>
-                      <li>2 lbs. pork shoulder cubed</li>
-                      <li>4 bay leaves</li>
-                      <li>½ cup soy sauce</li>
-                      <li>½ cup white vinegar</li>
-                      <li>7 ½ ounces lemon lime soda</li>
-                      <li>2 tablespoons oyster sauce</li>
-                      <li>2 teaspoons peppercorn crushed</li>
-                      <li>2 heads garlic</li>
-                      <li>1 onion</li>
-                      <li>¼ cup cooking oil</li>
-                    </ul>
+                    {product?.ing?.map((x) => (
+                      <ul key={x}>
+                        <li>{x}</li>
+                      </ul>
+                    ))}
 
                     <h2 className={styles._product_ingredient_h2}>Nutrition</h2>
-                    <ul>
-                      <li>Calories: 528kcal</li>
-                      <li>Carbohydrates: 13g</li>
-                      <li>Protein: 48g</li>
-                      <li>Fat: 30g</li>
-                      <li>Saturated Fat: 7g</li>
-                      <li>Polyunsaturated Fat: 6g</li>
-                    </ul>
+                    {product?.nut?.map((y) => (
+                      <ul key={y}>
+                        <li>{y}</li>
+                      </ul>
+                    ))}
 
                     {/* <hr className={styles._product_divider} /> */}
                   </div>
