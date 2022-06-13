@@ -215,16 +215,21 @@
     ._product_you_may_like{
         background-color: $BLACK_BG;
         width: 100%;
-        min-height: 500px;
+
+
+
+        // min-height: 500px;
+
+        // ==================
+        max-height: 500px;
+        overflow-y: scroll;
+        // ==================
+
+
         color: $WHITE;
         padding: 0.6rem 0;
 
 
-
-
-
-
-        
 
          @media only screen and (min-width: 2201px){
             min-height: 700px;
