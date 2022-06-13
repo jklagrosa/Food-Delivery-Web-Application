@@ -219,6 +219,13 @@
         color: $WHITE;
         padding: 0.6rem 0;
 
+
+
+
+
+
+        
+
          @media only screen and (min-width: 2201px){
             min-height: 700px;
         }
@@ -265,6 +272,10 @@
            
             cursor: pointer;
             transition: all 0.3s ease-in-out;
+
+
+
+
             &:hover{
                 background-color: $BLACK_1;
             }
