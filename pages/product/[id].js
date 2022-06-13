@@ -102,6 +102,15 @@ const ProductID = ({ data, display }) => {
     }
   }, []);
 
+  const handleShowDisplay = (id) => {
+    router.reload();
+
+    return router.push({
+      pathname: "/product/[id]",
+      query: { id: id },
+    });
+  };
+
   return (
     <>
       <TopNav />
@@ -217,6 +226,7 @@ const ProductID = ({ data, display }) => {
                           <div
                             className={styles._product_you_may_like_box}
                             key={dp._id}
+                            onClick={() => handleShowDisplay(dp._id)}
                           >
                             <h5 className={styles._product_title}>
                               {dp?.title}
