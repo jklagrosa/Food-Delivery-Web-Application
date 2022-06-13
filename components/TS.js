@@ -34,7 +34,7 @@ const TodaySpecial = () => {
       });
     }
   };
-
+ 
   return (
     <>
       <div className={styles.Wrapper}>

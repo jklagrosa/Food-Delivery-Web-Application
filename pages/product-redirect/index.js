@@ -9,7 +9,6 @@ const ProductRedirect = () => {
 
   useEffect(() => {
     if (id) {
-      console.log("Redirecting!");
       router.push({
         pathname: "/product/[id]",
         query: { id: id },
