@@ -210,34 +210,40 @@ const ProductID = ({ data, display }) => {
                 </Col>
                 <Col md={12} lg={4} id={styles._product_hide_on_SMALL_DEVICE}>
                   <div className={styles._product_you_may_like}>
-                    {!HAS_DISPLAY && (
+                    {HAS_DISPLAY && (
                       <>
                         <h2>You may like</h2>
-                        <div className={styles._product_you_may_like_box}>
-                          <h5 className={styles._product_title}>Adobo Manok</h5>
-                          <span className={styles._product_you_may_like_SPAN}>
-                            <BsGlobe2 />
-                            Filipino
-                          </span>
-                          <span className={styles._product_you_may_like_SPAN}>
-                            <AiOutlineStar />
-                            4.5/5
-                          </span>
-                          <span className={styles._product_you_may_like_SPAN}>
-                            <BiDish />
-                            Side Dish
-                          </span>
-                        </div>
+                        {display_product?.map((dp) => (
+                          <div className={styles._product_you_may_like_box}>
+                            <h5 className={styles._product_title}>
+                              {dp?.title}
+                            </h5>
+                            <span className={styles._product_you_may_like_SPAN}>
+                              <BsGlobe2 />
+                              {dp?.cuisine}
+                            </span>
+                            <span className={styles._product_you_may_like_SPAN}>
+                              <AiOutlineStar />
+                              {dp?.ratings}/5
+                            </span>
+                            <span className={styles._product_you_may_like_SPAN}>
+                              <BiDish />
+                              {dp?.course}
+                            </span>
+                          </div>
+                        ))}
                       </>
                     )}
 
-                    {HAS_DISPLAY && (
+                    {!HAS_DISPLAY && (
                       <div
                         id={
                           styles._error_theres_no_data_to_show_DISPLAY_WRAPPER
                         }
                       >
-                        <h1 id={styles._error_theres_no_data_to_show_DISPLAY_H1}>
+                        <h1
+                          id={styles._error_theres_no_data_to_show_DISPLAY_H1}
+                        >
                           Something went wrong, Cannot show products.
                         </h1>
                         <button
