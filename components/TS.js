@@ -26,6 +26,15 @@ const TodaySpecial = () => {
     }
   }, [todays_special]);
 
+  const handleSeeMore = (id) => {
+    if (id) {
+      router.push({
+        pathname: "/product/[id]",
+        query: { id: id },
+      });
+    }
+  };
+
   return (
     <>
       <div className={styles.Wrapper}>
@@ -45,6 +54,7 @@ const TodaySpecial = () => {
                           src={`/dish/${res.img}`}
                           alt={res.title}
                           id={styles._ts_card_img}
+                          onClick={() => handleSeeMore(res._id)}
                         />
                       </abbr>
                       <Card.Body>
