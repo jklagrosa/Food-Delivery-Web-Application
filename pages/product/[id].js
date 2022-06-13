@@ -6,7 +6,7 @@ import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Copyright from "../../components/Copyright";
 
-import TS from "../../components/TS";
+import FAQ from "../../components/FAQ";
 
 import { useRouter } from "next/router";
 
@@ -278,7 +278,7 @@ const ProductID = ({ data, display }) => {
         </Container>
       </div>
 
-      <TS />
+      <FAQ />
 
       <Footer />
       <Copyright />
