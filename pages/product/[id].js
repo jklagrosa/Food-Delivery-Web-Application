@@ -103,10 +103,8 @@ const ProductID = ({ data, display }) => {
   }, []);
 
   const handleShowDisplay = (id) => {
-    router.reload();
-
     return router.push({
-      pathname: "/product/[id]",
+      pathname: "/product-redirect",
       query: { id: id },
     });
   };
