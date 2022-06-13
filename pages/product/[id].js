@@ -44,19 +44,24 @@ export async function getStaticProps(context) {
   await dbConnection();
   const { params } = context;
   const find_products = await Dish.findOne({ _id: `${params.id}` });
-  if (!find_products) {
+
+  // GET ALL DISH TO DISPLAY
+  const GET_PRODUCTS_TO_DISPLAY = await Dish.find({});
+  // END
+
+  if (!find_products || !GET_PRODUCTS_TO_DISPLAY) {
     return {
       props: {
         data: null,
+        display: null,
       },
     };
   }
 
-  console.log(find_products);
-
   return {
     props: {
       data: JSON.stringify(find_products),
+      display: JSON.stringify(GET_PRODUCTS_TO_DISPLAY)
     },
   };
 }
