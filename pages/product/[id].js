@@ -61,16 +61,24 @@ export async function getStaticProps(context) {
   return {
     props: {
       data: JSON.stringify(find_products),
-      display: JSON.stringify(GET_PRODUCTS_TO_DISPLAY)
+      display: JSON.stringify(GET_PRODUCTS_TO_DISPLAY),
     },
   };
 }
 
-const ProductID = ({ data }) => {
+const ProductID = ({ data, display }) => {
   const router = useRouter();
   const [product, setProduct] = useState(null);
+
+  const [display_product, set_Display_Product] = useState(null);
+
   const [HAS_PRODUCT, SET_HAS_PRODUCT] = useState(true);
+
+  const [HAS_DISPLAY, SET_HAS_DISPLAY] = useState(true);
+
   const parsed_product = data ? JSON.parse(data) : false;
+
+  const parsed_display = display ? JSON.parse(display) : false;
 
   useEffect(() => {
     if (!parsed_product) {
@@ -79,6 +87,18 @@ const ProductID = ({ data }) => {
     } else {
       setProduct(parsed_product);
       SET_HAS_PRODUCT(true);
+    }
+  }, []);
+
+  // ===========================
+
+  useEffect(() => {
+    if (!parsed_display) {
+      set_Display_Product(null);
+      SET_HAS_DISPLAY(false);
+    } else {
+      set_Display_Product(parsed_display);
+      SET_HAS_DISPLAY(true);
     }
   }, []);
 
@@ -189,58 +209,26 @@ const ProductID = ({ data }) => {
                   </div>
                 </Col>
                 <Col md={12} lg={4} id={styles._product_hide_on_SMALL_DEVICE}>
-                  <div className={styles._product_you_may_like}>
-                    <h2>You may like</h2>
-                    <div className={styles._product_you_may_like_box}>
-                      <h5 className={styles._product_title}>Adobo Manok</h5>
-                      <span className={styles._product_you_may_like_SPAN}>
-                        <BsGlobe2 />
-                        Filipino
-                      </span>
-                      <span className={styles._product_you_may_like_SPAN}>
-                        <AiOutlineStar />
-                        4.5/5
-                      </span>
-                      <span className={styles._product_you_may_like_SPAN}>
-                        <BiDish />
-                        Side Dish
-                      </span>
+                  {HAS_DISPLAY && (
+                    <div className={styles._product_you_may_like}>
+                      <h2>You may like</h2>
+                      <div className={styles._product_you_may_like_box}>
+                        <h5 className={styles._product_title}>Adobo Manok</h5>
+                        <span className={styles._product_you_may_like_SPAN}>
+                          <BsGlobe2 />
+                          Filipino
+                        </span>
+                        <span className={styles._product_you_may_like_SPAN}>
+                          <AiOutlineStar />
+                          4.5/5
+                        </span>
+                        <span className={styles._product_you_may_like_SPAN}>
+                          <BiDish />
+                          Side Dish
+                        </span>
+                      </div>
                     </div>
-                    {/* ================== */}
-                    <div className={styles._product_you_may_like_box}>
-                      <h5 className={styles._product_title}>Adobo Manok</h5>
-                      <span className={styles._product_you_may_like_SPAN}>
-                        <BsGlobe2 />
-                        Filipino
-                      </span>
-                      <span className={styles._product_you_may_like_SPAN}>
-                        <AiOutlineStar />
-                        4.5/5
-                      </span>
-                      <span className={styles._product_you_may_like_SPAN}>
-                        <BiDish />
-                        Side Dish
-                      </span>
-                    </div>
-
-                    {/* ======================== */}
-
-                    <div className={styles._product_you_may_like_box}>
-                      <h5 className={styles._product_title}>Adobo Manok</h5>
-                      <span className={styles._product_you_may_like_SPAN}>
-                        <BsGlobe2 />
-                        Filipino
-                      </span>
-                      <span className={styles._product_you_may_like_SPAN}>
-                        <AiOutlineStar />
-                        4.5/5
-                      </span>
-                      <span className={styles._product_you_may_like_SPAN}>
-                        <BiDish />
-                        Side Dish
-                      </span>
-                    </div>
-                  </div>
+                  )}
                 </Col>
               </Row>
             </>
