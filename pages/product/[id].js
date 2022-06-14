@@ -22,6 +22,7 @@ import axios from "axios";
 import { BASE_URL, headersOpts } from "../../utils/others";
 import { useDispatch } from "react-redux";
 import { GET_WISH_LIST, GET_CART_ITEMS } from "../../store/wishNcart";
+import { openWishList, openCart, resetWishAndCart } from "../../store/c_w";
 
 export async function getStaticPaths() {
   await dbConnection();
@@ -135,7 +136,7 @@ const ProductID = ({ data, display }) => {
     if (response && response.data && response.data.success) {
       dispatch(GET_WISH_LIST(response.data.data));
       // setTriggerWish(response.data.data);
-      console.log("YEEEEEEEE WISH!");
+      // console.log("YEEEEEEEE WISH!");
     }
   };
 
@@ -202,7 +203,7 @@ const ProductID = ({ data, display }) => {
     if (response && response.data && response.data.success) {
       dispatch(GET_CART_ITEMS(response.data.data));
       // setTriggerWish(response.data.data);
-      console.log("YEEEEEEEE WISH!");
+      // console.log("YEEEEEEEE WISH!");
     }
   };
 
