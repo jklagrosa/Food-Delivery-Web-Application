@@ -112,6 +112,42 @@ const TodaySpecial = () => {
   };
   // END
 
+  // CART
+  const handleCartItem = async (pid) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/wishlist`,
+      {
+        id: pid,
+      },
+      headersOpts
+    );
+
+    if (response.data.exist) {
+      await GET_ALL_WISH_LIST();
+      dispatch(openCart({ cart: true, wish: false }));
+      return;
+    }
+
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data.data && response.data.success) {
+      await GET_ALL_WISH_LIST();
+      dispatch(openCart({ cart: true, wish: false }));
+    }
+  };
+  // END
+
   return (
     <>
       <div className={styles.Wrapper}>
@@ -178,7 +214,7 @@ const TodaySpecial = () => {
                           </abbr>
                           <span className="mx-2"></span>
                           <abbr title="Add to Cart" style={{ all: "unset" }}>
-                            <button>
+                            <button onClick={() => handleCartItem(res._id)}>
                               <BsFillCartFill id={styles._ts_card_btn_func} />
                             </button>
                           </abbr>

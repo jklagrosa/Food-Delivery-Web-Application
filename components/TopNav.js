@@ -19,8 +19,11 @@ import { MdDeliveryDining, MdLogin, MdClose } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { resetWishAndCart } from "../store/c_w";
 
+import { GET_WISH_LIST } from "../store/wishNcart";
+
 import axios from "axios";
 import { BASE_URL, headersOpts } from "../utils/others";
+import { useRouter } from "next/router";
 
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
@@ -36,6 +39,7 @@ const TopNav = () => {
   // END
 
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const { userWishList, userCart } = useSelector((state) => state?.c_w);
 
@@ -96,7 +100,35 @@ const TopNav = () => {
       },
       headersOpts
     );
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_WISH_LIST(response.data.data));
+    }
   };
+
+  // SEE MORE DETAILS
+  const handleSeeMore = (id) => {
+    if (id) {
+      dispatch(resetWishAndCart());
+      router.push({
+        pathname: "/product/[id]",
+        query: { id: id },
+      });
+    }
+  };
+  // END
 
   return (
     <>
@@ -239,6 +271,12 @@ const TopNav = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
+          {fetch_wish == 0 && (
+            <h1 className={styles.is_empty_state}>Your Wishlist is Empty.</h1>
+          )}
+
+          {/* =============== */}
+
           {fetch_wish &&
             fetch_wish.map((pw) => (
               <div id={styles._top_nav_offcanvas_wishlist_boxes} key={pw._id}>
@@ -248,6 +286,7 @@ const TopNav = () => {
                       <img
                         src={`/dish/${pw.img}`}
                         style={{ cursor: "pointer" }}
+                        onClick={() => handleSeeMore(pw._id)}
                       />
                     </abbr>
                   </Col>
