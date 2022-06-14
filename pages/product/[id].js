@@ -18,6 +18,11 @@ import { RiPriceTag3Line } from "react-icons/ri";
 import dbConnection from "../../utils/conn";
 import Dish from "../../models/dish";
 
+import axios from "axios";
+import { BASE_URL, headersOpts } from "../../utils/others";
+import { useDispatch } from "react-redux";
+import { GET_WISH_LIST, GET_CART_ITEMS } from "../../store/wishNcart";
+
 export async function getStaticPaths() {
   await dbConnection();
   const get_id = await Dish.find({});
@@ -80,6 +85,8 @@ const ProductID = ({ data, display }) => {
 
   const parsed_display = display ? JSON.parse(display) : false;
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (!parsed_product) {
       setProduct(null);
@@ -108,6 +115,138 @@ const ProductID = ({ data, display }) => {
       query: { id: id },
     });
   };
+
+  // =============GET ALL WISHLIST==============================
+  const GET_ALL_WISH_LIST = async () => {
+    const response = await axios.get(`${BASE_URL}/api/wishlist`, headersOpts);
+    if (!response.data.success) {
+      toast.error("Can't fetch your wishlist.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_WISH_LIST(response.data.data));
+      // setTriggerWish(response.data.data);
+      console.log("YEEEEEEEE WISH!");
+    }
+  };
+
+  useEffect(() => {
+    GET_ALL_WISH_LIST();
+  }, []);
+
+  // ==================END===========================
+
+  // ADD TO WISHLIST
+  const handleWishList = async (pid) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/wishlist`,
+      {
+        id: pid,
+      },
+      headersOpts
+    );
+
+    if (response.data.exist) {
+      await GET_ALL_WISH_LIST();
+      dispatch(openWishList({ wish: true, cart: false }));
+      return;
+    }
+
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data.data && response.data.success) {
+      await GET_ALL_WISH_LIST();
+      dispatch(openWishList({ wish: true, cart: false }));
+    }
+  };
+  // END
+
+  // ===============================================
+
+  // =============GET ALL CART==============================
+  const GET_ALL_CART = async () => {
+    const response = await axios.get(`${BASE_URL}/api/cart`, headersOpts);
+    if (!response.data.success) {
+      toast.error("Can't fetch your cart items.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_CART_ITEMS(response.data.data));
+      // setTriggerWish(response.data.data);
+      console.log("YEEEEEEEE WISH!");
+    }
+  };
+
+  useEffect(() => {
+    GET_ALL_CART();
+  }, []);
+
+  // ==================END===========================
+
+  // CART
+  const handleCartItem = async (pid) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/cart`,
+      {
+        id: pid,
+      },
+      headersOpts
+    );
+
+    if (response.data.exist) {
+      await GET_ALL_CART();
+      dispatch(openCart({ cart: true, wish: false }));
+      return;
+    }
+
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data.data && response.data.success) {
+      await GET_ALL_CART();
+      dispatch(openCart({ cart: true, wish: false }));
+    }
+  };
+  // END
 
   return (
     <>
@@ -147,7 +286,7 @@ const ProductID = ({ data, display }) => {
                         title="Add to your Wishlist"
                         style={{ all: "unset" }}
                       >
-                        <button>
+                        <button onClick={() => handleWishList(product?._id)}>
                           <BsFillSuitHeartFill
                             className={styles._product_cart_n_wish_ICON}
                           />{" "}
@@ -156,7 +295,7 @@ const ProductID = ({ data, display }) => {
                       </abbr>
 
                       <abbr title="Add to your Cart" style={{ all: "unset" }}>
-                        <button>
+                        <button onClick={() => handleCartItem(product?._id)}>
                           <BsFillCartFill
                             className={styles._product_cart_n_wish_ICON}
                           />{" "}
