@@ -19,6 +19,9 @@ import { MdDeliveryDining, MdLogin, MdClose } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { resetWishAndCart } from "../store/c_w";
 
+import axios from "axios";
+import { BASE_URL, headersOpts } from "../utils/others";
+
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
   const [showCart, setShowCart] = useState(false);
@@ -84,6 +87,16 @@ const TopNav = () => {
   const handleCloseSearch = () => setShowSearch(false);
   const handleShowSearch = () => setShowSearch(true);
   // END
+
+  const handleRemoveWishList = async (pid) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/wishlist-del`,
+      {
+        id: pid,
+      },
+      headersOpts
+    );
+  };
 
   return (
     <>
@@ -258,11 +271,17 @@ const TopNav = () => {
                     <p>{`${pw.desc1.substring(0, 50)}...`}</p>
 
                     <div id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}>
-                      <MdClose
-                        id={
-                          styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON
-                        }
-                      />
+                      <abbr
+                        title={`Remove ${pw.title} from Wishlist`}
+                        style={{ all: "unset" }}
+                      >
+                        <MdClose
+                          id={
+                            styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON
+                          }
+                          onClick={() => handleRemoveWishList(pw._id)}
+                        />
+                      </abbr>
                     </div>
                   </Col>
                 </Row>
