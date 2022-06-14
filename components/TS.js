@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
+import {BASE_URL, headersOpts} from '../utils/others'
+
 const TodaySpecial = () => {
   const [data, setData] = useState(null);
   const [HAS_DATA, SET_HAS_DATA] = useState(true);
