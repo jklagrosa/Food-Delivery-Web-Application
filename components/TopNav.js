@@ -19,7 +19,7 @@ import { MdDeliveryDining, MdLogin, MdClose } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { resetWishAndCart } from "../store/c_w";
 
-import { GET_WISH_LIST } from "../store/wishNcart";
+import { GET_WISH_LIST, GET_CART_ITEMS } from "../store/wishNcart";
 
 import axios from "axios";
 import { BASE_URL, headersOpts } from "../utils/others";
@@ -131,6 +131,36 @@ const TopNav = () => {
       dispatch(GET_WISH_LIST(response.data.data));
     }
   };
+
+  // ======================CART======================
+
+  const handleRemoveCart = async (pid) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/cart-del`,
+      {
+        id: pid,
+      },
+      headersOpts
+    );
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_CART_ITEMS(response.data.data));
+    }
+  };
+
+  // =========================
 
   // SEE MORE DETAILS
   const handleSeeMore = (id) => {
@@ -321,7 +351,7 @@ const TopNav = () => {
                     <span>
                       <RiPriceTag3Line /> ₱{pw.price}
                     </span>
-                    <p>{`${pw.desc1.substring(0, 50)}...`}</p>
+                    <p>{`${pw.desc1?.substring(0, 50)}...`}</p>
 
                     <div id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}>
                       <abbr
@@ -359,43 +389,55 @@ const TopNav = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <div id={styles._top_nav_offcanvas_wishlist_boxes}>
-            <Row className="gy-0 gx-3">
-              <Col xs={4}>
-                <img src="/bgs/p1.jpg" />
-              </Col>
-              <Col xs={8}>
-                <h6 id={styles._top_nav_offcanvas_wishlist_boxes_title}>
-                  Lumpiang Shanghai
-                </h6>
-                <span>
-                  <BsGlobe2 /> Filipino
-                </span>
-                <span>
-                  <AiOutlineStar /> 4.5/5
-                </span>
-                <br />
-                <span>
-                  <BiDish /> Side Dish
-                </span>
-                <span>
-                  <RiPriceTag3Line /> ₱300
-                </span>
+          {fetch_cart == 0 && (
+            <h1 className={styles.is_empty_state}>Your Cart is Empty.</h1>
+          )}
 
-                <div id={styles._top_nav_offcanvas_wishlist_boxes_ADD_TO_CART}>
-                  <button>-</button>
-                  <input type="text" defaultValue="69" />
-                  <button>+</button>
-                </div>
+          {fetch_cart &&
+            fetch_cart.map((pc) => (
+              <div id={styles._top_nav_offcanvas_wishlist_boxes} key={pc._id}>
+                <Row className="gy-0 gx-3">
+                  <Col xs={4}>
+                    <img src={`/dish/${pc.img}`} />
+                  </Col>
+                  <Col xs={8}>
+                    <h6 id={styles._top_nav_offcanvas_wishlist_boxes_title}>
+                      {pc.title}
+                    </h6>
+                    <span>
+                      <BsGlobe2 /> {pc.cuisine}
+                    </span>
+                    <span>
+                      <AiOutlineStar /> {pc.ratings}/5
+                    </span>
+                    <br />
+                    <span>
+                      <BiDish /> {pc.course}
+                    </span>
+                    <span>
+                      <RiPriceTag3Line /> ₱{pc.price}
+                    </span>
 
-                <div id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}>
-                  <MdClose
-                    id={styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON}
-                  />
-                </div>
-              </Col>
-            </Row>
-          </div>
+                    <div
+                      id={styles._top_nav_offcanvas_wishlist_boxes_ADD_TO_CART}
+                    >
+                      <button>-</button>
+                      <input type="text" defaultValue={pc.qty} />
+                      <button>+</button>
+                    </div>
+
+                    <div id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}>
+                      <MdClose
+                        id={
+                          styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON
+                        }
+                        onClick={() => handleRemoveCart(pc._id)}
+                      />
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+            ))}
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}
