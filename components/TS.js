@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 
 import { BASE_URL, headersOpts } from "../utils/others";
 import { openWishList, openCart } from "../store/c_w";
+import { GET_WISH_LIST } from "../store/wishNcart";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -21,6 +22,11 @@ const TodaySpecial = () => {
 
   const router = useRouter();
   const dispatch = useDispatch();
+
+  // ====================
+  const [triggerWish, setTriggerWish] = useState(null);
+
+  // ===================
 
   useEffect(() => {
     if (todays_special !== null) {
@@ -56,7 +62,18 @@ const TodaySpecial = () => {
       });
       return;
     }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_WISH_LIST(response.data.data));
+      // setTriggerWish(response.data.data);
+      console.log("YEEEEEEEE WISH!");
+    }
   };
+
+  useEffect(() => {
+    GET_ALL_WISH_LIST();
+  }, []);
+
   // ==================END===========================
 
   // ADD TO WISHLIST
@@ -70,6 +87,7 @@ const TodaySpecial = () => {
     );
 
     if (response.data.exist) {
+      await GET_ALL_WISH_LIST();
       dispatch(openWishList({ wish: true, cart: false }));
       return;
     }

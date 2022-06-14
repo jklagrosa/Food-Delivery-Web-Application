@@ -28,9 +28,21 @@ const TopNav = () => {
     "Amet consectetur reprehenderit nostrud ullamco id velit enimaute laboris in. Deserunt ut elit labore elit mollit ametLorem ipsum reprehenderit reprehenderit consectetur velit.Nisi reprehenderit quis excepteur tempor eiusmod ut ullamcoamet ipsum. Mollit consequat ea reprehenderit commodo dolorduis consequat amet culpa ex est qui."
   );
 
+  // WISHLIST
+  const [fetch_wish, setFetchWish] = useState(null);
+  // END
+
   const dispatch = useDispatch();
 
   const { userWishList, userCart } = useSelector((state) => state?.c_w);
+
+  const { prod_wishlist } = useSelector((state) => state?.product);
+  useEffect(() => {
+    if (prod_wishlist !== null) {
+      setFetchWish(prod_wishlist);
+      // console.log(prod_wishlist);
+    }
+  }, [prod_wishlist]);
 
   useEffect(() => {
     if (userWishList) {
@@ -214,71 +226,48 @@ const TopNav = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <div id={styles._top_nav_offcanvas_wishlist_boxes}>
-            <Row className="gy-0 gx-3">
-              <Col xs={4}>
-                <img src="/bgs/p1.jpg" />
-              </Col>
-              <Col xs={8}>
-                <h6 id={styles._top_nav_offcanvas_wishlist_boxes_title}>
-                  Lumpiang Shanghai
-                </h6>
-                <span>
-                  <BsGlobe2 /> Filipino
-                </span>
-                <span>
-                  <AiOutlineStar /> 4.5/5
-                </span>
-                <br />
-                <span>
-                  <BiDish /> Side Dish
-                </span>
-                <span>
-                  <RiPriceTag3Line /> ₱300
-                </span>
-                <p>{`${text.substring(0, 50)}...`}</p>
+          {fetch_wish &&
+            fetch_wish.map((pw) => (
+              <div id={styles._top_nav_offcanvas_wishlist_boxes} key={pw._id}>
+                <Row className="gy-0 gx-3">
+                  <Col xs={4}>
+                    <abbr title="See more details" style={{ all: "unset" }}>
+                      <img
+                        src={`/dish/${pw.img}`}
+                        style={{ cursor: "pointer" }}
+                      />
+                    </abbr>
+                  </Col>
+                  <Col xs={8}>
+                    <h6 id={styles._top_nav_offcanvas_wishlist_boxes_title}>
+                      {pw.title}
+                    </h6>
+                    <span>
+                      <BsGlobe2 /> {pw.cuisine}
+                    </span>
+                    <span>
+                      <AiOutlineStar /> {pw.ratings}/5
+                    </span>
+                    <br />
+                    <span>
+                      <BiDish /> {pw.course}
+                    </span>
+                    <span>
+                      <RiPriceTag3Line /> ₱{pw.price}
+                    </span>
+                    <p>{`${pw.desc1.substring(0, 50)}...`}</p>
 
-                <div id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}>
-                  <MdClose
-                    id={styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON}
-                  />
-                </div>
-              </Col>
-            </Row>
-          </div>
-
-          <div id={styles._top_nav_offcanvas_wishlist_boxes}>
-            <Row className="gy-0 gx-3">
-              <Col xs={4}>
-                <img src="/bgs/p1.jpg" />
-              </Col>
-              <Col xs={8}>
-                <h6 id={styles._top_nav_offcanvas_wishlist_boxes_title}>
-                  Lumpiang Shanghai
-                </h6>
-                <span>
-                  <BsGlobe2 /> Filipino
-                </span>
-                <span>
-                  <AiOutlineStar /> 4.5/5
-                </span>
-                <br />
-                <span>
-                  <BiDish /> Side Dish
-                </span>
-                <span>
-                  <RiPriceTag3Line /> ₱300
-                </span>
-                <p>{text.substring(0, 50) + "..."}</p>
-
-                <div id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}>
-                  <MdClose
-                    id={styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON}
-                  />
-                </div>
-              </Col>
-            </Row>
-          </div>
+                    <div id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}>
+                      <MdClose
+                        id={
+                          styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON
+                        }
+                      />
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+            ))}
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}
