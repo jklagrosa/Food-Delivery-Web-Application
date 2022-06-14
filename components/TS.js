@@ -40,7 +40,12 @@ const TodaySpecial = () => {
   };
 
   // ADD TO WISHLIST
-  const handleWishList = async () => {};
+  const handleWishList = async () => {
+    const response = await axios.post(`${BASE_URL}/api/wishlist`, headersOpts);
+    if(!response.data.success){
+      
+    }
+  };
   // END
 
   return (
