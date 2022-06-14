@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import { BASE_URL, headersOpts } from "../utils/others";
 import { openWishList, openCart } from "../store/c_w";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const TodaySpecial = () => {
   const [data, setData] = useState(null);
@@ -40,11 +41,21 @@ const TodaySpecial = () => {
   };
 
   // ADD TO WISHLIST
-  const handleWishList = async () => {
-    const response = await axios.post(`${BASE_URL}/api/wishlist`, headersOpts);
-    if(!response.data.success){
-      
-    }
+  const handleWishList = () => {
+    toast.error("Please try again later.", {
+      position: "top-center",
+      autoClose: 300000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+    });
+
+    // const response = await axios.post(`${BASE_URL}/api/wishlist`, headersOpts);
+    // if(!response.data.success){
+
+    // }
   };
   // END
 
