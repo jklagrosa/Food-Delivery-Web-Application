@@ -38,12 +38,26 @@ const TopNav = () => {
   const [fetch_wish, setFetchWish] = useState(null);
   // END
 
+  // =================
+
+  // CART
+  const [fetch_cart, setFetchCart] = useState(null);
+  // END
+
   const dispatch = useDispatch();
   const router = useRouter();
 
   const { userWishList, userCart } = useSelector((state) => state?.c_w);
 
-  const { prod_wishlist } = useSelector((state) => state?.product);
+  const { prod_wishlist, prod_cart } = useSelector((state) => state?.product);
+
+  useEffect(() => {
+    if (prod_cart !== null) {
+      setFetchCart(prod_cart);
+      // console.log(prod_wishlist);
+    }
+  }, [prod_cart]);
+
   useEffect(() => {
     if (prod_wishlist !== null) {
       setFetchWish(prod_wishlist);

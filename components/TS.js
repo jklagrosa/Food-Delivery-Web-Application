@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 
 import { BASE_URL, headersOpts } from "../utils/others";
 import { openWishList, openCart } from "../store/c_w";
-import { GET_WISH_LIST } from "../store/wishNcart";
+import { GET_WISH_LIST, GET_CART_ITEMS } from "../store/wishNcart";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -112,10 +112,41 @@ const TodaySpecial = () => {
   };
   // END
 
+  // ===============================================
+
+  // =============GET ALL CART==============================
+  const GET_ALL_CART = async () => {
+    const response = await axios.get(`${BASE_URL}/api/cart`, headersOpts);
+    if (!response.data.success) {
+      toast.error("Can't fetch your cart items.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_CART_ITEMS(response.data.data));
+      // setTriggerWish(response.data.data);
+      console.log("YEEEEEEEE WISH!");
+    }
+  };
+
+  useEffect(() => {
+    GET_ALL_CART();
+  }, []);
+
+  // ==================END===========================
+
   // CART
   const handleCartItem = async (pid) => {
     const response = await axios.post(
-      `${BASE_URL}/api/wishlist`,
+      `${BASE_URL}/api/cart`,
       {
         id: pid,
       },
@@ -123,7 +154,7 @@ const TodaySpecial = () => {
     );
 
     if (response.data.exist) {
-      await GET_ALL_WISH_LIST();
+      await GET_ALL_CART();
       dispatch(openCart({ cart: true, wish: false }));
       return;
     }
@@ -142,7 +173,7 @@ const TodaySpecial = () => {
     }
 
     if (response && response.data.data && response.data.success) {
-      await GET_ALL_WISH_LIST();
+      await GET_ALL_CART();
       dispatch(openCart({ cart: true, wish: false }));
     }
   };
