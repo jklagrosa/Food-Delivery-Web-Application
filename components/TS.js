@@ -9,7 +9,9 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import {BASE_URL, headersOpts} from '../utils/others'
+import { BASE_URL, headersOpts } from "../utils/others";
+import { openWishList, openCart } from "../store/c_w";
+import axios from "axios";
 
 const TodaySpecial = () => {
   const [data, setData] = useState(null);
@@ -36,7 +38,11 @@ const TodaySpecial = () => {
       });
     }
   };
-  
+
+  // ADD TO WISHLIST
+  const handleWishList = async () => {};
+  // END
+
   return (
     <>
       <div className={styles.Wrapper}>
@@ -95,7 +101,7 @@ const TodaySpecial = () => {
                             title="Add to Wishlist"
                             style={{ all: "unset" }}
                           >
-                            <button>
+                            <button onClick={() => handleWishList(res._id)}>
                               <BsFillSuitHeartFill
                                 id={styles._ts_card_btn_func}
                               />
