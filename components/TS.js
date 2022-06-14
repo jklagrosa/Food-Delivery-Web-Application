@@ -5,7 +5,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import { BiDish } from "react-icons/bi";
 import { RiPriceTag3Line } from "react-icons/ri";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
@@ -20,6 +20,7 @@ const TodaySpecial = () => {
   const todays_special = useSelector((state) => state.dish.todaySpecial);
 
   const router = useRouter();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (todays_special !== null) {
@@ -40,22 +41,56 @@ const TodaySpecial = () => {
     }
   };
 
+  // =============GET ALL WISHLIST==============================
+  const GET_ALL_WISH_LIST = async () => {
+    const response = await axios.get(`${BASE_URL}/api/wishlist`, headersOpts);
+    if (!response.data.success) {
+      toast.error("Can't fetch your wishlist.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+  };
+  // ==================END===========================
+
   // ADD TO WISHLIST
-  const handleWishList = () => {
-    toast.error("Please try again later.", {
-      position: "top-center",
-      autoClose: 300000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-    });
+  const handleWishList = async (pid) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/wishlist`,
+      {
+        id: pid,
+      },
+      headersOpts
+    );
 
-    // const response = await axios.post(`${BASE_URL}/api/wishlist`, headersOpts);
-    // if(!response.data.success){
+    if (response.data.exist) {
+      dispatch(openWishList({ wish: true, cart: false }));
+      return;
+    }
 
-    // }
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data.data && response.data.success) {
+      await GET_ALL_WISH_LIST();
+      dispatch(openWishList({ wish: true, cart: false }));
+    }
   };
   // END
 
