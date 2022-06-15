@@ -66,7 +66,7 @@ const TodaySpecial = () => {
     if (response && response.data && response.data.success) {
       dispatch(GET_WISH_LIST(response.data.data));
       // setTriggerWish(response.data.data);
-      console.log("YEEEEEEEE WISH!");
+      // console.log("YEEEEEEEE WISH!");
     }
   };
 
@@ -133,7 +133,7 @@ const TodaySpecial = () => {
     if (response && response.data && response.data.success) {
       dispatch(GET_CART_ITEMS(response.data.data));
       // setTriggerWish(response.data.data);
-      console.log("YEEEEEEEE WISH!");
+      // console.log("YEEEEEEEE WISH!");
     }
   };
 

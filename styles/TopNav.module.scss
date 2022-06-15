@@ -1,6 +1,23 @@
 @import "../styles/utils.module.scss";
 
 
+
+
+._cart_checkout_wrapper{
+    padding: 0.6rem 1rem;
+    background-color: $BLACK_BG;
+
+    h5{
+        
+    }
+
+    button{
+
+    }
+}
+
+
+
 #_top_nav_offcanvas_search{
     z-index: 2000;
     background-color: whitesmoke;
@@ -210,6 +227,7 @@
     }
 }
 
+// ==============================================================
 
 #_top_nav_offcanvas{  
     z-index: 2000;

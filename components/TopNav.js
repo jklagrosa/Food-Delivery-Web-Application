@@ -174,6 +174,99 @@ const TopNav = () => {
   };
   // END
 
+  // ========================================
+
+  // FETCH ALL CART ITEMS
+  const GET_NEW_UPDATED_CART_ITEM = async () => {
+    const response = await axios.get(`${BASE_URL}/api/cart`, headersOpts);
+    if (!response.data.success) {
+      toast.error("Cannot get all your cart items.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data && response.data.success) {
+      dispatch(GET_CART_ITEMS(response.data.data));
+    }
+  };
+  // END
+
+  // ============
+  useEffect(() => {
+    GET_NEW_UPDATED_CART_ITEM();
+    // console.log("RAN RAN RAN!");
+  }, []);
+  // ============
+
+  // INCREMENT CART
+  const handleINCREMENT = async (pid) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/increment`,
+      {
+        id: pid,
+      },
+      headersOpts
+    );
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data && response.data.success) {
+      await GET_NEW_UPDATED_CART_ITEM();
+
+      // console.log("Item Incremented", response.data.data);
+    }
+  };
+  // END
+
+  // ====================================
+
+  // DECREMENT
+  const handleDECREMENT = async (pid) => {
+    const response = await axios.post(
+      `${BASE_URL}/api/decrement`,
+      {
+        id: pid,
+      },
+      headersOpts
+    );
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data && response.data.success) {
+      await GET_NEW_UPDATED_CART_ITEM();
+
+      // console.log("Item Incremented", response.data.data);
+    }
+  };
+  // END
+
   return (
     <>
       <div className={styles.Wrapper}>
@@ -388,6 +481,7 @@ const TopNav = () => {
             Your Cart
           </Offcanvas.Title>
         </Offcanvas.Header>
+
         <Offcanvas.Body>
           {fetch_cart == 0 && (
             <h1 className={styles.is_empty_state}>Your Cart is Empty.</h1>
@@ -421,24 +515,41 @@ const TopNav = () => {
                     <div
                       id={styles._top_nav_offcanvas_wishlist_boxes_ADD_TO_CART}
                     >
-                      <button>-</button>
-                      <input type="text" defaultValue={pc.qty} />
-                      <button>+</button>
+                      <button onClick={() => handleDECREMENT(pc._id)}>-</button>
+                      <input
+                        type="text"
+                        value={pc.qty}
+                        readOnly
+                        // onChange={handleQtyUpdated}
+                      />
+                      <button onClick={() => handleINCREMENT(pc._id)}>+</button>
                     </div>
 
                     <div id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}>
-                      <MdClose
-                        id={
-                          styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON
-                        }
-                        onClick={() => handleRemoveCart(pc._id)}
-                      />
+                      <abbr
+                        title={`Remove ${pc.title} from Cart`}
+                        style={{ all: "unset" }}
+                      >
+                        <MdClose
+                          id={
+                            styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON
+                          }
+                          onClick={() => handleRemoveCart(pc._id)}
+                        />
+                      </abbr>
                     </div>
                   </Col>
                 </Row>
               </div>
             ))}
         </Offcanvas.Body>
+
+        {fetch_cart.length > 0 && (
+          <div className={styles._cart_checkout_wrapper}>
+            <h5>Total: 300</h5>
+            <button>Check Out</button>
+          </div>
+        )}
       </Offcanvas>
       {/* END */}
 
