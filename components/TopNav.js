@@ -27,7 +27,7 @@ import { useRouter } from "next/router";
 
 import Swal from "sweetalert2";
 
-import { debounce } from "lodash";
+import debounce from "lodash.debounce";
 
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
@@ -59,12 +59,42 @@ const TopNav = () => {
   const { prod_wishlist, prod_cart } = useSelector((state) => state?.product);
 
   const [search_results, setSearchResults] = useState(null);
+  const [map_results, setMapResults] = useState(null);
+  const [search_not_found, setSearchNotFound] = useState(true);
 
   // ========SEARCH FUNCTION==================
 
   useEffect(() => {
-    const getResults = async () => {
-      const response = await axios.get(`${BASE_URL}/api/search`, headersOpts);
+    if (search_prod !== "" || search_prod !== " ") {
+      const new_search_results = search_results?.filter((x) =>
+        x.title.toLowerCase().includes(search_prod.toLowerCase())
+      );
+      if (new_search_results?.length > 0) {
+        setMapResults(new_search_results);
+        setSearchNotFound(false);
+      } else {
+        setSearchNotFound(true);
+        setMapResults(null);
+      }
+    }
+
+    if (search_prod === "" || search_prod === " ") {
+      setMapResults(null);
+      setSearchNotFound(true);
+    }
+  }, [search_prod]);
+
+  // console.log(search_results);
+
+  useEffect(() => {
+    const GET_SEARCH_RESULTS = async () => {
+      const response = await axios.get(
+        `${BASE_URL}/api/search`,
+        {
+          title: search_prod,
+        },
+        headersOpts
+      );
 
       if (!response.data.results) {
         return setSearchResults(null);
@@ -72,11 +102,24 @@ const TopNav = () => {
 
       if (response && response.data && response.data.results) {
         setSearchResults(response.data.data);
-        console.log(response.data.data);
       }
     };
-    getResults();
+    GET_SEARCH_RESULTS();
   }, []);
+
+  // useEffect(() => {
+  //   // const getResults = async () => {
+  //   //   const response = await axios.get(`${BASE_URL}/api/search`, headersOpts);
+  //   //   if (!response.data.results) {
+  //   //     return setSearchResults(null);
+  //   //   }
+  //   //   if (response && response.data && response.data.results) {
+  //   //     setSearchResults(response.data.data);
+  //   //     // console.log(response.data.data);
+  //   //   }
+  //   // };
+  //   // getResults();
+  // }, [search_prod]);
 
   // END
 
@@ -646,20 +689,29 @@ const TopNav = () => {
               type="text"
               placeholder="Search product..."
               value={search_prod}
-              onChange={(e) => setSearchProd(e.target.value)}
+              onChange={(e) => {
+                // search_debounce
+                setSearchProd(e.target.value);
+              }}
             />
-            <p>Typing...</p>
+
+            {/* ========================================== */}
+            {search_not_found && <p>No results found.</p>}
+            {/* ========================================= */}
 
             <div id={styles._top_nav_offcanvas_search_RESULTS}>
               <Row className="gy-0 gx-3">
-                <Col xs={6} md={4} lg={3}>
-                  <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
-                    <abbr title="See more details" style={{ all: "unset" }}>
-                      <img src="/bgs/p1.jpg" />
-                      <h6>Lumpiang Shanghai</h6>
-                    </abbr>
-                  </div>
-                </Col>
+                {map_results?.length > 0 &&
+                  map_results?.map((sr) => (
+                    <Col xs={6} md={4} lg={3} key={sr._id}>
+                      <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
+                        <abbr title="See more details" style={{ all: "unset" }}>
+                          <img src={`/dish/${sr.img}`} />
+                          <h6>{sr.title}</h6>
+                        </abbr>
+                      </div>
+                    </Col>
+                  ))}
               </Row>
             </div>
           </div>
