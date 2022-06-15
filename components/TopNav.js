@@ -27,8 +27,7 @@ import { useRouter } from "next/router";
 
 import Swal from "sweetalert2";
 
-
-
+import { debounce } from "lodash";
 
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
@@ -58,6 +57,21 @@ const TopNav = () => {
   const { userWishList, userCart } = useSelector((state) => state?.c_w);
 
   const { prod_wishlist, prod_cart } = useSelector((state) => state?.product);
+
+  const [search_results, setSearchResults] = useState(null);
+
+  // ========SEARCH FUNCTION==================
+
+  useEffect(() => {
+    const getResults = debounce(() => {
+      const response = await axios.get(`${BASE_URL}/api/search`, headersOpts)
+      
+    }, 500);
+    getResults();
+    console.log("Searching product...");
+  }, [search_prod]);
+
+  // END
 
   useEffect(() => {
     if (prod_cart !== null) {
@@ -314,19 +328,7 @@ const TopNav = () => {
 
   // END
 
-
-
-// =======================================================
-
-
-// ========SEARCH FUNCTION==================
-const handleProductSearch = async () => {
-
-}
-// END
-
-
-
+  // =======================================================
 
   return (
     <>
