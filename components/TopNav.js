@@ -27,11 +27,17 @@ import { useRouter } from "next/router";
 
 import Swal from "sweetalert2";
 
+
+
+
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
+  // =========SEARCH===================
+  const [search_prod, setSearchProd] = useState("");
+  // =========END=====================
   const [text, setText] = useState(
     "Amet consectetur reprehenderit nostrud ullamco id velit enimaute laboris in. Deserunt ut elit labore elit mollit ametLorem ipsum reprehenderit reprehenderit consectetur velit.Nisi reprehenderit quis excepteur tempor eiusmod ut ullamcoamet ipsum. Mollit consequat ea reprehenderit commodo dolorduis consequat amet culpa ex est qui."
   );
@@ -307,6 +313,20 @@ const TopNav = () => {
   // console.log(total);
 
   // END
+
+
+
+// =======================================================
+
+
+// ========SEARCH FUNCTION==================
+const handleProductSearch = async () => {
+
+}
+// END
+
+
+
 
   return (
     <>
@@ -613,33 +633,22 @@ const TopNav = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div id={styles._top_nav_offcanvas_search_wrapper}>
-            <input type="text" placeholder="Search product..." />
+            <input
+              type="text"
+              placeholder="Search product..."
+              value={search_prod}
+              onChange={(e) => setSearchProd(e.target.value)}
+            />
             <p>Typing...</p>
 
             <div id={styles._top_nav_offcanvas_search_RESULTS}>
               <Row className="gy-0 gx-3">
                 <Col xs={6} md={4} lg={3}>
                   <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
-                    <img src="/bgs/p1.jpg" />
-                    <h6>Lumpiang Shanghai</h6>
-                  </div>
-                </Col>
-                <Col xs={6} md={4} lg={3}>
-                  <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
-                    <img src="/bgs/p1.jpg" />
-                    <h6>Lumpiang Shanghai</h6>
-                  </div>
-                </Col>
-                <Col xs={6} md={4} lg={3}>
-                  <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
-                    <img src="/bgs/p1.jpg" />
-                    <h6>Lumpiang Shanghai</h6>
-                  </div>
-                </Col>
-                <Col xs={6} md={4} lg={3}>
-                  <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
-                    <img src="/bgs/p1.jpg" />
-                    <h6>Lumpiang Shanghai</h6>
+                    <abbr title="See more details" style={{ all: "unset" }}>
+                      <img src="/bgs/p1.jpg" />
+                      <h6>Lumpiang Shanghai</h6>
+                    </abbr>
                   </div>
                 </Col>
               </Row>
