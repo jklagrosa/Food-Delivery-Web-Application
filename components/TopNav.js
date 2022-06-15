@@ -63,13 +63,20 @@ const TopNav = () => {
   // ========SEARCH FUNCTION==================
 
   useEffect(() => {
-    const getResults = debounce(() => {
-      const response = await axios.get(`${BASE_URL}/api/search`, headersOpts)
-      
-    }, 500);
+    const getResults = async () => {
+      const response = await axios.get(`${BASE_URL}/api/search`, headersOpts);
+
+      if (!response.data.results) {
+        return setSearchResults(null);
+      }
+
+      if (response && response.data && response.data.results) {
+        setSearchResults(response.data.data);
+        console.log(response.data.data);
+      }
+    };
     getResults();
-    console.log("Searching product...");
-  }, [search_prod]);
+  }, []);
 
   // END
 
