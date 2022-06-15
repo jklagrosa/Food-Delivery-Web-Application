@@ -298,6 +298,16 @@ const TopNav = () => {
   };
   // END
 
+  // TOTAL TO PAY
+  let total = 0;
+  fetch_cart?.forEach((el) => {
+    return (total += el.price * el.qty);
+  });
+
+  // console.log(total);
+
+  // END
+
   return (
     <>
       <div className={styles.Wrapper}>
@@ -577,7 +587,7 @@ const TopNav = () => {
 
         {fetch_cart?.length > 0 && (
           <div className={styles._cart_checkout_wrapper}>
-            <h5>Total: ₱300</h5>
+            <h5>Total: ₱{total}</h5>
             <button onClick={handleCheckOut}>Check Out</button>
           </div>
         )}
