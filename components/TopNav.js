@@ -703,7 +703,13 @@ const TopNav = () => {
               <Row className="gy-0 gx-3">
                 {map_results?.length > 0 &&
                   map_results?.map((sr) => (
-                    <Col xs={6} md={4} lg={3} key={sr._id}>
+                    <Col
+                      xs={6}
+                      md={4}
+                      lg={3}
+                      key={sr._id}
+                      onClick={() => handleSeeMore(sr._id)}
+                    >
                       <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
                         <abbr title="See more details" style={{ all: "unset" }}>
                           <img src={`/dish/${sr.img}`} />
