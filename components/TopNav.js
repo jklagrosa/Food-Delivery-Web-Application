@@ -25,6 +25,8 @@ import axios from "axios";
 import { BASE_URL, headersOpts } from "../utils/others";
 import { useRouter } from "next/router";
 
+import Swal from "sweetalert2";
+
 const TopNav = () => {
   const [showWish, setShowWish] = useState(false);
   const [showCart, setShowCart] = useState(false);
@@ -270,8 +272,28 @@ const TopNav = () => {
   // CHECK OUT
   const handleCheckOut = async () => {
     const response = await axios.post(`${BASE_URL}/api/check-out`, headersOpts);
-    if(){
-      
+    if (!response.data.success) {
+      toast.error("Please try again later.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      });
+      return;
+    }
+
+    if (response && response.data && response.data.success) {
+      await GET_NEW_UPDATED_CART_ITEM();
+
+      // =============================
+      Swal.fire(
+        "You're the best!",
+        "Thank you for shopping with us.",
+        "success"
+      );
     }
   };
   // END
@@ -553,7 +575,7 @@ const TopNav = () => {
             ))}
         </Offcanvas.Body>
 
-        {fetch_cart && (
+        {fetch_cart?.length > 0 && (
           <div className={styles._cart_checkout_wrapper}>
             <h5>Total: ₱300</h5>
             <button onClick={handleCheckOut}>Check Out</button>
