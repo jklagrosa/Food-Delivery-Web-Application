@@ -267,6 +267,15 @@ const TopNav = () => {
   };
   // END
 
+  // CHECK OUT
+  const handleCheckOut = async () => {
+    const response = await axios.post(`${BASE_URL}/api/check-out`, headersOpts);
+    if(){
+      
+    }
+  };
+  // END
+
   return (
     <>
       <div className={styles.Wrapper}>
@@ -544,10 +553,10 @@ const TopNav = () => {
             ))}
         </Offcanvas.Body>
 
-        {fetch_cart.length > 0 && (
+        {fetch_cart && (
           <div className={styles._cart_checkout_wrapper}>
-            <h5>Total: 300</h5>
-            <button>Check Out</button>
+            <h5>Total: ₱300</h5>
+            <button onClick={handleCheckOut}>Check Out</button>
           </div>
         )}
       </Offcanvas>
