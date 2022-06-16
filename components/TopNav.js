@@ -246,6 +246,20 @@ const TopNav = () => {
   };
   // END
 
+  // ======================================
+
+  // SEE MORE DETAILS - SEARCH
+  const handleSeeMore_SEARCH = (id) => {
+    if (id) {
+      dispatch(resetWishAndCart());
+      return router.push({
+        pathname: "/product-redirect",
+        query: { id: id },
+      });
+    }
+  };
+  // END SEARCH
+
   // ========================================
 
   // FETCH ALL CART ITEMS
@@ -708,7 +722,7 @@ const TopNav = () => {
                       md={4}
                       lg={3}
                       key={sr._id}
-                      onClick={() => handleSeeMore(sr._id)}
+                      onClick={() => handleSeeMore_SEARCH(sr._id)}
                     >
                       <div id={styles._top_nav_offcanvas_search_RESULTS_COLS}>
                         <abbr title="See more details" style={{ all: "unset" }}>

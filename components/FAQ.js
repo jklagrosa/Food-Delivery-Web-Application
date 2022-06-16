@@ -4,7 +4,7 @@ import { Container, Accordion } from "react-bootstrap";
 const FAQ = () => {
   return (
     <>
-      <div className={styles.Wrapper}>
+      <div className={styles.Wrapper} id="faq">
         <Container fluid="lg" className="p-0">
           <h1>
             <span>Frequently</span> Asked Questions

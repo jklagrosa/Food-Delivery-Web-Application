@@ -181,7 +181,7 @@ const TodaySpecial = () => {
 
   return (
     <>
-      <div className={styles.Wrapper}>
+      <div className={styles.Wrapper} id="ts">
         <Container fluid="lg" className="p-0">
           {HAS_DATA && (
             <>

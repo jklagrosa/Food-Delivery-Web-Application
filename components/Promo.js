@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 const Promo = () => {
   return (
     <>
-      <div className={styles.Wrapper}>
+      <div className={styles.Wrapper} id="pr">
         <Container fluid="lg" className="p-0">
           <Row className="g-3">
             <Col xs={12} lg={6}>

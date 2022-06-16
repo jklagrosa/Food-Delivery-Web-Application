@@ -9,7 +9,7 @@ import {
 const Services = () => {
   return (
     <>
-      <div className={styles.Wrapper}>
+      <div className={styles.Wrapper} id="services">
         <Container fluid="lg" className="p-0">
           <Row className="g-3">
             <Col xs={12} sm={6} md={4}>

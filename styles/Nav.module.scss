@@ -1,6 +1,74 @@
 @import "../styles/utils.module.scss";
 
 
+
+
+
+#_offcanvas_navbar_links{
+    max-width: 300px;
+    width: 100%;
+
+    @media only screen and (max-width: 425px) { 
+        max-width: 200px;
+    }
+
+
+    h3{
+        margin: 0;
+        font-size: 1.5rem;
+        font-family: $CURSIVE_H;
+        color: $YELLOW;
+
+        @media only screen and (max-width: 425px) { 
+           font-size: 1.1rem;
+        }
+    }
+
+    a{
+        display: inline-block;
+        // background-color: red;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: $BLACK_BG;
+        transition: all 0.2s ease-in-out;
+
+        &:nth-child(1){
+            margin-top: 1.25rem;
+        }
+
+        &:hover, &:active{
+            color: $GRAY;
+        }
+
+       
+        @media only screen and (max-width: 425px) { 
+            font-size: 1.25rem;
+         }
+
+
+    }
+
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+._navbar_collapse_hide_on_991_px{
+    @media only screen and (max-width: 991px) {
+        display: none;
+     }
+}
+
+
 #_main_navbar_wrapper_color_change{
     position: fixed;
     // width: 100%;
