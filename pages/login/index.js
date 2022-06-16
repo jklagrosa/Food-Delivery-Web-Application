@@ -2,7 +2,7 @@ import styles from "../../styles/Login.module.scss";
 import { Container } from "react-bootstrap";
 import Footer from "../../components/Footer";
 import Copyright from "../../components/Copyright";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import axios from "axios";
 import { BASE_URL, headersOpts } from "../../utils/others";
@@ -18,8 +18,24 @@ const Login = () => {
 
   const [loading, setLoading] = useState(true);
 
+  const [IS_USER, SET_IS_USER] = useState(false);
+
   const router = useRouter();
   const dispatch = useDispatch();
+
+  // IF USER IS ALREADY LOGGED IN REDIRECT TO HOMEPAGE
+  useEffect(() => {
+    let isUser = window.localStorage.getItem("user")
+      ? JSON.parse(window.localStorage.getItem("user"))
+      : false;
+    if (isUser) {
+      SET_IS_USER(true);
+      router.push("/");
+    }
+  }, []);
+  // END
+
+  // ===================================================
 
   const handleLogInUser = async (e) => {
     e.preventDefault();
@@ -52,7 +68,7 @@ const Login = () => {
     return response.data;
   };
 
-  return (
+  return !IS_USER ? (
     <>
       <div className={styles.Wrapper}>
         <Container fluid="lg" className="p-0">
@@ -94,6 +110,10 @@ const Login = () => {
       </div>
       <Footer />
       <Copyright />
+    </>
+  ) : (
+    <>
+      <p className={styles.IS_LOGGED_IN}>Please wait...</p>
     </>
   );
 };

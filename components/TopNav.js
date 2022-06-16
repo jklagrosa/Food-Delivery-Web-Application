@@ -125,14 +125,17 @@ const TopNav = () => {
 
   useEffect(() => {
     if (prod_cart !== null) {
-      setFetchCart(prod_cart);
+      let reversed_cart = Array.from(prod_cart);
+      setFetchCart(reversed_cart.reverse());
       // console.log(prod_wishlist);
     }
   }, [prod_cart]);
 
   useEffect(() => {
     if (prod_wishlist !== null) {
-      setFetchWish(prod_wishlist);
+      let reversed_wishlist = Array.from(prod_wishlist);
+      setFetchWish(reversed_wishlist.reverse());
+      // setFetchWish(prod_wishlist);
       // console.log(prod_wishlist);
     }
   }, [prod_wishlist]);

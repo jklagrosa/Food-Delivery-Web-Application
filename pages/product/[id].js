@@ -88,6 +88,23 @@ const ProductID = ({ data, display }) => {
 
   const dispatch = useDispatch();
 
+  // ===========================
+  const [IS_LOGGED_IN, SET_IS_LOGGED_IN] = useState(false);
+  // ==================
+
+  // CHECKS IF THE USER IS LOGGED IN
+  useEffect(() => {
+    const userId = window.localStorage.getItem("user")
+      ? JSON.parse(window.localStorage.getItem("user"))
+      : false;
+    if (userId) {
+      SET_IS_LOGGED_IN(true);
+    } else {
+      SET_IS_LOGGED_IN(false);
+    }
+  }, []);
+  // END
+
   useEffect(() => {
     if (!parsed_product) {
       setProduct(null);
@@ -282,28 +299,61 @@ const ProductID = ({ data, display }) => {
                   <div className={styles._product_display}>
                     <img src={`/dish/${product?.img}`} alt={product?.title} />
 
-                    <div className={styles._product_cart_n_wish}>
-                      <abbr
-                        title="Add to your Wishlist"
-                        style={{ all: "unset" }}
-                      >
-                        <button onClick={() => handleWishList(product?._id)}>
-                          <BsFillSuitHeartFill
-                            className={styles._product_cart_n_wish_ICON}
-                          />{" "}
-                          Add to Wishlist
-                        </button>
-                      </abbr>
+                    {/* IF USER IS LOGGED IN */}
+                    {IS_LOGGED_IN && (
+                      <div className={styles._product_cart_n_wish}>
+                        <abbr
+                          title="Add to your Wishlist"
+                          style={{ all: "unset" }}
+                        >
+                          <button onClick={() => handleWishList(product?._id)}>
+                            <BsFillSuitHeartFill
+                              className={styles._product_cart_n_wish_ICON}
+                            />{" "}
+                            Add to Wishlist
+                          </button>
+                        </abbr>
 
-                      <abbr title="Add to your Cart" style={{ all: "unset" }}>
-                        <button onClick={() => handleCartItem(product?._id)}>
-                          <BsFillCartFill
-                            className={styles._product_cart_n_wish_ICON}
-                          />{" "}
-                          Add to Cart
-                        </button>
-                      </abbr>
-                    </div>
+                        <abbr title="Add to your Cart" style={{ all: "unset" }}>
+                          <button onClick={() => handleCartItem(product?._id)}>
+                            <BsFillCartFill
+                              className={styles._product_cart_n_wish_ICON}
+                            />{" "}
+                            Add to Cart
+                          </button>
+                        </abbr>
+                      </div>
+                    )}
+                    {/* END */}
+                    {/* ================================================== */}
+
+                    {/* IF USER IS NOT LOGGED IN */}
+                    {!IS_LOGGED_IN && (
+                      <div className={styles._product_cart_n_wish}>
+                        <abbr
+                          title="Add to your Wishlist"
+                          style={{ all: "unset" }}
+                        >
+                          <button onClick={() => router.push("/login")}>
+                            <BsFillSuitHeartFill
+                              className={styles._product_cart_n_wish_ICON}
+                            />{" "}
+                            Add to Wishlist
+                          </button>
+                        </abbr>
+
+                        <abbr title="Add to your Cart" style={{ all: "unset" }}>
+                          <button onClick={() => router.push("/login")}>
+                            <BsFillCartFill
+                              className={styles._product_cart_n_wish_ICON}
+                            />{" "}
+                            Add to Cart
+                          </button>
+                        </abbr>
+                      </div>
+                    )}
+                    {/* END */}
+                    {/* ====================================== */}
 
                     <h1>{product?.title}</h1>
 
