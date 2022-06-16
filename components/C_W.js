@@ -13,6 +13,8 @@ const CartAndWishList = () => {
 
   const dispatch = useDispatch();
 
+  const { prod_wishlist, prod_cart } = useSelector((state) => state?.product);
+
   useEffect(() => {
     const changeNavbarColor = () => {
       if (window.scrollY >= 400) {
@@ -67,7 +69,7 @@ const CartAndWishList = () => {
             />
 
             <sup>
-              <Badge className={styles.Cart_Badge}>13</Badge>
+              <Badge className={styles.Cart_Badge}>{prod_cart?.length}</Badge>
             </sup>
           </abbr>
         </div>
@@ -85,7 +87,9 @@ const CartAndWishList = () => {
               style={{ cursor: "pointer" }}
             />
             <sup>
-              <Badge className={styles.Cart_Badge}>13</Badge>
+              <Badge className={styles.Cart_Badge}>
+                {prod_wishlist?.length}
+              </Badge>
             </sup>
           </abbr>
         </div>

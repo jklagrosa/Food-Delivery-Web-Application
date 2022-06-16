@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
-      data: GET_ALL_CART.reverse(),
+      data: GET_ALL_CART, // REMOVE THE REVERSE METHOD
     });
   }
 
