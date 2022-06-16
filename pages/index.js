@@ -13,7 +13,7 @@ import CartAndWishList from "../components/C_W";
 
 import DbConnection from "../utils/conn";
 import Dish from "../models/dish";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { GET_TODAY_SPECIAL, GET_FEATURED } from "../store/dish";
 
@@ -43,6 +43,7 @@ export default function Home({ ts, ft }) {
   const parsed_ft = ft ? JSON.parse(ft) : false;
 
   const dispatch = useDispatch();
+  const { userData } = useSelector((state) => state?.user);
 
   useEffect(() => {
     if (parsed_ts) {
@@ -55,6 +56,15 @@ export default function Home({ ts, ft }) {
       dispatch(GET_FEATURED(parsed_ft));
     }
   }, [dispatch]);
+
+  // ======= GET USER CREDENTIALS ===========
+  useEffect(() => {
+    if (userData) {
+      window.localStorage.setItem("user", JSON.stringify(userData._id));
+    }
+  }, [userData]);
+
+  // ======== END ======================
 
   return (
     <>

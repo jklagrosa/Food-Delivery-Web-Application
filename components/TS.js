@@ -28,6 +28,23 @@ const TodaySpecial = () => {
 
   // ===================
 
+  // ===========================
+  const [IS_LOGGED_IN, SET_IS_LOGGED_IN] = useState(false);
+  // ==================
+
+  // CHECKS IF THE USER IS LOGGED IN
+  useEffect(() => {
+    const userId = window.localStorage.getItem("user")
+      ? JSON.parse(window.localStorage.getItem("user"))
+      : false;
+    if (userId) {
+      SET_IS_LOGGED_IN(true);
+    } else {
+      SET_IS_LOGGED_IN(false);
+    }
+  }, []);
+  // END
+
   useEffect(() => {
     if (todays_special !== null) {
       setData(todays_special);
@@ -232,24 +249,54 @@ const TodaySpecial = () => {
                         </Card.Text>
                       </Card.Body>
                       <Card.Footer id={styles._ts_card_footer}>
-                        <div className={styles._ts_card_btn_wrapper}>
-                          <abbr
-                            title="Add to Wishlist"
-                            style={{ all: "unset" }}
-                          >
-                            <button onClick={() => handleWishList(res._id)}>
-                              <BsFillSuitHeartFill
-                                id={styles._ts_card_btn_func}
-                              />
-                            </button>
-                          </abbr>
-                          <span className="mx-2"></span>
-                          <abbr title="Add to Cart" style={{ all: "unset" }}>
-                            <button onClick={() => handleCartItem(res._id)}>
-                              <BsFillCartFill id={styles._ts_card_btn_func} />
-                            </button>
-                          </abbr>
-                        </div>
+                        {/* IF USER IS NOT LOGGED IN */}
+                        {!IS_LOGGED_IN && (
+                          <div className={styles._ts_card_btn_wrapper}>
+                            <abbr
+                              title="Add to Wishlist"
+                              style={{ all: "unset" }}
+                            >
+                              <button onClick={() => router.push("/login")}>
+                                <BsFillSuitHeartFill
+                                  id={styles._ts_card_btn_func}
+                                />
+                              </button>
+                            </abbr>
+                            <span className="mx-2"></span>
+                            <abbr title="Add to Cart" style={{ all: "unset" }}>
+                              <button onClick={() => router.push("/login")}>
+                                <BsFillCartFill id={styles._ts_card_btn_func} />
+                              </button>
+                            </abbr>
+                          </div>
+                        )}
+                        {/* END */}
+
+                        {/* ====================================================================== */}
+
+                        {/* IF USER IS LOGGED IN */}
+                        {IS_LOGGED_IN && (
+                          <div className={styles._ts_card_btn_wrapper}>
+                            <abbr
+                              title="Add to Wishlist"
+                              style={{ all: "unset" }}
+                            >
+                              <button onClick={() => handleWishList(res._id)}>
+                                <BsFillSuitHeartFill
+                                  id={styles._ts_card_btn_func}
+                                />
+                              </button>
+                            </abbr>
+                            <span className="mx-2"></span>
+                            <abbr title="Add to Cart" style={{ all: "unset" }}>
+                              <button onClick={() => handleCartItem(res._id)}>
+                                <BsFillCartFill id={styles._ts_card_btn_func} />
+                              </button>
+                            </abbr>
+                          </div>
+                        )}
+
+                        {/* END */}
                       </Card.Footer>
                     </Card>
                   </Col>

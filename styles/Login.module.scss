@@ -141,6 +141,70 @@
             }
         }
 
+
+
+
+
+
+
+        ._login_form_btn_LOADING{
+            all: unset;
+            cursor:no-drop;
+            display: block;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            background-color: gray;
+            color: $WHITE;
+            padding: 0.6rem;
+            max-width: 300px;
+            width: 100%;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+
+           
+
+            @media only screen and (min-width: 2501px){
+                max-width: 547px;
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            @media only screen and (min-width: 2301px) and (max-width: 2500px) {
+                max-width: 450px;
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+
+            @media only screen and (min-width: 1901px) and (max-width: 2300px) {
+                max-width: 395px;
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            @media only screen and (min-width: 1500px) and (max-width: 1900px) {
+                max-width: 350px;
+                font-size: 1.25rem;
+             }
+
+            @media only screen and (max-width: 576px) {
+                max-width: 225px;
+                font-size: 0.8rem;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         ._login_form_btn{
             all: unset;
             cursor: pointer;
