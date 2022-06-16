@@ -6,6 +6,8 @@ import { BsFillSuitHeartFill, BsFillCartFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { openWishList, openCart, resetWishAndCart } from "../store/c_w";
 
+import { useSelector } from "react-redux";
+
 const CartAndWishList = () => {
   const [colorChange, setColorChange] = useState(false);
 

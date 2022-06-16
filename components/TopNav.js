@@ -446,7 +446,9 @@ const TopNav = () => {
                 />
 
                 <sup>
-                  <Badge className={styles.Cart_Badge}>3</Badge>
+                  <Badge className={styles.Cart_Badge}>
+                    {prod_cart?.length}
+                  </Badge>
                 </sup>
               </abbr>
 
@@ -465,7 +467,9 @@ const TopNav = () => {
                   onClick={handleShowWishList}
                 />
                 <sup>
-                  <Badge className={styles.Cart_Badge}>3</Badge>
+                  <Badge className={styles.Cart_Badge}>
+                    {prod_wishlist?.length}
+                  </Badge>
                 </sup>
               </abbr>
 
