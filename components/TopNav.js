@@ -399,7 +399,7 @@ const TopNav = () => {
       // =============================
       Swal.fire(
         "You're the best!",
-        "Thank you for shopping with us.",
+        "Thank you for choosing us! We appreciate it.",
         "success"
       );
     }
