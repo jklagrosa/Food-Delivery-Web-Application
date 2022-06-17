@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { GET_TODAY_SPECIAL, GET_FEATURED } from "../store/dish";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export async function getStaticProps() {
   await DbConnection();
@@ -74,6 +75,11 @@ export default function Home({ ts, ft }) {
 
   return (
     <>
+      <Head>
+        <title>Food Delivery Web Application</title>
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+      </Head>
+      {/* ============================================== */}
       <TopNav />
       <Navigation />
       <Hero />
