@@ -541,7 +541,7 @@ const TopNav = () => {
               {/* IF THE USER IS LOGGED IN */}
               {the_user_logged_in && (
                 <abbr
-                  title="Login as Demo User"
+                  title="Logout as Demo User"
                   style={{ all: "unset", cursor: "default" }}
                   className={styles.Contact_Tooltip}
                 >
