@@ -4,6 +4,8 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <title>Food Delivery Web Application</title>
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
         {/* =========HEADER FONT=========== */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
