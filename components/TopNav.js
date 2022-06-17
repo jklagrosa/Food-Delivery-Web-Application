@@ -402,7 +402,7 @@ const TopNav = () => {
         "Thank you for choosing us! We appreciate it.",
         "success"
       );
-    }
+    } 
 
     setCheckOutLoading(true);
 
