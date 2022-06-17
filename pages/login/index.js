@@ -9,8 +9,10 @@ import { BASE_URL, headersOpts } from "../../utils/others";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { DEMO_USER } from "../../store/user";
+
+// ==============================================
 
 const Login = () => {
   const [username, setUsername] = useState("DemoUser");
@@ -22,6 +24,12 @@ const Login = () => {
 
   const router = useRouter();
   const dispatch = useDispatch();
+  // ==================================================
+  const { user_logout } = useSelector((state) => state?.product);
+  if (user_logout) {
+    router.reload();
+  }
+  // ==================================================
 
   // IF USER IS ALREADY LOGGED IN REDIRECT TO HOMEPAGE
   useEffect(() => {
@@ -36,6 +44,8 @@ const Login = () => {
   // END
 
   // ===================================================
+
+  //==============================================
 
   const handleLogInUser = async (e) => {
     e.preventDefault();

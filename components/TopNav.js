@@ -19,7 +19,7 @@ import { VscSignIn } from "react-icons/vsc";
 import { useSelector, useDispatch } from "react-redux";
 import { resetWishAndCart } from "../store/c_w";
 
-import { GET_WISH_LIST, GET_CART_ITEMS } from "../store/wishNcart";
+import { GET_WISH_LIST, GET_CART_ITEMS, USER_LOGOUT } from "../store/wishNcart";
 
 import axios from "axios";
 import { BASE_URL, headersOpts } from "../utils/others";
@@ -551,7 +551,8 @@ const TopNav = () => {
                     style={{ cursor: "pointer" }}
                     onClick={() => {
                       window.localStorage.clear();
-                      router.push("/login");
+                      router.replace("/login");
+                      dispatch(USER_LOGOUT(true)); // here
                     }}
                   >
                     <VscSignIn className={styles.Contact_Icons} />
@@ -755,7 +756,10 @@ const TopNav = () => {
             {checkOutLoading && !the_user_logged_in && (
               <button
                 className={styles._cart_checkout_disable_btn}
-                onClick={() => router.push("/login")}
+                onClick={() => {
+                  dispatch(USER_LOGOUT(true));
+                  router.replace("/login");
+                }}
               >
                 Login to Continue
               </button>
