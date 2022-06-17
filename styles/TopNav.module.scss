@@ -1,7 +1,7 @@
 @import "../styles/utils.module.scss";
 
 
-
+ 
 
 ._cart_checkout_wrapper{
     padding: 0.6rem 1rem;
@@ -27,7 +27,7 @@
         }
     }
 
-    button{
+    ._cart_checkout_active_btn{
         all: unset;
         cursor: pointer;
         background-color: #0d6efd;
@@ -41,6 +41,65 @@
         &:hover{
             transition: all 0.2s ease-out;
             background-color: #03214b;
+        }
+    
+        @media only screen and (min-width: 2501px){
+            font-size: 2rem;
+        }
+    
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.75rem;
+        }
+    
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 1.5rem;
+        }
+    }
+
+    // LOADING
+
+    ._cart_checkout_loading_btn{
+        all: unset;
+        cursor: no-drop;
+        background-color: gray;
+        color: $WHITE;
+        width: 100%;
+        padding: 0.6rem 0;
+        font-size: 1.25rem;
+        text-align: center;
+        transition: all 0.2s ease-in;
+
+       
+    
+        @media only screen and (min-width: 2501px){
+            font-size: 2rem;
+        }
+    
+        @media only screen and (min-width: 2201px) and (max-width: 2500px) { 
+            font-size: 1.75rem;
+        }
+    
+        @media only screen and (min-width: 1801px) and (max-width: 2200px) { 
+            font-size: 1.5rem;
+        }
+    }
+
+    // IF USER IS NOT LOGGED THEN DISABLE THE CHECKOUT BTN
+
+    ._cart_checkout_disable_btn{
+        all: unset;
+        cursor: pointer;
+        background-color: gray;
+        color: $WHITE;
+        width: 100%;
+        padding: 0.6rem 0;
+        font-size: 1.25rem;
+        text-align: center;
+        transition: all 0.2s ease-in;
+
+        &:hover{
+            color: $BLACK;
+            background-color: $WHITE;
         }
     
         @media only screen and (min-width: 2501px){

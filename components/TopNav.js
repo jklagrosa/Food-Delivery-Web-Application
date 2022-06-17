@@ -15,7 +15,7 @@ import { RiPriceTag3Line } from "react-icons/ri";
 
 // import { BsPerson } from "react-icons/bs";
 import { MdDeliveryDining, MdLogin, MdClose } from "react-icons/md";
-// import { VscSignIn } from "react-icons/vsc";
+import { VscSignIn } from "react-icons/vsc";
 import { useSelector, useDispatch } from "react-redux";
 import { resetWishAndCart } from "../store/c_w";
 
@@ -51,6 +51,10 @@ const TopNav = () => {
   const [fetch_cart, setFetchCart] = useState(null);
   // END
 
+  // LOADING STATE
+  const [checkOutLoading, setCheckOutLoading] = useState(true);
+  // END
+
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -61,6 +65,22 @@ const TopNav = () => {
   const [search_results, setSearchResults] = useState(null);
   const [map_results, setMapResults] = useState(null);
   const [search_not_found, setSearchNotFound] = useState(true);
+
+  // CHECKS IF THE USER IS LOGGED IN OR NOT
+  const [the_user_logged_in, setThe_User_Is_Logged_in] = useState(false);
+  useEffect(() => {
+    let is_user_logged_in = window.localStorage.getItem("user")
+      ? JSON.parse(window.localStorage.getItem("user"))
+      : false;
+    if (is_user_logged_in) {
+      setThe_User_Is_Logged_in(true);
+    } else {
+      setThe_User_Is_Logged_in(false);
+    }
+  }, [the_user_logged_in]);
+
+  // END
+  // ======================================================================
 
   // ========SEARCH FUNCTION==================
 
@@ -358,6 +378,8 @@ const TopNav = () => {
 
   // CHECK OUT
   const handleCheckOut = async () => {
+    setCheckOutLoading(false);
+
     const response = await axios.post(`${BASE_URL}/api/check-out`, headersOpts);
     if (!response.data.success) {
       toast.error("Please try again later.", {
@@ -369,7 +391,6 @@ const TopNav = () => {
         draggable: false,
         progress: undefined,
       });
-      return;
     }
 
     if (response && response.data && response.data.success) {
@@ -382,6 +403,10 @@ const TopNav = () => {
         "success"
       );
     }
+
+    setCheckOutLoading(true);
+
+    return response.data;
   };
   // END
 
@@ -489,24 +514,53 @@ const TopNav = () => {
               {/* END */}
 
               {/* ================================= */}
-              {/* IF USER IS NOT LOGGED IN */}
-              <span className="mx-2"></span>
 
-              <abbr
-                title="Login as Demo User"
-                style={{ all: "unset", cursor: "default" }}
-                className={styles.Contact_Tooltip}
-              >
-                <span
-                  className={styles._log_in_btn}
-                  id={styles._log_in_btn_hover}
-                  style={{ cursor: "pointer" }}
+              <span className="mx-2"></span>
+              {/* IF USER IS NOT LOGGED IN */}
+              {!the_user_logged_in && (
+                <abbr
+                  title="Login as Demo User"
+                  style={{ all: "unset", cursor: "default" }}
+                  className={styles.Contact_Tooltip}
                 >
-                  <MdLogin className={styles.Contact_Icons} />
-                  Login
-                </span>
-              </abbr>
+                  <span
+                    className={styles._log_in_btn}
+                    id={styles._log_in_btn_hover}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => router.push("/login")}
+                  >
+                    <MdLogin className={styles.Contact_Icons} />
+                    Login
+                  </span>
+                </abbr>
+              )}
               {/* END */}
+
+              {/* ================================================== */}
+
+              {/* IF THE USER IS LOGGED IN */}
+              {the_user_logged_in && (
+                <abbr
+                  title="Login as Demo User"
+                  style={{ all: "unset", cursor: "default" }}
+                  className={styles.Contact_Tooltip}
+                >
+                  <span
+                    className={styles._log_in_btn}
+                    id={styles._log_in_btn_hover}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      window.localStorage.clear();
+                      router.push("/login");
+                    }}
+                  >
+                    <VscSignIn className={styles.Contact_Icons} />
+                    Logout
+                  </span>
+                </abbr>
+              )}
+              {/* END */}
+              {/* ===================================================== */}
               {/* 
               <abbr
                 title="Login"
@@ -681,7 +735,31 @@ const TopNav = () => {
         {fetch_cart?.length > 0 && (
           <div className={styles._cart_checkout_wrapper}>
             <h5>Total: ₱{total}</h5>
-            <button onClick={handleCheckOut}>Check Out</button>
+            {checkOutLoading && the_user_logged_in && (
+              <button
+                onClick={handleCheckOut}
+                className={styles._cart_checkout_active_btn}
+              >
+                Check Out
+              </button>
+            )}
+
+            {/* LOADING CHECKOUT */}
+            {!checkOutLoading && (
+              <button className={styles._cart_checkout_loading_btn}>
+                Please wait...
+              </button>
+            )}
+            {/* ======================================== */}
+            {/* IF USER IS NOT LOGGED IN MAKE THE CHECK OUT BTN DISABLED */}
+            {checkOutLoading && !the_user_logged_in && (
+              <button
+                className={styles._cart_checkout_disable_btn}
+                onClick={() => router.push("/login")}
+              >
+                Login to Continue
+              </button>
+            )}
           </div>
         )}
       </Offcanvas>
