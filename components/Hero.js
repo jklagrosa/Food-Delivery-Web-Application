@@ -12,9 +12,17 @@ const Hero = () => {
             for our customers<span>.</span>
           </h1>
 
-          <button className={styles.hero_btns1}>Today&apos;s Special</button>
+          <button className={styles.hero_btns1}>
+            <a style={{ all: "unset" }} href="#ts">
+              Today&apos;s Special
+            </a>
+          </button>
           <span className="mx-2"></span>
-          <button className={styles.hero_btns2}>Featured</button>
+          <button className={styles.hero_btns2}>
+            <a style={{ all: "unset" }} href="#ft">
+              Featured
+            </a>
+          </button>
         </Container>
       </div>
     </>
