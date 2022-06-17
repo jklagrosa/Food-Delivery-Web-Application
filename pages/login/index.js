@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 
 import { useDispatch, useSelector } from "react-redux";
-import { DEMO_USER } from "../../store/user";
+import { DEMO_USER, REFRESH_PAGE } from "../../store/user";
 
 // ==============================================
 
@@ -71,7 +71,8 @@ const Login = () => {
 
     if (response && response.data && response.data.success) {
       dispatch(DEMO_USER(response.data.data));
-      router.push("/");
+      dispatch(REFRESH_PAGE(true));
+      router.replace("/");
     }
 
     setLoading(false);

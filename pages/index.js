@@ -16,6 +16,7 @@ import Dish from "../models/dish";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { GET_TODAY_SPECIAL, GET_FEATURED } from "../store/dish";
+import { useRouter } from "next/router";
 
 export async function getStaticProps() {
   await DbConnection();
@@ -43,7 +44,12 @@ export default function Home({ ts, ft }) {
   const parsed_ft = ft ? JSON.parse(ft) : false;
 
   const dispatch = useDispatch();
-  const { userData } = useSelector((state) => state?.user);
+  const router = useRouter();
+  const { userData, refresh_the_page } = useSelector((state) => state?.user);
+  if (refresh_the_page) {
+    router.reload();
+  }
+  // ===========================================
 
   useEffect(() => {
     if (parsed_ts) {
