@@ -261,10 +261,14 @@ const TopNav = () => {
   const handleSeeMore = (id) => {
     if (id) {
       dispatch(resetWishAndCart());
-      router.push({
-        pathname: "/product/[id]",
-        query: { id: id },
-      });
+       router.push({
+         pathname: "/product-redirect",
+         query: { id: id },
+       });
+      // router.push({
+      //   pathname: "/product/[id]",
+      //   query: { id: id },
+      // });
     }
   };
   // END
