@@ -76,20 +76,35 @@ const Navigation = () => {
                 Home
               </Nav.Link>
 
-              <Nav.Link href="#services" className={styles._navbar_links}>
+              <Nav.Link
+                href={router.pathname !== "/" ? router.push("/") : "#services"}
+                className={styles._navbar_links}
+              >
                 Services
               </Nav.Link>
 
-              <Nav.Link href="#ts" className={styles._navbar_links}>
+              <Nav.Link
+                href={router.pathname !== "/" ? router.push("/") : "#ts"}
+                className={styles._navbar_links}
+              >
                 Today&#39;s Special
               </Nav.Link>
-              <Nav.Link href="#ft" className={styles._navbar_links}>
+              <Nav.Link
+                href={router.pathname !== "/" ? router.push("/") : "#ft"}
+                className={styles._navbar_links}
+              >
                 Featured
               </Nav.Link>
-              <Nav.Link href="#pr" className={styles._navbar_links}>
+              <Nav.Link
+                href={router.pathname !== "/" ? router.push("/") : "#pr"}
+                className={styles._navbar_links}
+              >
                 Promo
               </Nav.Link>
-              <Nav.Link href="#faq" className={styles._navbar_links}>
+              <Nav.Link
+                href={router.pathname !== "/" ? router.push("/") : "#faq"}
+                className={styles._navbar_links}
+              >
                 FAQ
               </Nav.Link>
             </Nav>
@@ -113,15 +128,21 @@ const Navigation = () => {
             Home
           </a>
           <br />
-          <a href="#services">Services</a>
+          <a href={router.pathname !== "/" ? router.push("/") : "#services"}>
+            Services
+          </a>
           <br />
-          <a href="#ts">Today&#39;s Special</a>
+          <a href={router.pathname !== "/" ? router.push("/") : "#ts"}>
+            Today&#39;s Special
+          </a>
           <br />
-          <a href="#ft">Featured</a>
+          <a href={router.pathname !== "/" ? router.push("/") : "#ft"}>
+            Featured
+          </a>
           <br />
-          <a href="#pr">Promo</a>
+          <a href={router.pathname !== "/" ? router.push("/") : "#pr"}>Promo</a>
           <br />
-          <a href="#faq">FAQ</a>
+          <a href={router.pathname !== "/" ? router.push("/") : "#faq"}>FAQ</a>
         </Offcanvas.Body>
       </Offcanvas>
       {/* END */}
