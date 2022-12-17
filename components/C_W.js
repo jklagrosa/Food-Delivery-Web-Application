@@ -10,10 +10,23 @@ import { useSelector } from "react-redux";
 
 const CartAndWishList = () => {
   const [colorChange, setColorChange] = useState(false);
+  const [the_user_logged_in, setThe_User_Is_Logged_in] = useState(false);
 
   const dispatch = useDispatch();
 
   const { prod_wishlist, prod_cart } = useSelector((state) => state?.product);
+
+  // CHECKS IF THE USER IS LOGGED IN OR NOT
+  useEffect(() => {
+    let is_user_logged_in = window.localStorage.getItem("user")
+      ? JSON.parse(window.localStorage.getItem("user"))
+      : false;
+    if (is_user_logged_in) {
+      setThe_User_Is_Logged_in(true);
+    } else {
+      setThe_User_Is_Logged_in(false);
+    }
+  }, [the_user_logged_in]);
 
   useEffect(() => {
     const changeNavbarColor = () => {
@@ -67,10 +80,11 @@ const CartAndWishList = () => {
               className={styles.Contact_Icons}
               style={{ cursor: "pointer" }}
             />
-
-            <sup>
-              <Badge className={styles.Cart_Badge}>{prod_cart?.length}</Badge>
-            </sup>
+            {the_user_logged_in && (
+              <sup>
+                <Badge className={styles.Cart_Badge}>{prod_cart?.length}</Badge>
+              </sup>
+            )}
           </abbr>
         </div>
 
@@ -86,11 +100,13 @@ const CartAndWishList = () => {
               className={styles.Contact_Icons}
               style={{ cursor: "pointer" }}
             />
-            <sup>
-              <Badge className={styles.Cart_Badge}>
-                {prod_wishlist?.length}
-              </Badge>
-            </sup>
+            {the_user_logged_in && (
+              <sup>
+                <Badge className={styles.Cart_Badge}>
+                  {prod_wishlist?.length}
+                </Badge>
+              </sup>
+            )}
           </abbr>
         </div>
       </div>

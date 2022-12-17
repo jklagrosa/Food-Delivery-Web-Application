@@ -261,10 +261,10 @@ const TopNav = () => {
   const handleSeeMore = (id) => {
     if (id) {
       dispatch(resetWishAndCart());
-       router.push({
-         pathname: "/product-redirect",
-         query: { id: id },
-       });
+      router.push({
+        pathname: "/product-redirect",
+        query: { id: id },
+      });
       // router.push({
       //   pathname: "/product/[id]",
       //   query: { id: id },
@@ -476,12 +476,13 @@ const TopNav = () => {
                   style={{ cursor: "pointer" }}
                   onClick={handleShowCart}
                 />
-
-                <sup>
-                  <Badge className={styles.Cart_Badge}>
-                    {prod_cart?.length}
-                  </Badge>
-                </sup>
+                {the_user_logged_in && (
+                  <sup>
+                    <Badge className={styles.Cart_Badge}>
+                      {prod_cart?.length}
+                    </Badge>
+                  </sup>
+                )}
               </abbr>
 
               <span className="mx-2"></span>
@@ -498,11 +499,13 @@ const TopNav = () => {
                   style={{ cursor: "pointer" }}
                   onClick={handleShowWishList}
                 />
-                <sup>
-                  <Badge className={styles.Cart_Badge}>
-                    {prod_wishlist?.length}
-                  </Badge>
-                </sup>
+                {the_user_logged_in && (
+                  <sup>
+                    <Badge className={styles.Cart_Badge}>
+                      {prod_wishlist?.length}
+                    </Badge>
+                  </sup>
+                )}
               </abbr>
 
               {/* ================================= */}
@@ -600,63 +603,80 @@ const TopNav = () => {
             Your WishList
           </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
-          {fetch_wish == 0 && (
-            <h1 className={styles.is_empty_state}>Your Wishlist is Empty.</h1>
-          )}
+        {the_user_logged_in && (
+          <>
+            <Offcanvas.Body>
+              {fetch_wish == 0 && (
+                <h1 className={styles.is_empty_state}>
+                  Your Wishlist is Empty.
+                </h1>
+              )}
 
-          {/* =============== */}
+              {/* =============== */}
 
-          {fetch_wish &&
-            fetch_wish.map((pw) => (
-              <div id={styles._top_nav_offcanvas_wishlist_boxes} key={pw._id}>
-                <Row className="gy-0 gx-3">
-                  <Col xs={4}>
-                    <abbr title="See more details" style={{ all: "unset" }}>
-                      <img
-                        src={`/dish/${pw.img}`}
-                        style={{ cursor: "pointer" }}
-                        onClick={() => handleSeeMore(pw._id)}
-                      />
-                    </abbr>
-                  </Col>
-                  <Col xs={8}>
-                    <h6 id={styles._top_nav_offcanvas_wishlist_boxes_title}>
-                      {pw.title}
-                    </h6>
-                    <span>
-                      <BsGlobe2 /> {pw.cuisine}
-                    </span>
-                    <span>
-                      <AiOutlineStar /> {pw.ratings}/5
-                    </span>
-                    <br />
-                    <span>
-                      <BiDish /> {pw.course}
-                    </span>
-                    <span>
-                      <RiPriceTag3Line /> ₱{pw.price}
-                    </span>
-                    <p>{`${pw.desc1?.substring(0, 50)}...`}</p>
+              {fetch_wish &&
+                fetch_wish.map((pw) => (
+                  <div
+                    id={styles._top_nav_offcanvas_wishlist_boxes}
+                    key={pw._id}
+                  >
+                    <Row className="gy-0 gx-3">
+                      <Col xs={4}>
+                        <abbr title="See more details" style={{ all: "unset" }}>
+                          <img
+                            src={`/dish/${pw.img}`}
+                            style={{ cursor: "pointer" }}
+                            onClick={() => handleSeeMore(pw._id)}
+                          />
+                        </abbr>
+                      </Col>
+                      <Col xs={8}>
+                        <h6 id={styles._top_nav_offcanvas_wishlist_boxes_title}>
+                          {pw.title}
+                        </h6>
+                        <span>
+                          <BsGlobe2 /> {pw.cuisine}
+                        </span>
+                        <span>
+                          <AiOutlineStar /> {pw.ratings}/5
+                        </span>
+                        <br />
+                        <span>
+                          <BiDish /> {pw.course}
+                        </span>
+                        <span>
+                          <RiPriceTag3Line /> ₱{pw.price}
+                        </span>
+                        <p>{`${pw.desc1?.substring(0, 50)}...`}</p>
 
-                    <div id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}>
-                      <abbr
-                        title={`Remove ${pw.title} from Wishlist`}
-                        style={{ all: "unset" }}
-                      >
-                        <MdClose
-                          id={
-                            styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON
-                          }
-                          onClick={() => handleRemoveWishList(pw._id)}
-                        />
-                      </abbr>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-            ))}
-        </Offcanvas.Body>
+                        <div
+                          id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}
+                        >
+                          <abbr
+                            title={`Remove ${pw.title} from Wishlist`}
+                            style={{ all: "unset" }}
+                          >
+                            <MdClose
+                              id={
+                                styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON
+                              }
+                              onClick={() => handleRemoveWishList(pw._id)}
+                            />
+                          </abbr>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                ))}
+            </Offcanvas.Body>
+          </>
+        )}
+        {!the_user_logged_in && (
+          <h1 className={styles.is_empty_state}>
+            Please <span onClick={() => router.replace("/login")}>login</span>{" "}
+            to add items to your wishlist.
+          </h1>
+        )}
       </Offcanvas>
       {/* END */}
 
@@ -674,101 +694,121 @@ const TopNav = () => {
             Your Cart
           </Offcanvas.Title>
         </Offcanvas.Header>
+        {the_user_logged_in && (
+          <>
+            <Offcanvas.Body>
+              {fetch_cart == 0 && (
+                <h1 className={styles.is_empty_state}>Your Cart is Empty.</h1>
+              )}
 
-        <Offcanvas.Body>
-          {fetch_cart == 0 && (
-            <h1 className={styles.is_empty_state}>Your Cart is Empty.</h1>
-          )}
+              {fetch_cart &&
+                fetch_cart.map((pc) => (
+                  <div
+                    id={styles._top_nav_offcanvas_wishlist_boxes}
+                    key={pc._id}
+                  >
+                    <Row className="gy-0 gx-3">
+                      <Col xs={4}>
+                        <img src={`/dish/${pc.img}`} />
+                      </Col>
+                      <Col xs={8}>
+                        <h6 id={styles._top_nav_offcanvas_wishlist_boxes_title}>
+                          {pc.title}
+                        </h6>
+                        <span>
+                          <BsGlobe2 /> {pc.cuisine}
+                        </span>
+                        <span>
+                          <AiOutlineStar /> {pc.ratings}/5
+                        </span>
+                        <br />
+                        <span>
+                          <BiDish /> {pc.course}
+                        </span>
+                        <span>
+                          <RiPriceTag3Line /> ₱{pc.price}
+                        </span>
 
-          {fetch_cart &&
-            fetch_cart.map((pc) => (
-              <div id={styles._top_nav_offcanvas_wishlist_boxes} key={pc._id}>
-                <Row className="gy-0 gx-3">
-                  <Col xs={4}>
-                    <img src={`/dish/${pc.img}`} />
-                  </Col>
-                  <Col xs={8}>
-                    <h6 id={styles._top_nav_offcanvas_wishlist_boxes_title}>
-                      {pc.title}
-                    </h6>
-                    <span>
-                      <BsGlobe2 /> {pc.cuisine}
-                    </span>
-                    <span>
-                      <AiOutlineStar /> {pc.ratings}/5
-                    </span>
-                    <br />
-                    <span>
-                      <BiDish /> {pc.course}
-                    </span>
-                    <span>
-                      <RiPriceTag3Line /> ₱{pc.price}
-                    </span>
-
-                    <div
-                      id={styles._top_nav_offcanvas_wishlist_boxes_ADD_TO_CART}
-                    >
-                      <button onClick={() => handleDECREMENT(pc._id)}>-</button>
-                      <input
-                        type="text"
-                        value={pc.qty}
-                        readOnly
-                        // onChange={handleQtyUpdated}
-                      />
-                      <button onClick={() => handleINCREMENT(pc._id)}>+</button>
-                    </div>
-
-                    <div id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}>
-                      <abbr
-                        title={`Remove ${pc.title} from Cart`}
-                        style={{ all: "unset" }}
-                      >
-                        <MdClose
+                        <div
                           id={
-                            styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON
+                            styles._top_nav_offcanvas_wishlist_boxes_ADD_TO_CART
                           }
-                          onClick={() => handleRemoveCart(pc._id)}
-                        />
-                      </abbr>
-                    </div>
-                  </Col>
-                </Row>
+                        >
+                          <button onClick={() => handleDECREMENT(pc._id)}>
+                            -
+                          </button>
+                          <input
+                            type="text"
+                            value={pc.qty}
+                            readOnly
+                            // onChange={handleQtyUpdated}
+                          />
+                          <button onClick={() => handleINCREMENT(pc._id)}>
+                            +
+                          </button>
+                        </div>
+
+                        <div
+                          id={styles._top_nav_offcanvas_wishlist_boxes_DELETE}
+                        >
+                          <abbr
+                            title={`Remove ${pc.title} from Cart`}
+                            style={{ all: "unset" }}
+                          >
+                            <MdClose
+                              id={
+                                styles._top_nav_offcanvas_wishlist_boxes_DELETE_ICON
+                              }
+                              onClick={() => handleRemoveCart(pc._id)}
+                            />
+                          </abbr>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                ))}
+            </Offcanvas.Body>
+
+            {fetch_cart?.length > 0 && (
+              <div className={styles._cart_checkout_wrapper}>
+                <h5>Total: ₱{total}</h5>
+                {checkOutLoading && the_user_logged_in && (
+                  <button
+                    onClick={handleCheckOut}
+                    className={styles._cart_checkout_active_btn}
+                  >
+                    Check Out
+                  </button>
+                )}
+
+                {/* LOADING CHECKOUT */}
+                {!checkOutLoading && (
+                  <button className={styles._cart_checkout_loading_btn}>
+                    Please wait...
+                  </button>
+                )}
+                {/* ======================================== */}
+                {/* IF USER IS NOT LOGGED IN MAKE THE CHECK OUT BTN DISABLED */}
+                {checkOutLoading && !the_user_logged_in && (
+                  <button
+                    className={styles._cart_checkout_disable_btn}
+                    onClick={() => {
+                      dispatch(USER_LOGOUT(true));
+                      router.replace("/login");
+                    }}
+                  >
+                    Login to Continue
+                  </button>
+                )}
               </div>
-            ))}
-        </Offcanvas.Body>
-
-        {fetch_cart?.length > 0 && (
-          <div className={styles._cart_checkout_wrapper}>
-            <h5>Total: ₱{total}</h5>
-            {checkOutLoading && the_user_logged_in && (
-              <button
-                onClick={handleCheckOut}
-                className={styles._cart_checkout_active_btn}
-              >
-                Check Out
-              </button>
             )}
-
-            {/* LOADING CHECKOUT */}
-            {!checkOutLoading && (
-              <button className={styles._cart_checkout_loading_btn}>
-                Please wait...
-              </button>
-            )}
-            {/* ======================================== */}
-            {/* IF USER IS NOT LOGGED IN MAKE THE CHECK OUT BTN DISABLED */}
-            {checkOutLoading && !the_user_logged_in && (
-              <button
-                className={styles._cart_checkout_disable_btn}
-                onClick={() => {
-                  dispatch(USER_LOGOUT(true));
-                  router.replace("/login");
-                }}
-              >
-                Login to Continue
-              </button>
-            )}
-          </div>
+          </>
+        )}
+        {!the_user_logged_in && (
+          <h1 className={styles.is_empty_state}>
+            Please <span onClick={() => router.replace("/login")}>login</span>{" "}
+            to add items to your cart.
+          </h1>
         )}
       </Offcanvas>
       {/* END */}
